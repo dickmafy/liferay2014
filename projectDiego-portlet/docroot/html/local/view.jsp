@@ -13,7 +13,7 @@ ActionRequest.ACTION_NAME, "updateBook");
 
 <form name="<portlet:namespace/>fm" method="POST" action="<%=
 updateBookURL.toString() %>">
-Book Title: <input type="text" name="<portlet:namespace/>bookTitle" />
-<br/>Author: <input type="text" name="<portlet:namespace/>author" />
-<br/><input type="submit" value="Save" />
+Local nombre: <input type="text" name="<portlet:namespace/>nombre" />
+<br/>Estado: <input type="text" name="<portlet:namespace/>estado" />
+<br/><input type="submit" value="Guardar" />
 </form>

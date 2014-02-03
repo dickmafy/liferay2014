@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.1.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_1_0.dtd">
+<service-builder package-path="com.siagie.sttp">
+	<author>Diego</author>
+	<namespace>local</namespace>
+
+	<entity name="Local" local-service="true" remote-service="true">
+
+		<!-- PK fields -->
+
+		<column name="localId" type="long" primary="true" />
+
+		<!-- Other fields -->
+
+		<column name="nombre" type="String" />
+		<column name="estado" type="int" />
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="nombre" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="BuscarNombre" return-type="Collection">
+			<finder-column name="nombre" />
+		</finder>
+	</entity>
+</service-builder>

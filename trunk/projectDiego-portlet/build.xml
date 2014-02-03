@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<!DOCTYPE project>
+
+<project name="projectDiego-portlet" basedir="." default="deploy">
+	<import file="D:\eclipse-liferay\liferaySDK\portlets/build-common-portlet.xml" />
+</project>

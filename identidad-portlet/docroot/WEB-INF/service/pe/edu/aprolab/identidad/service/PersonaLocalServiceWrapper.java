@@ -282,14 +282,31 @@ public class PersonaLocalServiceWrapper implements PersonaLocalService,
 
 	@Override
 	public pe.edu.aprolab.identidad.model.Persona addPersona(long companyId,
-		java.lang.String codigoId, java.lang.String nombres,
-		java.lang.String apellidoPaterno, java.lang.String apellidoMaterno,
-		boolean genero, int estadoCivil, java.util.Date fechaNacimiento,
-		java.lang.String ubigeoNacimiento)
+		java.lang.String codigoId, java.lang.String emailAddress,
+		java.lang.String nombres, java.lang.String apellidoPaterno,
+		java.lang.String apellidoMaterno, boolean genero, int estadoCivil,
+		int birthdayMonth, int birthdayDay, int birthdayYear,
+		java.lang.String ubigeoNacimiento,
+		com.liferay.portal.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return _personaLocalService.addPersona(companyId, codigoId,
+			emailAddress, nombres, apellidoPaterno, apellidoMaterno, genero,
+			estadoCivil, birthdayMonth, birthdayDay, birthdayYear,
+			ubigeoNacimiento, serviceContext);
+	}
+
+	@Override
+	public java.util.List<pe.edu.aprolab.identidad.model.Persona> findByCompanyId(
+		long companyId, int start, int end)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return _personaLocalService.addPersona(companyId, codigoId, nombres,
-			apellidoPaterno, apellidoMaterno, genero, estadoCivil,
-			fechaNacimiento, ubigeoNacimiento);
+		return _personaLocalService.findByCompanyId(companyId, start, end);
+	}
+
+	@Override
+	public long countByCompanyId(long companyId)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _personaLocalService.countByCompanyId(companyId);
 	}
 
 	/**

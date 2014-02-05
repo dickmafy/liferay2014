@@ -14,45 +14,59 @@
  */
 --%>
 
+<%@page import="com.liferay.portal.kernel.dao.search.SearchContainer"%>
+<%@page import="pe.edu.aprolab.identidad.service.PersonaLocalServiceUtil"%>
+<%@page import="pe.edu.aprolab.identidad.model.Persona"%>
+<%@page import="java.util.List"%>
 <%@ include file="/html/identidad/init.jsp" %>
+<%PortletURL portletURL = renderResponse.createRenderURL(); %>
 
-<c:choose>
-	<c:when test="<%= group.isUser() %>">
-		<aui:container cssClass="summary-container">
-			<aui:row>
-				<h2>
-					<%= HtmlUtil.escape(user2.getFullName()) %>
-				</h2>
+<h3><liferay-ui:message key="Personas Registradas" /></h3>
+
+<c:if test="<%= UserPermissionUtil.contains(permissionChecker, themeDisplay.getUserId(), ActionKeys.UPDATE) %>">
 		
-				<aui:col cssClass="user-container">
-					<img alt="<liferay-ui:message key="user-portrait" />" class="user-profile-image" src="<%= user2.getPortraitURL(themeDisplay) %>" />
+	<%
+	PortletURL addURL = renderResponse.createRenderURL();
+
+	addURL.setWindowState(WindowState.MAXIMIZED);
+
+	addURL.setParameter("mvcPath", "/html/identidad/admin/add.jsp");
+	%>
+		<aui:button-row>
+             <aui:button type="button" value="Agregar Persona" onClick="<%= addURL.toString()%>" cssClass="btn-primary"/>
+        </aui:button-row>
+</c:if>	
+
+<liferay-ui:search-container 
+	emptyResultsMessage="No hay personas registradas"
+	
+>
+<%
+		List<Persona> personas = PersonaLocalServiceUtil.findByCompanyId(
+				themeDisplay.getCompanyId(), searchContainer.getStart(), searchContainer.getEnd());
+		System.out.println("Tamanyo personas: " + personas.size());
 		
-					<c:if test="<%= UserPermissionUtil.contains(permissionChecker, user2.getUserId(), ActionKeys.UPDATE) %>">
+%>
+
+	<liferay-ui:search-container-results
+		results="<%=personas %>"
+		total="<%=(int)PersonaLocalServiceUtil.countByCompanyId(themeDisplay.getCompanyId()) %>"
+	>
+		<liferay-ui:search-container-row
+			className="pe.edu.aprolab.identidad.model.Persona"
+			keyProperty="personaId"
+			modelVar="persona"
+		>
+			<liferay-ui:search-container-column-text
+				name="Id"
+				property="codigoId" />
+			<liferay-ui:search-container-column-text
+				name="name"
+				value="<%=persona.getApellidoPaterno() + \" \"+
+				          persona.getApellidoMaterno() + \", \"+
+				          persona.getNombres()%>" />
+				
+		</liferay-ui:search-container-row>
 		
-						<%
-						PortletURL editURL = renderResponse.createRenderURL();
-		
-						editURL.setWindowState(WindowState.MAXIMIZED);
-		
-						editURL.setParameter("mvcPath", "/html/identidad/admin/edit.jsp");
-						%>
-		
-						<p class="edit-profile">
-							<aui:icon
-								image="edit"
-								label="edit-profile"
-								url="<%= editURL.toString() %>"
-							/>
-						</p>
-					</c:if>
-				</aui:col>
-		
-			</aui:row>
-		</aui:container>
-	</c:when>
-	<c:otherwise>
-		<div class="alert alert-error">
-             <liferay-ui:message key="this-application-will-only-function-when-placed-on-a-user-page" />
-       </div>
-	</c:otherwise>
-</c:choose>
+	</liferay-ui:search-container-results>
+</liferay-ui:search-container>

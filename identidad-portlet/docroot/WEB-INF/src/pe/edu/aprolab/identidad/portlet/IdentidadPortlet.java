@@ -14,251 +14,56 @@
 package pe.edu.aprolab.identidad.portlet;
 
 
-import com.liferay.portal.kernel.dao.orm.QueryUtil;
-import com.liferay.portal.kernel.json.JSONFactoryUtil;
-import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
-import com.liferay.portal.kernel.util.OrderByComparator;
+
+
+
 import com.liferay.portal.kernel.util.ParamUtil;
-import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.WebKeys;
-import com.liferay.portal.kernel.workflow.WorkflowConstants;
-import com.liferay.portal.model.Group;
-import com.liferay.portal.model.GroupConstants;
-import com.liferay.portal.model.Organization;
-import com.liferay.portal.model.Role;
-import com.liferay.portal.model.RoleConstants;
-import com.liferay.portal.model.User;
-import com.liferay.portal.security.permission.ActionKeys;
-import com.liferay.portal.service.GroupLocalServiceUtil;
-import com.liferay.portal.service.OrganizationLocalServiceUtil;
-import com.liferay.portal.service.RoleLocalServiceUtil;
 import com.liferay.portal.service.ServiceContext;
-import com.liferay.portal.service.ServiceContextFactory;
-import com.liferay.portal.service.UserLocalServiceUtil;
-import com.liferay.portal.service.permission.UserPermissionUtil;
 import com.liferay.portal.theme.ThemeDisplay;
-import com.liferay.portlet.expando.service.ExpandoValueLocalServiceUtil;
-import com.liferay.portlet.social.model.SocialRelationConstants;
-import com.liferay.portlet.social.service.SocialRelationLocalServiceUtil;
-import com.liferay.portlet.social.service.SocialRequestLocalServiceUtil;
-
 import com.liferay.util.bridges.mvc.MVCPortlet;
-
-import java.util.LinkedHashMap;
-import java.util.List;
 
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
+
+import pe.edu.aprolab.identidad.model.Persona;
+import pe.edu.aprolab.identidad.service.PersonaLocalServiceUtil;
+import pe.edu.aprolab.identidad.utils.PortletKeys;
 
 /**
  * @author Jorge Loayza
  */
 public class IdentidadPortlet extends MVCPortlet {
 
-	public void addFriend(
+	public void addPersona(
 			ActionRequest actionRequest, ActionResponse actionResponse)
 		throws Exception {
 
 		ThemeDisplay themeDisplay = (ThemeDisplay)actionRequest.getAttribute(
 			WebKeys.THEME_DISPLAY);
-
-		Group group = GroupLocalServiceUtil.getGroup(
-			themeDisplay.getScopeGroupId());
-
-		User user = UserLocalServiceUtil.getUserById(group.getClassPK());
-
-		JSONObject extraDataJSONObject = JSONFactoryUtil.createJSONObject();
-
-		String addFriendMessage = ParamUtil.getString(
-			actionRequest, "addFriendMessage");
-
-		extraDataJSONObject.put("addFriendMessage", addFriendMessage);
-
 		
-	}
-
-	public void deleteFriend(
-			ActionRequest actionRequest, ActionResponse actionResponse)
-		throws Exception {
-
-		ThemeDisplay themeDisplay = (ThemeDisplay)actionRequest.getAttribute(
-			WebKeys.THEME_DISPLAY);
-
-		Group group = GroupLocalServiceUtil.getGroup(
-			themeDisplay.getScopeGroupId());
-
-		User user = UserLocalServiceUtil.getUserById(group.getClassPK());
-
-		SocialRelationLocalServiceUtil.deleteRelation(
-			themeDisplay.getUserId(), user.getUserId(),
-			SocialRelationConstants.TYPE_BI_FRIEND);
-	}
-
-	public void joinGroup(
-			ActionRequest actionRequest, ActionResponse actionResponse)
-		throws Exception {
-
-		ThemeDisplay themeDisplay = (ThemeDisplay)actionRequest.getAttribute(
-			WebKeys.THEME_DISPLAY);
-
-		Group group = GroupLocalServiceUtil.getGroup(
-			themeDisplay.getScopeGroupId());
-
-		if (group.getType() == GroupConstants.TYPE_SITE_OPEN) {
-			UserLocalServiceUtil.addGroupUsers(
-				group.getGroupId(), new long[] {themeDisplay.getUserId()});
-		}
-		else {
-			Role siteAdminRole = RoleLocalServiceUtil.getRole(
-				themeDisplay.getCompanyId(), RoleConstants.SITE_ADMINISTRATOR);
-
-			LinkedHashMap<String, Object> userParams =
-				new LinkedHashMap<String, Object>();
-
-			userParams.put(
-				"userGroupRole",
-				new Long[] {group.getGroupId(), siteAdminRole.getRoleId()});
-
-			List<User> users = UserLocalServiceUtil.search(
-				themeDisplay.getCompanyId(), null,
-				WorkflowConstants.STATUS_APPROVED, userParams,
-				QueryUtil.ALL_POS, QueryUtil.ALL_POS, (OrderByComparator)null);
-
-			if (users.isEmpty()) {
-				Role adminRole = RoleLocalServiceUtil.getRole(
-					themeDisplay.getCompanyId(), RoleConstants.ADMINISTRATOR);
-
-				userParams.clear();
-
-				userParams.put("usersRoles", adminRole.getRoleId());
-
-				users = UserLocalServiceUtil.search(
-					themeDisplay.getCompanyId(), null,
-					WorkflowConstants.STATUS_APPROVED, userParams,
-					QueryUtil.ALL_POS, QueryUtil.ALL_POS,
-					(OrderByComparator)null);
-			}
-
-			
-		}
-	}
-
-	public void joinOrganization(
-			ActionRequest actionRequest, ActionResponse actionResponse)
-		throws Exception {
-
-		ThemeDisplay themeDisplay = (ThemeDisplay)actionRequest.getAttribute(
-			WebKeys.THEME_DISPLAY);
-
-		Group group = GroupLocalServiceUtil.getGroup(
-			themeDisplay.getScopeGroupId());
-
-		Organization organization =
-			OrganizationLocalServiceUtil.getOrganization(group.getClassPK());
-
-		Role role = RoleLocalServiceUtil.getRole(
-			themeDisplay.getCompanyId(), "Organization Administrator");
-
-		LinkedHashMap<String, Object> userParams =
-			new LinkedHashMap<String, Object>();
-
-		userParams.put(
-			"userGroupRole", new Long[] {group.getGroupId(), role.getRoleId()});
-
-		List<User> users = UserLocalServiceUtil.search(
-			themeDisplay.getCompanyId(), null,
-			WorkflowConstants.STATUS_APPROVED, userParams, QueryUtil.ALL_POS,
-			QueryUtil.ALL_POS, (OrderByComparator)null);
-
-		if (users.isEmpty()) {
-			Role adminRole = RoleLocalServiceUtil.getRole(
-				themeDisplay.getCompanyId(), RoleConstants.ADMINISTRATOR);
-
-			userParams.clear();
-
-			userParams.put("usersRoles", adminRole.getRoleId());
-
-			users = UserLocalServiceUtil.search(
-				themeDisplay.getCompanyId(), null,
-				WorkflowConstants.STATUS_APPROVED, userParams,
-				QueryUtil.ALL_POS, QueryUtil.ALL_POS, (OrderByComparator)null);
-		}
-
+		int birthdayMonth = ParamUtil.getInteger(actionRequest, "birthdayMonth");
+		int birthdayDay = ParamUtil.getInteger(actionRequest, "birthdayDay");
+		int birthdayYear = ParamUtil.getInteger(actionRequest, "birthdayYear");
 		
+		String codigoId = ParamUtil.getString(actionRequest, PortletKeys.CODIGO_ID);
+		String nombres = ParamUtil.getString(actionRequest, PortletKeys.NOMBRES);
+		String apellidoPaterno = ParamUtil.getString(actionRequest, PortletKeys.APELLIDO_PATERNO);
+		String apellidoMaterno = ParamUtil.getString(actionRequest, PortletKeys.APELLIDO_MATERNO);
+		boolean genero = ParamUtil.getBoolean(actionRequest, PortletKeys.GENERO);
+		int estadoCivil = ParamUtil.getInteger(actionRequest, PortletKeys.ESTADO_CIVIL);
+		String ubigeoNacimiento = ParamUtil.getString(actionRequest, PortletKeys.UBIGEO_NACIMIENTO);
+		String emailAddress = ParamUtil.getString(actionRequest, PortletKeys.EMAIL);
+		
+		ServiceContext serviceContext = new ServiceContext();
+		serviceContext.setScopeGroupId(themeDisplay.getScopeGroupId());
+		PersonaLocalServiceUtil.addPersona(themeDisplay.getCompanyId(), codigoId, emailAddress, 
+				nombres, apellidoPaterno, apellidoMaterno, genero, 
+				estadoCivil, birthdayMonth, birthdayDay, birthdayYear, 
+				ubigeoNacimiento, serviceContext);
 	}
-
-	public void leaveGroup(
-			ActionRequest actionRequest, ActionResponse actionResponse)
-		throws Exception {
-
-		ThemeDisplay themeDisplay = (ThemeDisplay)actionRequest.getAttribute(
-			WebKeys.THEME_DISPLAY);
-
-		ServiceContext serviceContext = ServiceContextFactory.getInstance(
-			actionRequest);
-
-		UserLocalServiceUtil.unsetGroupUsers(
-			themeDisplay.getScopeGroupId(),
-			new long[] {themeDisplay.getUserId()}, serviceContext);
-	}
-
-	public void leaveOrganization(
-			ActionRequest actionRequest, ActionResponse actionResponse)
-		throws Exception {
-
-		ThemeDisplay themeDisplay = (ThemeDisplay)actionRequest.getAttribute(
-			WebKeys.THEME_DISPLAY);
-
-		Group group = GroupLocalServiceUtil.getGroup(
-			themeDisplay.getScopeGroupId());
-
-		UserLocalServiceUtil.unsetOrganizationUsers(
-			group.getClassPK(), new long[] {themeDisplay.getUserId()});
-	}
-
-	public void updateSummary(
-			ActionRequest actionRequest, ActionResponse actionResponse)
-		throws Exception {
-
-		ThemeDisplay themeDisplay = (ThemeDisplay)actionRequest.getAttribute(
-			WebKeys.THEME_DISPLAY);
-
-		if (!themeDisplay.isSignedIn()) {
-			return;
-		}
-
-		Group group = GroupLocalServiceUtil.getGroup(
-			themeDisplay.getScopeGroupId());
-
-		User user = null;
-
-		if (group.isUser()) {
-			user = UserLocalServiceUtil.getUserById(group.getClassPK());
-		}
-		else {
-			return;
-		}
-
-		if (!UserPermissionUtil.contains(
-				themeDisplay.getPermissionChecker(), user.getUserId(),
-				ActionKeys.UPDATE)) {
-
-			return;
-		}
-
-		String jobTitle = ParamUtil.getString(actionRequest, "jobTitle");
-
-		UserLocalServiceUtil.updateJobTitle(user.getUserId(), jobTitle);
-
-		String aboutMe = ParamUtil.getString(actionRequest, "aboutMe");
-
-		ExpandoValueLocalServiceUtil.addValue(
-			themeDisplay.getCompanyId(), User.class.getName(), "SN", "aboutMe",
-			user.getUserId(), aboutMe);
-	}
-
 	private static Log _log = LogFactoryUtil.getLog(IdentidadPortlet.class);
 
 }

@@ -118,9 +118,18 @@ public class PersonaLocalServiceClp implements PersonaLocalService {
 
 		_methodParameterTypes19 = new String[] {
 				"long", "java.lang.String", "java.lang.String",
-				"java.lang.String", "java.lang.String", "boolean", "int",
-				"java.util.Date", "java.lang.String"
+				"java.lang.String", "java.lang.String", "java.lang.String",
+				"boolean", "int", "int", "int", "int", "java.lang.String",
+				"com.liferay.portal.service.ServiceContext"
 			};
+
+		_methodName20 = "findByCompanyId";
+
+		_methodParameterTypes20 = new String[] { "long", "int", "int" };
+
+		_methodName21 = "countByCompanyId";
+
+		_methodParameterTypes21 = new String[] { "long" };
 	}
 
 	@Override
@@ -671,11 +680,14 @@ public class PersonaLocalServiceClp implements PersonaLocalService {
 
 	@Override
 	public pe.edu.aprolab.identidad.model.Persona addPersona(long companyId,
-		java.lang.String codigoId, java.lang.String nombres,
-		java.lang.String apellidoPaterno, java.lang.String apellidoMaterno,
-		boolean genero, int estadoCivil, java.util.Date fechaNacimiento,
-		java.lang.String ubigeoNacimiento)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		java.lang.String codigoId, java.lang.String emailAddress,
+		java.lang.String nombres, java.lang.String apellidoPaterno,
+		java.lang.String apellidoMaterno, boolean genero, int estadoCivil,
+		int birthdayMonth, int birthdayDay, int birthdayYear,
+		java.lang.String ubigeoNacimiento,
+		com.liferay.portal.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
 		try {
@@ -685,6 +697,8 @@ public class PersonaLocalServiceClp implements PersonaLocalService {
 						companyId,
 						
 					ClpSerializer.translateInput(codigoId),
+						
+					ClpSerializer.translateInput(emailAddress),
 						
 					ClpSerializer.translateInput(nombres),
 						
@@ -696,10 +710,50 @@ public class PersonaLocalServiceClp implements PersonaLocalService {
 						
 					estadoCivil,
 						
-					ClpSerializer.translateInput(fechaNacimiento),
+					birthdayMonth,
 						
-					ClpSerializer.translateInput(ubigeoNacimiento)
+					birthdayDay,
+						
+					birthdayYear,
+						
+					ClpSerializer.translateInput(ubigeoNacimiento),
+						
+					ClpSerializer.translateInput(serviceContext)
 					});
+		}
+		catch (Throwable t) {
+			t = ClpSerializer.translateThrowable(t);
+
+			if (t instanceof com.liferay.portal.kernel.exception.PortalException) {
+				throw (com.liferay.portal.kernel.exception.PortalException)t;
+			}
+
+			if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
+				throw (com.liferay.portal.kernel.exception.SystemException)t;
+			}
+
+			if (t instanceof RuntimeException) {
+				throw (RuntimeException)t;
+			}
+			else {
+				throw new RuntimeException(t.getClass().getName() +
+					" is not a valid exception");
+			}
+		}
+
+		return (pe.edu.aprolab.identidad.model.Persona)ClpSerializer.translateOutput(returnObj);
+	}
+
+	@Override
+	public java.util.List<pe.edu.aprolab.identidad.model.Persona> findByCompanyId(
+		long companyId, int start, int end)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		Object returnObj = null;
+
+		try {
+			returnObj = _invokableLocalService.invokeMethod(_methodName20,
+					_methodParameterTypes20,
+					new Object[] { companyId, start, end });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -717,7 +771,35 @@ public class PersonaLocalServiceClp implements PersonaLocalService {
 			}
 		}
 
-		return (pe.edu.aprolab.identidad.model.Persona)ClpSerializer.translateOutput(returnObj);
+		return (java.util.List<pe.edu.aprolab.identidad.model.Persona>)ClpSerializer.translateOutput(returnObj);
+	}
+
+	@Override
+	public long countByCompanyId(long companyId)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		Object returnObj = null;
+
+		try {
+			returnObj = _invokableLocalService.invokeMethod(_methodName21,
+					_methodParameterTypes21, new Object[] { companyId });
+		}
+		catch (Throwable t) {
+			t = ClpSerializer.translateThrowable(t);
+
+			if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
+				throw (com.liferay.portal.kernel.exception.SystemException)t;
+			}
+
+			if (t instanceof RuntimeException) {
+				throw (RuntimeException)t;
+			}
+			else {
+				throw new RuntimeException(t.getClass().getName() +
+					" is not a valid exception");
+			}
+		}
+
+		return ((Long)returnObj).longValue();
 	}
 
 	private InvokableLocalService _invokableLocalService;
@@ -759,4 +841,8 @@ public class PersonaLocalServiceClp implements PersonaLocalService {
 	private String[] _methodParameterTypes17;
 	private String _methodName19;
 	private String[] _methodParameterTypes19;
+	private String _methodName20;
+	private String[] _methodParameterTypes20;
+	private String _methodName21;
+	private String[] _methodParameterTypes21;
 }

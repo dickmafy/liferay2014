@@ -38,6 +38,10 @@
 		<finder name="CodigoId" return-type="Persona" unique="true">
 			<finder-column name="codigoId"/>
 		</finder>
+		
+		<finder name="CompanyId" return-type="Collection" >
+			<finder-column name="companyId"/>
+		</finder>
         
         <!-- References -->
 

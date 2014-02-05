@@ -94,6 +94,7 @@ public class PersonaModelImpl extends BaseModelImpl<Persona>
 				"value.object.column.bitmask.enabled.pe.edu.aprolab.identidad.model.Persona"),
 			true);
 	public static long CODIGOID_COLUMN_BITMASK = 1L;
+	public static long COMPANYID_COLUMN_BITMASK = 2L;
 
 	/**
 	 * Converts the soap model instance into a normal model instance.
@@ -294,7 +295,19 @@ public class PersonaModelImpl extends BaseModelImpl<Persona>
 
 	@Override
 	public void setCompanyId(long companyId) {
+		_columnBitmask |= COMPANYID_COLUMN_BITMASK;
+
+		if (!_setOriginalCompanyId) {
+			_setOriginalCompanyId = true;
+
+			_originalCompanyId = _companyId;
+		}
+
 		_companyId = companyId;
+	}
+
+	public long getOriginalCompanyId() {
+		return _originalCompanyId;
 	}
 
 	@JSON
@@ -540,6 +553,10 @@ public class PersonaModelImpl extends BaseModelImpl<Persona>
 	public void resetOriginalValues() {
 		PersonaModelImpl personaModelImpl = this;
 
+		personaModelImpl._originalCompanyId = personaModelImpl._companyId;
+
+		personaModelImpl._setOriginalCompanyId = false;
+
 		personaModelImpl._originalCodigoId = personaModelImpl._codigoId;
 
 		personaModelImpl._columnBitmask = 0;
@@ -728,6 +745,8 @@ public class PersonaModelImpl extends BaseModelImpl<Persona>
 		};
 	private long _personaId;
 	private long _companyId;
+	private long _originalCompanyId;
+	private boolean _setOriginalCompanyId;
 	private Date _createDate;
 	private Date _modifiedDate;
 	private String _codigoId;

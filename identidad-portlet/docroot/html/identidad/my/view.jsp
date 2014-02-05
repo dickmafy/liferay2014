@@ -34,7 +34,7 @@
 		
 						editURL.setWindowState(WindowState.MAXIMIZED);
 		
-						editURL.setParameter("mvcPath", "/html/identidad/admin/edit.jsp");
+						editURL.setParameter("mvcPath", "/html/identidad/my/edit.jsp");
 						%>
 		
 						<p class="edit-profile">

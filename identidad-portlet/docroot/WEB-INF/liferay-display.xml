@@ -4,10 +4,11 @@
 <display>
 	<category name="category.Identidad">
 		<portlet id="my" />
+		<portlet id="admin" />
 	</category>
 	
 	<category name="category.hidden">
-		<portlet id="admin" />
+		
 	</category>
 	
 </display>

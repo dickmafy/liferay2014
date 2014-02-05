@@ -123,13 +123,22 @@ public class PersonaLocalServiceClp implements PersonaLocalService {
 				"com.liferay.portal.service.ServiceContext"
 			};
 
-		_methodName20 = "findByCompanyId";
+		_methodName20 = "updatePersona";
 
-		_methodParameterTypes20 = new String[] { "long", "int", "int" };
+		_methodParameterTypes20 = new String[] {
+				"long", "java.lang.String", "java.lang.String",
+				"java.lang.String", "java.lang.String", "java.lang.String",
+				"boolean", "int", "int", "int", "int", "java.lang.String",
+				"com.liferay.portal.service.ServiceContext"
+			};
 
-		_methodName21 = "countByCompanyId";
+		_methodName21 = "findByCompanyId";
 
-		_methodParameterTypes21 = new String[] { "long" };
+		_methodParameterTypes21 = new String[] { "long", "int", "int" };
+
+		_methodName22 = "countByCompanyId";
+
+		_methodParameterTypes22 = new String[] { "long" };
 	}
 
 	@Override
@@ -745,14 +754,80 @@ public class PersonaLocalServiceClp implements PersonaLocalService {
 	}
 
 	@Override
+	public pe.edu.aprolab.identidad.model.Persona updatePersona(
+		long personaId, java.lang.String codigoId,
+		java.lang.String emailAddress, java.lang.String nombres,
+		java.lang.String apellidoPaterno, java.lang.String apellidoMaterno,
+		boolean genero, int estadoCivil, int birthdayMonth, int birthdayDay,
+		int birthdayYear, java.lang.String ubigeoNacimiento,
+		com.liferay.portal.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		Object returnObj = null;
+
+		try {
+			returnObj = _invokableLocalService.invokeMethod(_methodName20,
+					_methodParameterTypes20,
+					new Object[] {
+						personaId,
+						
+					ClpSerializer.translateInput(codigoId),
+						
+					ClpSerializer.translateInput(emailAddress),
+						
+					ClpSerializer.translateInput(nombres),
+						
+					ClpSerializer.translateInput(apellidoPaterno),
+						
+					ClpSerializer.translateInput(apellidoMaterno),
+						
+					genero,
+						
+					estadoCivil,
+						
+					birthdayMonth,
+						
+					birthdayDay,
+						
+					birthdayYear,
+						
+					ClpSerializer.translateInput(ubigeoNacimiento),
+						
+					ClpSerializer.translateInput(serviceContext)
+					});
+		}
+		catch (Throwable t) {
+			t = ClpSerializer.translateThrowable(t);
+
+			if (t instanceof com.liferay.portal.kernel.exception.PortalException) {
+				throw (com.liferay.portal.kernel.exception.PortalException)t;
+			}
+
+			if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
+				throw (com.liferay.portal.kernel.exception.SystemException)t;
+			}
+
+			if (t instanceof RuntimeException) {
+				throw (RuntimeException)t;
+			}
+			else {
+				throw new RuntimeException(t.getClass().getName() +
+					" is not a valid exception");
+			}
+		}
+
+		return (pe.edu.aprolab.identidad.model.Persona)ClpSerializer.translateOutput(returnObj);
+	}
+
+	@Override
 	public java.util.List<pe.edu.aprolab.identidad.model.Persona> findByCompanyId(
 		long companyId, int start, int end)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
 		try {
-			returnObj = _invokableLocalService.invokeMethod(_methodName20,
-					_methodParameterTypes20,
+			returnObj = _invokableLocalService.invokeMethod(_methodName21,
+					_methodParameterTypes21,
 					new Object[] { companyId, start, end });
 		}
 		catch (Throwable t) {
@@ -780,8 +855,8 @@ public class PersonaLocalServiceClp implements PersonaLocalService {
 		Object returnObj = null;
 
 		try {
-			returnObj = _invokableLocalService.invokeMethod(_methodName21,
-					_methodParameterTypes21, new Object[] { companyId });
+			returnObj = _invokableLocalService.invokeMethod(_methodName22,
+					_methodParameterTypes22, new Object[] { companyId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -845,4 +920,6 @@ public class PersonaLocalServiceClp implements PersonaLocalService {
 	private String[] _methodParameterTypes20;
 	private String _methodName21;
 	private String[] _methodParameterTypes21;
+	private String _methodName22;
+	private String[] _methodParameterTypes22;
 }

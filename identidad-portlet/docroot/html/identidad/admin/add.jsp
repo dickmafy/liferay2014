@@ -30,7 +30,7 @@
 
 <portlet:renderURL var="redirectURL" windowState="<%= WindowState.NORMAL.toString() %>" />
 
-<h3><liferay-ui:message key="Registrar Persona" /></h3>
+<strong><liferay-ui:message key="Registrar Persona" /></strong>
 
 <aui:form name="addNuevaPersona" action="<%=addPersona %>" method="post">
 <div class="row-fluid">

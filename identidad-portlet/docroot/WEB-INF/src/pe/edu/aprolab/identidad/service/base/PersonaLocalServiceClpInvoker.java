@@ -123,13 +123,22 @@ public class PersonaLocalServiceClpInvoker {
 				"com.liferay.portal.service.ServiceContext"
 			};
 
-		_methodName41 = "findByCompanyId";
+		_methodName41 = "updatePersona";
 
-		_methodParameterTypes41 = new String[] { "long", "int", "int" };
+		_methodParameterTypes41 = new String[] {
+				"long", "java.lang.String", "java.lang.String",
+				"java.lang.String", "java.lang.String", "java.lang.String",
+				"boolean", "int", "int", "int", "int", "java.lang.String",
+				"com.liferay.portal.service.ServiceContext"
+			};
 
-		_methodName42 = "countByCompanyId";
+		_methodName42 = "findByCompanyId";
 
-		_methodParameterTypes42 = new String[] { "long" };
+		_methodParameterTypes42 = new String[] { "long", "int", "int" };
+
+		_methodName43 = "countByCompanyId";
+
+		_methodParameterTypes43 = new String[] { "long" };
 	}
 
 	public Object invokeMethod(String name, String[] parameterTypes,
@@ -250,13 +259,28 @@ public class PersonaLocalServiceClpInvoker {
 
 		if (_methodName41.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes41, parameterTypes)) {
+			return PersonaLocalServiceUtil.updatePersona(((Long)arguments[0]).longValue(),
+				(java.lang.String)arguments[1], (java.lang.String)arguments[2],
+				(java.lang.String)arguments[3], (java.lang.String)arguments[4],
+				(java.lang.String)arguments[5],
+				((Boolean)arguments[6]).booleanValue(),
+				((Integer)arguments[7]).intValue(),
+				((Integer)arguments[8]).intValue(),
+				((Integer)arguments[9]).intValue(),
+				((Integer)arguments[10]).intValue(),
+				(java.lang.String)arguments[11],
+				(com.liferay.portal.service.ServiceContext)arguments[12]);
+		}
+
+		if (_methodName42.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes42, parameterTypes)) {
 			return PersonaLocalServiceUtil.findByCompanyId(((Long)arguments[0]).longValue(),
 				((Integer)arguments[1]).intValue(),
 				((Integer)arguments[2]).intValue());
 		}
 
-		if (_methodName42.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes42, parameterTypes)) {
+		if (_methodName43.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes43, parameterTypes)) {
 			return PersonaLocalServiceUtil.countByCompanyId(((Long)arguments[0]).longValue());
 		}
 
@@ -305,4 +329,6 @@ public class PersonaLocalServiceClpInvoker {
 	private String[] _methodParameterTypes41;
 	private String _methodName42;
 	private String[] _methodParameterTypes42;
+	private String _methodName43;
+	private String[] _methodParameterTypes43;
 }

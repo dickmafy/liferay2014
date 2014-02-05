@@ -17,16 +17,16 @@ package pe.edu.aprolab.identidad.service.impl;
 import java.util.Date;
 import java.util.List;
 
-import com.liferay.counter.service.CounterLocalServiceUtil;
-import com.liferay.portal.ContactBirthdayException;
+import com.liferay.portal.DuplicateUserScreenNameException;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.util.LocaleUtil;
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.model.Contact;
 import com.liferay.portal.model.User;
 import com.liferay.portal.service.ServiceContext;
 import com.liferay.portal.service.UserLocalServiceUtil;
 import com.liferay.portal.service.UserServiceUtil;
-import com.liferay.portal.util.PortalUtil;
 
 import pe.edu.aprolab.identidad.model.Persona;
 import pe.edu.aprolab.identidad.service.base.PersonaLocalServiceBaseImpl;
@@ -58,14 +58,17 @@ public class PersonaLocalServiceImpl extends PersonaLocalServiceBaseImpl {
 			String ubigeoNacimiento, ServiceContext serviceContext) throws SystemException, PortalException {
 		
 		boolean autoPassword = true;
-		String screenName = "PE.DNI."+codigoId;
-		User user = UserServiceUtil.addUser( companyId, autoPassword, 
-				"", "", false, screenName,emailAddress, 0, "", 
+		
+		User user=null;
+		
+		user = UserServiceUtil.addUser( companyId, autoPassword, 
+				"", "", false, codigoId,emailAddress, 0, "", 
 				LocaleUtil.getDefault(), nombres, "", apellidoPaterno, 
 				0, 0, genero, birthdayMonth, 
 				birthdayDay, birthdayYear, "", (long[])null, 
 				(long[])null, (long[])null, (long[])null, 
 				true, serviceContext);
+		
 		
 		Persona persona = personaLocalService.createPersona(user.getUserId());
 		Date now = new Date();
@@ -74,7 +77,7 @@ public class PersonaLocalServiceImpl extends PersonaLocalServiceBaseImpl {
 		persona.setCompanyId(companyId);
 		persona.setCreateDate(now);
 		persona.setModifiedDate(now);
-		persona.setCodigoId(screenName);
+		persona.setCodigoId(codigoId);
 		persona.setNombres(nombres);
 		persona.setApellidoPaterno(apellidoPaterno);
 		persona.setApellidoMaterno(apellidoMaterno);
@@ -86,6 +89,44 @@ public class PersonaLocalServiceImpl extends PersonaLocalServiceBaseImpl {
 		
 	}
 	
+	public Persona updatePersona( long personaId,String codigoId, String emailAddress, String nombres, 
+			String apellidoPaterno,String apellidoMaterno, boolean genero, 
+			int estadoCivil, int birthdayMonth, int birthdayDay, int birthdayYear, 
+			String ubigeoNacimiento, ServiceContext serviceContext) throws SystemException, PortalException {
+		
+		User user = UserServiceUtil.getUserById(personaId);
+		Contact contact = user.getContact();
+		user = UserServiceUtil.updateUser(
+				user.getUserId(), StringPool.BLANK, StringPool.BLANK, StringPool.BLANK,
+				false, user.getReminderQueryQuestion(), user.getReminderQueryAnswer(),
+				codigoId, emailAddress, user.getFacebookId(), user.getOpenId(), user.getLanguageId(),
+				user.getTimeZoneId(), user.getGreeting(), user.getComments(), 
+				nombres, user.getMiddleName(), apellidoPaterno,
+				contact.getPrefixId(), contact.getSuffixId(), genero, birthdayMonth, birthdayDay, birthdayYear,
+				contact.getSmsSn(), contact.getAimSn(), contact.getFacebookSn(), 
+				contact.getIcqSn() , contact.getJabberSn(), contact.getMsnSn(),contact.getMySpaceSn(),
+				contact.getSkypeSn(), contact.getTwitterSn(),contact.getYmSn(), 
+				user.getJobTitle(), null, null,
+				null, null, null, null, null,
+				null, null, null, serviceContext);
+		
+		Persona persona = personaLocalService.createPersona(user.getUserId());
+		
+		Date now = new Date();
+		
+		Date birthday = DateUtils.getBirthday(birthdayMonth, birthdayDay, birthdayYear);
+		
+		persona.setModifiedDate(now);
+		persona.setCodigoId(codigoId);
+		persona.setNombres(nombres);
+		persona.setApellidoPaterno(apellidoPaterno);
+		persona.setApellidoMaterno(apellidoMaterno);
+		persona.setGenero(genero);
+		persona.setEstadoCivil(estadoCivil);
+		persona.setFechaNacimiento(birthday);
+		persona.setUbigeoNacimiento(ubigeoNacimiento);
+		return personaLocalService.addPersona(persona);
+	}
 	public List<Persona> findByCompanyId(long companyId, int start, int end) throws SystemException{
 		return personaPersistence.findByCompanyId(companyId);
 	}

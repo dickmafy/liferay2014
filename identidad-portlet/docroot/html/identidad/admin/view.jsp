@@ -14,17 +14,14 @@
  */
 --%>
 
-<%@page import="com.liferay.portal.kernel.dao.search.SearchContainer"%>
-<%@page import="pe.edu.aprolab.identidad.service.PersonaLocalServiceUtil"%>
-<%@page import="pe.edu.aprolab.identidad.model.Persona"%>
-<%@page import="java.util.List"%>
+
 <%@ include file="/html/identidad/init.jsp" %>
 <%PortletURL portletURL = renderResponse.createRenderURL(); %>
 
-<h3><liferay-ui:message key="Personas Registradas" /></h3>
+<strong><liferay-ui:message key="Personas Registradas" /></strong>
 
-<c:if test="<%= UserPermissionUtil.contains(permissionChecker, themeDisplay.getUserId(), ActionKeys.UPDATE) %>">
-		
+<c:if test="<%= permissionChecker.isGroupAdmin(themeDisplay.getScopeGroupId()) %>">
+	
 	<%
 	PortletURL addURL = renderResponse.createRenderURL();
 
@@ -37,36 +34,27 @@
         </aui:button-row>
 </c:if>	
 
-<liferay-ui:search-container 
-	emptyResultsMessage="No hay personas registradas"
-	
->
-<%
-		List<Persona> personas = PersonaLocalServiceUtil.findByCompanyId(
-				themeDisplay.getCompanyId(), searchContainer.getStart(), searchContainer.getEnd());
-		System.out.println("Tamanyo personas: " + personas.size());
-		
-%>
-
+<liferay-ui:search-container emptyResultsMessage="No hay personas registradas">
 	<liferay-ui:search-container-results
-		results="<%=personas %>"
+		results="<%=PersonaLocalServiceUtil.findByCompanyId(
+				themeDisplay.getCompanyId(), searchContainer.getStart(), searchContainer.getEnd()) %>"
 		total="<%=(int)PersonaLocalServiceUtil.countByCompanyId(themeDisplay.getCompanyId()) %>"
-	>
+	/>
 		<liferay-ui:search-container-row
 			className="pe.edu.aprolab.identidad.model.Persona"
 			keyProperty="personaId"
 			modelVar="persona"
 		>
 			<liferay-ui:search-container-column-text
-				name="Id"
-				property="codigoId" />
+				name="id"
+				property="codigoId" 
+				valign="top" />
 			<liferay-ui:search-container-column-text
 				name="name"
-				value="<%=persona.getApellidoPaterno() + \" \"+
-				          persona.getApellidoMaterno() + \", \"+
-				          persona.getNombres()%>" />
+				value="<%=persona.getUser().getFullName()%>" 
+				valign="top" />
 				
 		</liferay-ui:search-container-row>
+		<liferay-ui:search-iterator />
 		
-	</liferay-ui:search-container-results>
 </liferay-ui:search-container>

@@ -297,6 +297,22 @@ public class PersonaLocalServiceWrapper implements PersonaLocalService,
 	}
 
 	@Override
+	public pe.edu.aprolab.identidad.model.Persona updatePersona(
+		long personaId, java.lang.String codigoId,
+		java.lang.String emailAddress, java.lang.String nombres,
+		java.lang.String apellidoPaterno, java.lang.String apellidoMaterno,
+		boolean genero, int estadoCivil, int birthdayMonth, int birthdayDay,
+		int birthdayYear, java.lang.String ubigeoNacimiento,
+		com.liferay.portal.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return _personaLocalService.updatePersona(personaId, codigoId,
+			emailAddress, nombres, apellidoPaterno, apellidoMaterno, genero,
+			estadoCivil, birthdayMonth, birthdayDay, birthdayYear,
+			ubigeoNacimiento, serviceContext);
+	}
+
+	@Override
 	public java.util.List<pe.edu.aprolab.identidad.model.Persona> findByCompanyId(
 		long companyId, int start, int end)
 		throws com.liferay.portal.kernel.exception.SystemException {

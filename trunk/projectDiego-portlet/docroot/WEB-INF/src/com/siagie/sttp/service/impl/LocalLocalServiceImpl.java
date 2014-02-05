@@ -14,6 +14,11 @@
 
 package com.siagie.sttp.service.impl;
 
+
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.service.ServiceContext;
+import com.siagie.sttp.model.Local;
 import com.siagie.sttp.service.base.LocalLocalServiceBaseImpl;
 
 /**
@@ -31,9 +36,20 @@ import com.siagie.sttp.service.base.LocalLocalServiceBaseImpl;
  * @see com.siagie.sttp.service.LocalLocalServiceUtil
  */
 public class LocalLocalServiceImpl extends LocalLocalServiceBaseImpl {
-	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never reference this interface directly. Always use {@link com.siagie.sttp.service.LocalLocalServiceUtil} to access the local local service.
-	 */
+	
+
+	public Local addLocal(String nombre, Integer estado,ServiceContext serviceContext) throws SystemException, PortalException {
+		Local local =  localLocalService.createLocal(counterLocalService.increment(Local.class.getName()));
+		
+		local.setNombre(nombre);
+		local.setEstado(estado);
+		
+		System.out.println("Se grabo Local");
+		return localLocalService.addLocal(local);
+		
+	}
+
+		
+	
+	
 }

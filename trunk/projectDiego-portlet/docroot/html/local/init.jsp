@@ -15,8 +15,13 @@
  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 --%>
 
+<%@ page contentType="text/html"%>
+<%@ page pageEncoding="UTF-8"%>
 
+<%@page import="javax.portlet.WindowState"%>
+<%@page import="javax.portlet.PortletURL"%>
 
+<%@page import="com.siagie.sttp.service.LocalLocalServiceUtil"%>
 <%@ taglib uri="http://java.sun.com/portlet_2_0" prefix="portlet" %>
 
 <%@ taglib uri="http://liferay.com/tld/aui" prefix="aui" %>
@@ -24,21 +29,14 @@
 <%@ taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %>
 
 
-<%@ page import="com.liferay.portal.kernel.dao.search.ResultRow" %><%@
-page import="com.liferay.portal.kernel.util.Constants" %><%@
-page import="com.liferay.portal.kernel.util.ParamUtil" %><%@
-page import="com.liferay.portal.kernel.util.WebKeys" %>
+<%@ page import="com.liferay.portal.kernel.dao.search.ResultRow" %>
+<%@ page import="com.liferay.portal.kernel.util.Constants" %>
+<%@ page import="com.liferay.portal.kernel.util.ParamUtil" %>
+<%@ page import="com.liferay.portal.kernel.util.WebKeys" %>
 <%@ page import="com.siagie.sttp.service.base.LocalLocalServiceBaseImpl" %>
-
-
 <%@ page import="javax.portlet.PortletURL" %>
 
 <portlet:defineObjects />
 
 <liferay-theme:defineObjects />
 
-<%
-PortletURL portletURL = renderResponse.createRenderURL();
-
-String currentURL = portletURL.toString();
-%>

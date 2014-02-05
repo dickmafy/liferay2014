@@ -92,5 +92,5 @@ public class LocalCacheModel implements CacheModel<Local>, Externalizable {
 
 	public long localId;
 	public String nombre;
-	public Integer estado;
+	public int estado;
 }

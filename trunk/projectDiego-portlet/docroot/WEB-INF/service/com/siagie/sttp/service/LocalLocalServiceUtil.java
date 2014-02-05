@@ -271,6 +271,14 @@ public class LocalLocalServiceUtil {
 		return getService().invokeMethod(name, parameterTypes, arguments);
 	}
 
+	public static com.siagie.sttp.model.Local addLocal(
+		java.lang.String nombre, java.lang.Integer estado,
+		com.liferay.portal.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return getService().addLocal(nombre, estado, serviceContext);
+	}
+
 	public static void clearService() {
 		_service = null;
 	}

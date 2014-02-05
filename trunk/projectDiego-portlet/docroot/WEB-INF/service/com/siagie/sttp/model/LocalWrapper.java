@@ -142,7 +142,7 @@ public class LocalWrapper implements Local, ModelWrapper<Local> {
 	* @return the estado of this local
 	*/
 	@Override
-	public java.lang.Integer getEstado() {
+	public int getEstado() {
 		return _local.getEstado();
 	}
 
@@ -152,7 +152,7 @@ public class LocalWrapper implements Local, ModelWrapper<Local> {
 	* @param estado the estado of this local
 	*/
 	@Override
-	public void setEstado(java.lang.Integer estado) {
+	public void setEstado(int estado) {
 		_local.setEstado(estado);
 	}
 
@@ -220,7 +220,7 @@ public class LocalWrapper implements Local, ModelWrapper<Local> {
 	}
 
 	@Override
-	public int compareTo(Local local) {
+	public int compareTo(com.siagie.sttp.model.Local local) {
 		return _local.compareTo(local);
 	}
 
@@ -230,17 +230,17 @@ public class LocalWrapper implements Local, ModelWrapper<Local> {
 	}
 
 	@Override
-	public com.liferay.portal.model.CacheModel<Local> toCacheModel() {
+	public com.liferay.portal.model.CacheModel<com.siagie.sttp.model.Local> toCacheModel() {
 		return _local.toCacheModel();
 	}
 
 	@Override
-	public Local toEscapedModel() {
+	public com.siagie.sttp.model.Local toEscapedModel() {
 		return new LocalWrapper(_local.toEscapedModel());
 	}
 
 	@Override
-	public Local toUnescapedModel() {
+	public com.siagie.sttp.model.Local toUnescapedModel() {
 		return new LocalWrapper(_local.toUnescapedModel());
 	}
 

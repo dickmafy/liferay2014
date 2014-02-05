@@ -147,19 +147,19 @@ public class LocalClp extends BaseModelImpl<Local> implements Local {
 	}
 
 	@Override
-	public Integer getEstado() {
+	public int getEstado() {
 		return _estado;
 	}
 
 	@Override
-	public void setEstado(Integer estado) {
+	public void setEstado(int estado) {
 		_estado = estado;
 
 		if (_localRemoteModel != null) {
 			try {
 				Class<?> clazz = _localRemoteModel.getClass();
 
-				Method method = clazz.getMethod("setEstado", Integer.class);
+				Method method = clazz.getMethod("setEstado", int.class);
 
 				method.invoke(_localRemoteModel, estado);
 			}
@@ -328,6 +328,6 @@ public class LocalClp extends BaseModelImpl<Local> implements Local {
 
 	private long _localId;
 	private String _nombre;
-	private Integer _estado;
+	private int _estado;
 	private BaseModel<?> _localRemoteModel;
 }

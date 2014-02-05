@@ -231,12 +231,12 @@ public class LocalModelImpl extends BaseModelImpl<Local> implements LocalModel {
 
 	@JSON
 	@Override
-	public Integer getEstado() {
+	public int getEstado() {
 		return _estado;
 	}
 
 	@Override
-	public void setEstado(Integer estado) {
+	public void setEstado(int estado) {
 		_estado = estado;
 	}
 
@@ -394,7 +394,7 @@ public class LocalModelImpl extends BaseModelImpl<Local> implements LocalModel {
 	private long _localId;
 	private String _nombre;
 	private String _originalNombre;
-	private Integer _estado;
+	private int _estado;
 	private long _columnBitmask;
 	private Local _escapedModel;
 }

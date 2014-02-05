@@ -279,6 +279,15 @@ public class LocalLocalServiceWrapper implements LocalLocalService,
 		return _localLocalService.invokeMethod(name, parameterTypes, arguments);
 	}
 
+	@Override
+	public com.siagie.sttp.model.Local addLocal(java.lang.String nombre,
+		java.lang.Integer estado,
+		com.liferay.portal.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return _localLocalService.addLocal(nombre, estado, serviceContext);
+	}
+
 	/**
 	 * @deprecated As of 6.1.0, replaced by {@link #getWrappedService}
 	 */

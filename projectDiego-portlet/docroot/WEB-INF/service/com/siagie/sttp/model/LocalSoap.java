@@ -101,15 +101,15 @@ public class LocalSoap implements Serializable {
 		_nombre = nombre;
 	}
 
-	public Integer getEstado() {
+	public int getEstado() {
 		return _estado;
 	}
 
-	public void setEstado(Integer estado) {
+	public void setEstado(int estado) {
 		_estado = estado;
 	}
 
 	private long _localId;
 	private String _nombre;
-	private Integer _estado;
+	private int _estado;
 }

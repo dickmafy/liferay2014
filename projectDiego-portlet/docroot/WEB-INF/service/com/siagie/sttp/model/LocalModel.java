@@ -91,14 +91,14 @@ public interface LocalModel extends BaseModel<Local> {
 	 *
 	 * @return the estado of this local
 	 */
-	public Integer getEstado();
+	public int getEstado();
 
 	/**
 	 * Sets the estado of this local.
 	 *
 	 * @param estado the estado of this local
 	 */
-	public void setEstado(Integer estado);
+	public void setEstado(int estado);
 
 	@Override
 	public boolean isNew();

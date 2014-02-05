@@ -107,6 +107,13 @@ public class LocalLocalServiceClpInvoker {
 		_methodName35 = "setBeanIdentifier";
 
 		_methodParameterTypes35 = new String[] { "java.lang.String" };
+
+		_methodName40 = "addLocal";
+
+		_methodParameterTypes40 = new String[] {
+				"java.lang.String", "java.lang.Integer",
+				"com.liferay.portal.service.ServiceContext"
+			};
 	}
 
 	public Object invokeMethod(String name, String[] parameterTypes,
@@ -210,6 +217,13 @@ public class LocalLocalServiceClpInvoker {
 			return null;
 		}
 
+		if (_methodName40.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes40, parameterTypes)) {
+			return LocalLocalServiceUtil.addLocal((java.lang.String)arguments[0],
+				(java.lang.Integer)arguments[1],
+				(com.liferay.portal.service.ServiceContext)arguments[2]);
+		}
+
 		throw new UnsupportedOperationException();
 	}
 
@@ -249,4 +263,6 @@ public class LocalLocalServiceClpInvoker {
 	private String[] _methodParameterTypes34;
 	private String _methodName35;
 	private String[] _methodParameterTypes35;
+	private String _methodName40;
+	private String[] _methodParameterTypes40;
 }

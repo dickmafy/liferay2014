@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<bean id="pe.edu.aprolab.identidad.service.PersonaLocalService" class="pe.edu.aprolab.identidad.service.impl.PersonaLocalServiceImpl" />
+	<bean id="pe.edu.aprolab.identidad.service.PersonaService" class="pe.edu.aprolab.identidad.service.impl.PersonaServiceImpl" />
+	<bean id="pe.edu.aprolab.identidad.service.persistence.PersonaPersistence" class="pe.edu.aprolab.identidad.service.persistence.PersonaPersistenceImpl" parent="basePersistence" />
+</beans>

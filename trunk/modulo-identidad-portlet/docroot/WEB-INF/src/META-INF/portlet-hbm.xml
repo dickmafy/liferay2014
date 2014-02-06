@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-lazy="false" auto-import="false">
+	<import class="pe.edu.aprolab.identidad.model.Persona" />
+	<class name="pe.edu.aprolab.identidad.model.impl.PersonaImpl" table="ID_Persona">
+		<cache usage="read-write" />
+		<id name="personaId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property name="codigoId" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="nombres" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="apellidoPaterno" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="apellidoMaterno" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="genero" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+		<property name="estadoCivil" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="fechaNacimiento" type="org.hibernate.type.TimestampType" />
+		<property name="ubigeoNacimiento" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+</hibernate-mapping>

@@ -2,7 +2,20 @@
 <!DOCTYPE display PUBLIC "-//Liferay//DTD Display 6.2.0//EN" "http://www.liferay.com/dtd/liferay-display_6_2_0.dtd">
 
 <display>
-	<category name="category.sample">
-		<portlet id="modulo-base" />
+	<category name="category.base">
+		<portlet id="aliado01" />
+		<portlet id="aliado02" />
+		<portlet id="ambiente01" />
+		<portlet id="ambiente02" />
+		<portlet id="institucion01" />
+		<portlet id="institucion02" />
+		<portlet id="local01" />
+		<portlet id="local02" />
+		<portlet id="oferta01" />
+		<portlet id="oferta01" />
+		<portlet id="personal01" />
+		<portlet id="personal02" />
+		<portlet id="requisito01" />
+		<portlet id="requisito02" />
 	</category>
 </display>

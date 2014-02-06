@@ -3,12 +3,117 @@
 
 <liferay-portlet-app>
 	<portlet>
-		<portlet-name>modulo-base</portlet-name>
+		<portlet-name>aliado01</portlet-name>
 		<icon>/icon.png</icon>
 		<header-portlet-css>/css/main.css</header-portlet-css>
 		<footer-portlet-javascript>/js/main.js</footer-portlet-javascript>
-		<css-class-wrapper>modulo-base-portlet</css-class-wrapper>
+		<css-class-wrapper>aliado01-portlet</css-class-wrapper>
 	</portlet>
+	
+	<portlet>
+		<portlet-name>aliado02</portlet-name>
+		<icon>/icon.png</icon>
+		<header-portlet-css>/css/main.css</header-portlet-css>
+		<footer-portlet-javascript>/js/main.js</footer-portlet-javascript>
+		<css-class-wrapper>aliado02-portlet</css-class-wrapper>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>ambiente01</portlet-name>
+		<icon>/icon.png</icon>
+		<header-portlet-css>/css/main.css</header-portlet-css>
+		<footer-portlet-javascript>/js/main.js</footer-portlet-javascript>
+		<css-class-wrapper>ambiente01-portlet</css-class-wrapper>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>ambiente02</portlet-name>
+		<icon>/icon.png</icon>
+		<header-portlet-css>/css/main.css</header-portlet-css>
+		<footer-portlet-javascript>/js/main.js</footer-portlet-javascript>
+		<css-class-wrapper>ambiente02-portlet</css-class-wrapper>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>institucion01</portlet-name>
+		<icon>/icon.png</icon>
+		<header-portlet-css>/css/main.css</header-portlet-css>
+		<footer-portlet-javascript>/js/main.js</footer-portlet-javascript>
+		<css-class-wrapper>institucion01-portlet</css-class-wrapper>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>institucion02</portlet-name>
+		<icon>/icon.png</icon>
+		<header-portlet-css>/css/main.css</header-portlet-css>
+		<footer-portlet-javascript>/js/main.js</footer-portlet-javascript>
+		<css-class-wrapper>institucion02-portlet</css-class-wrapper>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>local01</portlet-name>
+		<icon>/icon.png</icon>
+		<header-portlet-css>/css/main.css</header-portlet-css>
+		<footer-portlet-javascript>/js/main.js</footer-portlet-javascript>
+		<css-class-wrapper>local01-portlet</css-class-wrapper>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>local02</portlet-name>
+		<icon>/icon.png</icon>
+		<header-portlet-css>/css/main.css</header-portlet-css>
+		<footer-portlet-javascript>/js/main.js</footer-portlet-javascript>
+		<css-class-wrapper>local02-portlet</css-class-wrapper>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>oferta01</portlet-name>
+		<icon>/icon.png</icon>
+		<header-portlet-css>/css/main.css</header-portlet-css>
+		<footer-portlet-javascript>/js/main.js</footer-portlet-javascript>
+		<css-class-wrapper>oferta01-portlet</css-class-wrapper>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>oferta02</portlet-name>
+		<icon>/icon.png</icon>
+		<header-portlet-css>/css/main.css</header-portlet-css>
+		<footer-portlet-javascript>/js/main.js</footer-portlet-javascript>
+		<css-class-wrapper>oferta02-portlet</css-class-wrapper>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>personal01</portlet-name>
+		<icon>/icon.png</icon>
+		<header-portlet-css>/css/main.css</header-portlet-css>
+		<footer-portlet-javascript>/js/main.js</footer-portlet-javascript>
+		<css-class-wrapper>personal01-portlet</css-class-wrapper>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>personal02</portlet-name>
+		<icon>/icon.png</icon>
+		<header-portlet-css>/css/main.css</header-portlet-css>
+		<footer-portlet-javascript>/js/main.js</footer-portlet-javascript>
+		<css-class-wrapper>personal02-portlet</css-class-wrapper>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>requisito01</portlet-name>
+		<icon>/icon.png</icon>
+		<header-portlet-css>/css/main.css</header-portlet-css>
+		<footer-portlet-javascript>/js/main.js</footer-portlet-javascript>
+		<css-class-wrapper>requisito01-portlet</css-class-wrapper>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>requisito02</portlet-name>
+		<icon>/icon.png</icon>
+		<header-portlet-css>/css/main.css</header-portlet-css>
+		<footer-portlet-javascript>/js/main.js</footer-portlet-javascript>
+		<css-class-wrapper>requisito02-portlet</css-class-wrapper>
+	</portlet>
+	
 	<role-mapper>
 		<role-name>administrator</role-name>
 		<role-link>Administrator</role-link>

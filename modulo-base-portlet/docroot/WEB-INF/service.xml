@@ -16,18 +16,18 @@
 		<column name="modifiedDate" type="Date" />
 
 		<!-- Other fields -->
-		<column name="codigoId" type="String" />
-		<column name="nombre" type="String" />
+		<column name="RUC" type="String" />
+		<column name="codigoModular" type="String" />
 		<!-- Order -->
 
 		<order by="asc">
-			<order-column name="codigoId" />
+			<order-column name="RUC" />
 		</order>
 
 		<!-- Finder methods -->
 
-		<finder name="CodigoId" return-type="Institucion" unique="true">
-			<finder-column name="codigoId"/>
+		<finder name="RUC" return-type="Institucion" unique="true">
+			<finder-column name="RUC"/>
 		</finder>
 		
 		<finder name="CompanyId" return-type="Collection" >

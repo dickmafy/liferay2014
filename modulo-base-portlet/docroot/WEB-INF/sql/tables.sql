@@ -3,6 +3,6 @@ create table BASE_Institucion (
 	companyId LONG,
 	createDate DATE null,
 	modifiedDate DATE null,
-	codigoId VARCHAR(75) null,
-	nombre VARCHAR(75) null
+	RUC VARCHAR(75) null,
+	codigoModular VARCHAR(75) null
 );

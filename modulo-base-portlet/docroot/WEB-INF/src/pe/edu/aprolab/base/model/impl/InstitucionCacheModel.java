@@ -48,10 +48,10 @@ public class InstitucionCacheModel implements CacheModel<Institucion>,
 		sb.append(createDate);
 		sb.append(", modifiedDate=");
 		sb.append(modifiedDate);
-		sb.append(", codigoId=");
-		sb.append(codigoId);
-		sb.append(", nombre=");
-		sb.append(nombre);
+		sb.append(", RUC=");
+		sb.append(RUC);
+		sb.append(", codigoModular=");
+		sb.append(codigoModular);
 		sb.append("}");
 
 		return sb.toString();
@@ -78,18 +78,18 @@ public class InstitucionCacheModel implements CacheModel<Institucion>,
 			institucionImpl.setModifiedDate(new Date(modifiedDate));
 		}
 
-		if (codigoId == null) {
-			institucionImpl.setCodigoId(StringPool.BLANK);
+		if (RUC == null) {
+			institucionImpl.setRUC(StringPool.BLANK);
 		}
 		else {
-			institucionImpl.setCodigoId(codigoId);
+			institucionImpl.setRUC(RUC);
 		}
 
-		if (nombre == null) {
-			institucionImpl.setNombre(StringPool.BLANK);
+		if (codigoModular == null) {
+			institucionImpl.setCodigoModular(StringPool.BLANK);
 		}
 		else {
-			institucionImpl.setNombre(nombre);
+			institucionImpl.setCodigoModular(codigoModular);
 		}
 
 		institucionImpl.resetOriginalValues();
@@ -103,8 +103,8 @@ public class InstitucionCacheModel implements CacheModel<Institucion>,
 		companyId = objectInput.readLong();
 		createDate = objectInput.readLong();
 		modifiedDate = objectInput.readLong();
-		codigoId = objectInput.readUTF();
-		nombre = objectInput.readUTF();
+		RUC = objectInput.readUTF();
+		codigoModular = objectInput.readUTF();
 	}
 
 	@Override
@@ -115,18 +115,18 @@ public class InstitucionCacheModel implements CacheModel<Institucion>,
 		objectOutput.writeLong(createDate);
 		objectOutput.writeLong(modifiedDate);
 
-		if (codigoId == null) {
+		if (RUC == null) {
 			objectOutput.writeUTF(StringPool.BLANK);
 		}
 		else {
-			objectOutput.writeUTF(codigoId);
+			objectOutput.writeUTF(RUC);
 		}
 
-		if (nombre == null) {
+		if (codigoModular == null) {
 			objectOutput.writeUTF(StringPool.BLANK);
 		}
 		else {
-			objectOutput.writeUTF(nombre);
+			objectOutput.writeUTF(codigoModular);
 		}
 	}
 
@@ -134,6 +134,6 @@ public class InstitucionCacheModel implements CacheModel<Institucion>,
 	public long companyId;
 	public long createDate;
 	public long modifiedDate;
-	public String codigoId;
-	public String nombre;
+	public String RUC;
+	public String codigoModular;
 }

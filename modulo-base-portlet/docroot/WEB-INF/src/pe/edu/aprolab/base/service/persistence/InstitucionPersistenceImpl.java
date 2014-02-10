@@ -83,36 +83,36 @@ public class InstitucionPersistenceImpl extends BasePersistenceImpl<Institucion>
 	public static final FinderPath FINDER_PATH_COUNT_ALL = new FinderPath(InstitucionModelImpl.ENTITY_CACHE_ENABLED,
 			InstitucionModelImpl.FINDER_CACHE_ENABLED, Long.class,
 			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countAll", new String[0]);
-	public static final FinderPath FINDER_PATH_FETCH_BY_CODIGOID = new FinderPath(InstitucionModelImpl.ENTITY_CACHE_ENABLED,
+	public static final FinderPath FINDER_PATH_FETCH_BY_RUC = new FinderPath(InstitucionModelImpl.ENTITY_CACHE_ENABLED,
 			InstitucionModelImpl.FINDER_CACHE_ENABLED, InstitucionImpl.class,
-			FINDER_CLASS_NAME_ENTITY, "fetchByCodigoId",
+			FINDER_CLASS_NAME_ENTITY, "fetchByRUC",
 			new String[] { String.class.getName() },
-			InstitucionModelImpl.CODIGOID_COLUMN_BITMASK);
-	public static final FinderPath FINDER_PATH_COUNT_BY_CODIGOID = new FinderPath(InstitucionModelImpl.ENTITY_CACHE_ENABLED,
+			InstitucionModelImpl.RUC_COLUMN_BITMASK);
+	public static final FinderPath FINDER_PATH_COUNT_BY_RUC = new FinderPath(InstitucionModelImpl.ENTITY_CACHE_ENABLED,
 			InstitucionModelImpl.FINDER_CACHE_ENABLED, Long.class,
-			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countByCodigoId",
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countByRUC",
 			new String[] { String.class.getName() });
 
 	/**
-	 * Returns the institucion where codigoId = &#63; or throws a {@link pe.edu.aprolab.base.NoSuchInstitucionException} if it could not be found.
+	 * Returns the institucion where RUC = &#63; or throws a {@link pe.edu.aprolab.base.NoSuchInstitucionException} if it could not be found.
 	 *
-	 * @param codigoId the codigo ID
+	 * @param RUC the r u c
 	 * @return the matching institucion
 	 * @throws pe.edu.aprolab.base.NoSuchInstitucionException if a matching institucion could not be found
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public Institucion findByCodigoId(String codigoId)
+	public Institucion findByRUC(String RUC)
 		throws NoSuchInstitucionException, SystemException {
-		Institucion institucion = fetchByCodigoId(codigoId);
+		Institucion institucion = fetchByRUC(RUC);
 
 		if (institucion == null) {
 			StringBundler msg = new StringBundler(4);
 
 			msg.append(_NO_SUCH_ENTITY_WITH_KEY);
 
-			msg.append("codigoId=");
-			msg.append(codigoId);
+			msg.append("RUC=");
+			msg.append(RUC);
 
 			msg.append(StringPool.CLOSE_CURLY_BRACE);
 
@@ -127,42 +127,41 @@ public class InstitucionPersistenceImpl extends BasePersistenceImpl<Institucion>
 	}
 
 	/**
-	 * Returns the institucion where codigoId = &#63; or returns <code>null</code> if it could not be found. Uses the finder cache.
+	 * Returns the institucion where RUC = &#63; or returns <code>null</code> if it could not be found. Uses the finder cache.
 	 *
-	 * @param codigoId the codigo ID
+	 * @param RUC the r u c
 	 * @return the matching institucion, or <code>null</code> if a matching institucion could not be found
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public Institucion fetchByCodigoId(String codigoId)
-		throws SystemException {
-		return fetchByCodigoId(codigoId, true);
+	public Institucion fetchByRUC(String RUC) throws SystemException {
+		return fetchByRUC(RUC, true);
 	}
 
 	/**
-	 * Returns the institucion where codigoId = &#63; or returns <code>null</code> if it could not be found, optionally using the finder cache.
+	 * Returns the institucion where RUC = &#63; or returns <code>null</code> if it could not be found, optionally using the finder cache.
 	 *
-	 * @param codigoId the codigo ID
+	 * @param RUC the r u c
 	 * @param retrieveFromCache whether to use the finder cache
 	 * @return the matching institucion, or <code>null</code> if a matching institucion could not be found
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public Institucion fetchByCodigoId(String codigoId,
-		boolean retrieveFromCache) throws SystemException {
-		Object[] finderArgs = new Object[] { codigoId };
+	public Institucion fetchByRUC(String RUC, boolean retrieveFromCache)
+		throws SystemException {
+		Object[] finderArgs = new Object[] { RUC };
 
 		Object result = null;
 
 		if (retrieveFromCache) {
-			result = FinderCacheUtil.getResult(FINDER_PATH_FETCH_BY_CODIGOID,
+			result = FinderCacheUtil.getResult(FINDER_PATH_FETCH_BY_RUC,
 					finderArgs, this);
 		}
 
 		if (result instanceof Institucion) {
 			Institucion institucion = (Institucion)result;
 
-			if (!Validator.equals(codigoId, institucion.getCodigoId())) {
+			if (!Validator.equals(RUC, institucion.getRUC())) {
 				result = null;
 			}
 		}
@@ -172,18 +171,18 @@ public class InstitucionPersistenceImpl extends BasePersistenceImpl<Institucion>
 
 			query.append(_SQL_SELECT_INSTITUCION_WHERE);
 
-			boolean bindCodigoId = false;
+			boolean bindRUC = false;
 
-			if (codigoId == null) {
-				query.append(_FINDER_COLUMN_CODIGOID_CODIGOID_1);
+			if (RUC == null) {
+				query.append(_FINDER_COLUMN_RUC_RUC_1);
 			}
-			else if (codigoId.equals(StringPool.BLANK)) {
-				query.append(_FINDER_COLUMN_CODIGOID_CODIGOID_3);
+			else if (RUC.equals(StringPool.BLANK)) {
+				query.append(_FINDER_COLUMN_RUC_RUC_3);
 			}
 			else {
-				bindCodigoId = true;
+				bindRUC = true;
 
-				query.append(_FINDER_COLUMN_CODIGOID_CODIGOID_2);
+				query.append(_FINDER_COLUMN_RUC_RUC_2);
 			}
 
 			String sql = query.toString();
@@ -197,14 +196,14 @@ public class InstitucionPersistenceImpl extends BasePersistenceImpl<Institucion>
 
 				QueryPos qPos = QueryPos.getInstance(q);
 
-				if (bindCodigoId) {
-					qPos.add(codigoId);
+				if (bindRUC) {
+					qPos.add(RUC);
 				}
 
 				List<Institucion> list = q.list();
 
 				if (list.isEmpty()) {
-					FinderCacheUtil.putResult(FINDER_PATH_FETCH_BY_CODIGOID,
+					FinderCacheUtil.putResult(FINDER_PATH_FETCH_BY_RUC,
 						finderArgs, list);
 				}
 				else {
@@ -214,15 +213,15 @@ public class InstitucionPersistenceImpl extends BasePersistenceImpl<Institucion>
 
 					cacheResult(institucion);
 
-					if ((institucion.getCodigoId() == null) ||
-							!institucion.getCodigoId().equals(codigoId)) {
-						FinderCacheUtil.putResult(FINDER_PATH_FETCH_BY_CODIGOID,
+					if ((institucion.getRUC() == null) ||
+							!institucion.getRUC().equals(RUC)) {
+						FinderCacheUtil.putResult(FINDER_PATH_FETCH_BY_RUC,
 							finderArgs, institucion);
 					}
 				}
 			}
 			catch (Exception e) {
-				FinderCacheUtil.removeResult(FINDER_PATH_FETCH_BY_CODIGOID,
+				FinderCacheUtil.removeResult(FINDER_PATH_FETCH_BY_RUC,
 					finderArgs);
 
 				throw processException(e);
@@ -241,32 +240,32 @@ public class InstitucionPersistenceImpl extends BasePersistenceImpl<Institucion>
 	}
 
 	/**
-	 * Removes the institucion where codigoId = &#63; from the database.
+	 * Removes the institucion where RUC = &#63; from the database.
 	 *
-	 * @param codigoId the codigo ID
+	 * @param RUC the r u c
 	 * @return the institucion that was removed
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public Institucion removeByCodigoId(String codigoId)
+	public Institucion removeByRUC(String RUC)
 		throws NoSuchInstitucionException, SystemException {
-		Institucion institucion = findByCodigoId(codigoId);
+		Institucion institucion = findByRUC(RUC);
 
 		return remove(institucion);
 	}
 
 	/**
-	 * Returns the number of institucions where codigoId = &#63;.
+	 * Returns the number of institucions where RUC = &#63;.
 	 *
-	 * @param codigoId the codigo ID
+	 * @param RUC the r u c
 	 * @return the number of matching institucions
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public int countByCodigoId(String codigoId) throws SystemException {
-		FinderPath finderPath = FINDER_PATH_COUNT_BY_CODIGOID;
+	public int countByRUC(String RUC) throws SystemException {
+		FinderPath finderPath = FINDER_PATH_COUNT_BY_RUC;
 
-		Object[] finderArgs = new Object[] { codigoId };
+		Object[] finderArgs = new Object[] { RUC };
 
 		Long count = (Long)FinderCacheUtil.getResult(finderPath, finderArgs,
 				this);
@@ -276,18 +275,18 @@ public class InstitucionPersistenceImpl extends BasePersistenceImpl<Institucion>
 
 			query.append(_SQL_COUNT_INSTITUCION_WHERE);
 
-			boolean bindCodigoId = false;
+			boolean bindRUC = false;
 
-			if (codigoId == null) {
-				query.append(_FINDER_COLUMN_CODIGOID_CODIGOID_1);
+			if (RUC == null) {
+				query.append(_FINDER_COLUMN_RUC_RUC_1);
 			}
-			else if (codigoId.equals(StringPool.BLANK)) {
-				query.append(_FINDER_COLUMN_CODIGOID_CODIGOID_3);
+			else if (RUC.equals(StringPool.BLANK)) {
+				query.append(_FINDER_COLUMN_RUC_RUC_3);
 			}
 			else {
-				bindCodigoId = true;
+				bindRUC = true;
 
-				query.append(_FINDER_COLUMN_CODIGOID_CODIGOID_2);
+				query.append(_FINDER_COLUMN_RUC_RUC_2);
 			}
 
 			String sql = query.toString();
@@ -301,8 +300,8 @@ public class InstitucionPersistenceImpl extends BasePersistenceImpl<Institucion>
 
 				QueryPos qPos = QueryPos.getInstance(q);
 
-				if (bindCodigoId) {
-					qPos.add(codigoId);
+				if (bindRUC) {
+					qPos.add(RUC);
 				}
 
 				count = (Long)q.uniqueResult();
@@ -322,9 +321,9 @@ public class InstitucionPersistenceImpl extends BasePersistenceImpl<Institucion>
 		return count.intValue();
 	}
 
-	private static final String _FINDER_COLUMN_CODIGOID_CODIGOID_1 = "institucion.codigoId IS NULL";
-	private static final String _FINDER_COLUMN_CODIGOID_CODIGOID_2 = "institucion.codigoId = ?";
-	private static final String _FINDER_COLUMN_CODIGOID_CODIGOID_3 = "(institucion.codigoId IS NULL OR institucion.codigoId = '')";
+	private static final String _FINDER_COLUMN_RUC_RUC_1 = "institucion.RUC IS NULL";
+	private static final String _FINDER_COLUMN_RUC_RUC_2 = "institucion.RUC = ?";
+	private static final String _FINDER_COLUMN_RUC_RUC_3 = "(institucion.RUC IS NULL OR institucion.RUC = '')";
 	public static final FinderPath FINDER_PATH_WITH_PAGINATION_FIND_BY_COMPANYID =
 		new FinderPath(InstitucionModelImpl.ENTITY_CACHE_ENABLED,
 			InstitucionModelImpl.FINDER_CACHE_ENABLED, InstitucionImpl.class,
@@ -341,7 +340,7 @@ public class InstitucionPersistenceImpl extends BasePersistenceImpl<Institucion>
 			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "findByCompanyId",
 			new String[] { Long.class.getName() },
 			InstitucionModelImpl.COMPANYID_COLUMN_BITMASK |
-			InstitucionModelImpl.CODIGOID_COLUMN_BITMASK);
+			InstitucionModelImpl.RUC_COLUMN_BITMASK);
 	public static final FinderPath FINDER_PATH_COUNT_BY_COMPANYID = new FinderPath(InstitucionModelImpl.ENTITY_CACHE_ENABLED,
 			InstitucionModelImpl.FINDER_CACHE_ENABLED, Long.class,
 			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countByCompanyId",
@@ -833,8 +832,8 @@ public class InstitucionPersistenceImpl extends BasePersistenceImpl<Institucion>
 		EntityCacheUtil.putResult(InstitucionModelImpl.ENTITY_CACHE_ENABLED,
 			InstitucionImpl.class, institucion.getPrimaryKey(), institucion);
 
-		FinderCacheUtil.putResult(FINDER_PATH_FETCH_BY_CODIGOID,
-			new Object[] { institucion.getCodigoId() }, institucion);
+		FinderCacheUtil.putResult(FINDER_PATH_FETCH_BY_RUC,
+			new Object[] { institucion.getRUC() }, institucion);
 
 		institucion.resetOriginalValues();
 	}
@@ -911,23 +910,23 @@ public class InstitucionPersistenceImpl extends BasePersistenceImpl<Institucion>
 
 	protected void cacheUniqueFindersCache(Institucion institucion) {
 		if (institucion.isNew()) {
-			Object[] args = new Object[] { institucion.getCodigoId() };
+			Object[] args = new Object[] { institucion.getRUC() };
 
-			FinderCacheUtil.putResult(FINDER_PATH_COUNT_BY_CODIGOID, args,
+			FinderCacheUtil.putResult(FINDER_PATH_COUNT_BY_RUC, args,
 				Long.valueOf(1));
-			FinderCacheUtil.putResult(FINDER_PATH_FETCH_BY_CODIGOID, args,
+			FinderCacheUtil.putResult(FINDER_PATH_FETCH_BY_RUC, args,
 				institucion);
 		}
 		else {
 			InstitucionModelImpl institucionModelImpl = (InstitucionModelImpl)institucion;
 
 			if ((institucionModelImpl.getColumnBitmask() &
-					FINDER_PATH_FETCH_BY_CODIGOID.getColumnBitmask()) != 0) {
-				Object[] args = new Object[] { institucion.getCodigoId() };
+					FINDER_PATH_FETCH_BY_RUC.getColumnBitmask()) != 0) {
+				Object[] args = new Object[] { institucion.getRUC() };
 
-				FinderCacheUtil.putResult(FINDER_PATH_COUNT_BY_CODIGOID, args,
+				FinderCacheUtil.putResult(FINDER_PATH_COUNT_BY_RUC, args,
 					Long.valueOf(1));
-				FinderCacheUtil.putResult(FINDER_PATH_FETCH_BY_CODIGOID, args,
+				FinderCacheUtil.putResult(FINDER_PATH_FETCH_BY_RUC, args,
 					institucion);
 			}
 		}
@@ -936,17 +935,17 @@ public class InstitucionPersistenceImpl extends BasePersistenceImpl<Institucion>
 	protected void clearUniqueFindersCache(Institucion institucion) {
 		InstitucionModelImpl institucionModelImpl = (InstitucionModelImpl)institucion;
 
-		Object[] args = new Object[] { institucion.getCodigoId() };
+		Object[] args = new Object[] { institucion.getRUC() };
 
-		FinderCacheUtil.removeResult(FINDER_PATH_COUNT_BY_CODIGOID, args);
-		FinderCacheUtil.removeResult(FINDER_PATH_FETCH_BY_CODIGOID, args);
+		FinderCacheUtil.removeResult(FINDER_PATH_COUNT_BY_RUC, args);
+		FinderCacheUtil.removeResult(FINDER_PATH_FETCH_BY_RUC, args);
 
 		if ((institucionModelImpl.getColumnBitmask() &
-				FINDER_PATH_FETCH_BY_CODIGOID.getColumnBitmask()) != 0) {
-			args = new Object[] { institucionModelImpl.getOriginalCodigoId() };
+				FINDER_PATH_FETCH_BY_RUC.getColumnBitmask()) != 0) {
+			args = new Object[] { institucionModelImpl.getOriginalRUC() };
 
-			FinderCacheUtil.removeResult(FINDER_PATH_COUNT_BY_CODIGOID, args);
-			FinderCacheUtil.removeResult(FINDER_PATH_FETCH_BY_CODIGOID, args);
+			FinderCacheUtil.removeResult(FINDER_PATH_COUNT_BY_RUC, args);
+			FinderCacheUtil.removeResult(FINDER_PATH_FETCH_BY_RUC, args);
 		}
 	}
 
@@ -1135,8 +1134,8 @@ public class InstitucionPersistenceImpl extends BasePersistenceImpl<Institucion>
 		institucionImpl.setCompanyId(institucion.getCompanyId());
 		institucionImpl.setCreateDate(institucion.getCreateDate());
 		institucionImpl.setModifiedDate(institucion.getModifiedDate());
-		institucionImpl.setCodigoId(institucion.getCodigoId());
-		institucionImpl.setNombre(institucion.getNombre());
+		institucionImpl.setRUC(institucion.getRUC());
+		institucionImpl.setCodigoModular(institucion.getCodigoModular());
 
 		return institucionImpl;
 	}

@@ -68,13 +68,13 @@ public class InstitucionModelImpl extends BaseModelImpl<Institucion>
 			{ "companyId", Types.BIGINT },
 			{ "createDate", Types.TIMESTAMP },
 			{ "modifiedDate", Types.TIMESTAMP },
-			{ "codigoId", Types.VARCHAR },
-			{ "nombre", Types.VARCHAR }
+			{ "RUC", Types.VARCHAR },
+			{ "codigoModular", Types.VARCHAR }
 		};
-	public static final String TABLE_SQL_CREATE = "create table BASE_Institucion (institucionId LONG not null primary key,companyId LONG,createDate DATE null,modifiedDate DATE null,codigoId VARCHAR(75) null,nombre VARCHAR(75) null)";
+	public static final String TABLE_SQL_CREATE = "create table BASE_Institucion (institucionId LONG not null primary key,companyId LONG,createDate DATE null,modifiedDate DATE null,RUC VARCHAR(75) null,codigoModular VARCHAR(75) null)";
 	public static final String TABLE_SQL_DROP = "drop table BASE_Institucion";
-	public static final String ORDER_BY_JPQL = " ORDER BY institucion.codigoId ASC";
-	public static final String ORDER_BY_SQL = " ORDER BY BASE_Institucion.codigoId ASC";
+	public static final String ORDER_BY_JPQL = " ORDER BY institucion.RUC ASC";
+	public static final String ORDER_BY_SQL = " ORDER BY BASE_Institucion.RUC ASC";
 	public static final String DATA_SOURCE = "liferayDataSource";
 	public static final String SESSION_FACTORY = "liferaySessionFactory";
 	public static final String TX_MANAGER = "liferayTransactionManager";
@@ -87,7 +87,7 @@ public class InstitucionModelImpl extends BaseModelImpl<Institucion>
 	public static final boolean COLUMN_BITMASK_ENABLED = GetterUtil.getBoolean(com.liferay.util.service.ServiceProps.get(
 				"value.object.column.bitmask.enabled.pe.edu.aprolab.base.model.Institucion"),
 			true);
-	public static long CODIGOID_COLUMN_BITMASK = 1L;
+	public static long RUC_COLUMN_BITMASK = 1L;
 	public static long COMPANYID_COLUMN_BITMASK = 2L;
 
 	/**
@@ -107,8 +107,8 @@ public class InstitucionModelImpl extends BaseModelImpl<Institucion>
 		model.setCompanyId(soapModel.getCompanyId());
 		model.setCreateDate(soapModel.getCreateDate());
 		model.setModifiedDate(soapModel.getModifiedDate());
-		model.setCodigoId(soapModel.getCodigoId());
-		model.setNombre(soapModel.getNombre());
+		model.setRUC(soapModel.getRUC());
+		model.setCodigoModular(soapModel.getCodigoModular());
 
 		return model;
 	}
@@ -177,8 +177,8 @@ public class InstitucionModelImpl extends BaseModelImpl<Institucion>
 		attributes.put("companyId", getCompanyId());
 		attributes.put("createDate", getCreateDate());
 		attributes.put("modifiedDate", getModifiedDate());
-		attributes.put("codigoId", getCodigoId());
-		attributes.put("nombre", getNombre());
+		attributes.put("RUC", getRUC());
+		attributes.put("codigoModular", getCodigoModular());
 
 		return attributes;
 	}
@@ -209,16 +209,16 @@ public class InstitucionModelImpl extends BaseModelImpl<Institucion>
 			setModifiedDate(modifiedDate);
 		}
 
-		String codigoId = (String)attributes.get("codigoId");
+		String RUC = (String)attributes.get("RUC");
 
-		if (codigoId != null) {
-			setCodigoId(codigoId);
+		if (RUC != null) {
+			setRUC(RUC);
 		}
 
-		String nombre = (String)attributes.get("nombre");
+		String codigoModular = (String)attributes.get("codigoModular");
 
-		if (nombre != null) {
-			setNombre(nombre);
+		if (codigoModular != null) {
+			setCodigoModular(codigoModular);
 		}
 	}
 
@@ -280,44 +280,44 @@ public class InstitucionModelImpl extends BaseModelImpl<Institucion>
 
 	@JSON
 	@Override
-	public String getCodigoId() {
-		if (_codigoId == null) {
+	public String getRUC() {
+		if (_RUC == null) {
 			return StringPool.BLANK;
 		}
 		else {
-			return _codigoId;
+			return _RUC;
 		}
 	}
 
 	@Override
-	public void setCodigoId(String codigoId) {
+	public void setRUC(String RUC) {
 		_columnBitmask = -1L;
 
-		if (_originalCodigoId == null) {
-			_originalCodigoId = _codigoId;
+		if (_originalRUC == null) {
+			_originalRUC = _RUC;
 		}
 
-		_codigoId = codigoId;
+		_RUC = RUC;
 	}
 
-	public String getOriginalCodigoId() {
-		return GetterUtil.getString(_originalCodigoId);
+	public String getOriginalRUC() {
+		return GetterUtil.getString(_originalRUC);
 	}
 
 	@JSON
 	@Override
-	public String getNombre() {
-		if (_nombre == null) {
+	public String getCodigoModular() {
+		if (_codigoModular == null) {
 			return StringPool.BLANK;
 		}
 		else {
-			return _nombre;
+			return _codigoModular;
 		}
 	}
 
 	@Override
-	public void setNombre(String nombre) {
-		_nombre = nombre;
+	public void setCodigoModular(String codigoModular) {
+		_codigoModular = codigoModular;
 	}
 
 	public long getColumnBitmask() {
@@ -355,8 +355,8 @@ public class InstitucionModelImpl extends BaseModelImpl<Institucion>
 		institucionImpl.setCompanyId(getCompanyId());
 		institucionImpl.setCreateDate(getCreateDate());
 		institucionImpl.setModifiedDate(getModifiedDate());
-		institucionImpl.setCodigoId(getCodigoId());
-		institucionImpl.setNombre(getNombre());
+		institucionImpl.setRUC(getRUC());
+		institucionImpl.setCodigoModular(getCodigoModular());
 
 		institucionImpl.resetOriginalValues();
 
@@ -367,7 +367,7 @@ public class InstitucionModelImpl extends BaseModelImpl<Institucion>
 	public int compareTo(Institucion institucion) {
 		int value = 0;
 
-		value = getCodigoId().compareTo(institucion.getCodigoId());
+		value = getRUC().compareTo(institucion.getRUC());
 
 		if (value != 0) {
 			return value;
@@ -411,7 +411,7 @@ public class InstitucionModelImpl extends BaseModelImpl<Institucion>
 
 		institucionModelImpl._setOriginalCompanyId = false;
 
-		institucionModelImpl._originalCodigoId = institucionModelImpl._codigoId;
+		institucionModelImpl._originalRUC = institucionModelImpl._RUC;
 
 		institucionModelImpl._columnBitmask = 0;
 	}
@@ -442,20 +442,20 @@ public class InstitucionModelImpl extends BaseModelImpl<Institucion>
 			institucionCacheModel.modifiedDate = Long.MIN_VALUE;
 		}
 
-		institucionCacheModel.codigoId = getCodigoId();
+		institucionCacheModel.RUC = getRUC();
 
-		String codigoId = institucionCacheModel.codigoId;
+		String RUC = institucionCacheModel.RUC;
 
-		if ((codigoId != null) && (codigoId.length() == 0)) {
-			institucionCacheModel.codigoId = null;
+		if ((RUC != null) && (RUC.length() == 0)) {
+			institucionCacheModel.RUC = null;
 		}
 
-		institucionCacheModel.nombre = getNombre();
+		institucionCacheModel.codigoModular = getCodigoModular();
 
-		String nombre = institucionCacheModel.nombre;
+		String codigoModular = institucionCacheModel.codigoModular;
 
-		if ((nombre != null) && (nombre.length() == 0)) {
-			institucionCacheModel.nombre = null;
+		if ((codigoModular != null) && (codigoModular.length() == 0)) {
+			institucionCacheModel.codigoModular = null;
 		}
 
 		return institucionCacheModel;
@@ -473,10 +473,10 @@ public class InstitucionModelImpl extends BaseModelImpl<Institucion>
 		sb.append(getCreateDate());
 		sb.append(", modifiedDate=");
 		sb.append(getModifiedDate());
-		sb.append(", codigoId=");
-		sb.append(getCodigoId());
-		sb.append(", nombre=");
-		sb.append(getNombre());
+		sb.append(", RUC=");
+		sb.append(getRUC());
+		sb.append(", codigoModular=");
+		sb.append(getCodigoModular());
 		sb.append("}");
 
 		return sb.toString();
@@ -507,12 +507,12 @@ public class InstitucionModelImpl extends BaseModelImpl<Institucion>
 		sb.append(getModifiedDate());
 		sb.append("]]></column-value></column>");
 		sb.append(
-			"<column><column-name>codigoId</column-name><column-value><![CDATA[");
-		sb.append(getCodigoId());
+			"<column><column-name>RUC</column-name><column-value><![CDATA[");
+		sb.append(getRUC());
 		sb.append("]]></column-value></column>");
 		sb.append(
-			"<column><column-name>nombre</column-name><column-value><![CDATA[");
-		sb.append(getNombre());
+			"<column><column-name>codigoModular</column-name><column-value><![CDATA[");
+		sb.append(getCodigoModular());
 		sb.append("]]></column-value></column>");
 
 		sb.append("</model>");
@@ -530,9 +530,9 @@ public class InstitucionModelImpl extends BaseModelImpl<Institucion>
 	private boolean _setOriginalCompanyId;
 	private Date _createDate;
 	private Date _modifiedDate;
-	private String _codigoId;
-	private String _originalCodigoId;
-	private String _nombre;
+	private String _RUC;
+	private String _originalRUC;
+	private String _codigoModular;
 	private long _columnBitmask;
 	private Institucion _escapedModel;
 }

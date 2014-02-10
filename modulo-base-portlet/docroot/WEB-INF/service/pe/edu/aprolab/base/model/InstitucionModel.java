@@ -116,34 +116,34 @@ public interface InstitucionModel extends BaseModel<Institucion> {
 	public void setModifiedDate(Date modifiedDate);
 
 	/**
-	 * Returns the codigo ID of this institucion.
+	 * Returns the r u c of this institucion.
 	 *
-	 * @return the codigo ID of this institucion
+	 * @return the r u c of this institucion
 	 */
 	@AutoEscape
-	public String getCodigoId();
+	public String getRUC();
 
 	/**
-	 * Sets the codigo ID of this institucion.
+	 * Sets the r u c of this institucion.
 	 *
-	 * @param codigoId the codigo ID of this institucion
+	 * @param RUC the r u c of this institucion
 	 */
-	public void setCodigoId(String codigoId);
+	public void setRUC(String RUC);
 
 	/**
-	 * Returns the nombre of this institucion.
+	 * Returns the codigo modular of this institucion.
 	 *
-	 * @return the nombre of this institucion
+	 * @return the codigo modular of this institucion
 	 */
 	@AutoEscape
-	public String getNombre();
+	public String getCodigoModular();
 
 	/**
-	 * Sets the nombre of this institucion.
+	 * Sets the codigo modular of this institucion.
 	 *
-	 * @param nombre the nombre of this institucion
+	 * @param codigoModular the codigo modular of this institucion
 	 */
-	public void setNombre(String nombre);
+	public void setCodigoModular(String codigoModular);
 
 	@Override
 	public boolean isNew();

@@ -54,8 +54,8 @@ public class InstitucionWrapper implements Institucion,
 		attributes.put("companyId", getCompanyId());
 		attributes.put("createDate", getCreateDate());
 		attributes.put("modifiedDate", getModifiedDate());
-		attributes.put("codigoId", getCodigoId());
-		attributes.put("nombre", getNombre());
+		attributes.put("RUC", getRUC());
+		attributes.put("codigoModular", getCodigoModular());
 
 		return attributes;
 	}
@@ -86,16 +86,16 @@ public class InstitucionWrapper implements Institucion,
 			setModifiedDate(modifiedDate);
 		}
 
-		String codigoId = (String)attributes.get("codigoId");
+		String RUC = (String)attributes.get("RUC");
 
-		if (codigoId != null) {
-			setCodigoId(codigoId);
+		if (RUC != null) {
+			setRUC(RUC);
 		}
 
-		String nombre = (String)attributes.get("nombre");
+		String codigoModular = (String)attributes.get("codigoModular");
 
-		if (nombre != null) {
-			setNombre(nombre);
+		if (codigoModular != null) {
+			setCodigoModular(codigoModular);
 		}
 	}
 
@@ -200,43 +200,43 @@ public class InstitucionWrapper implements Institucion,
 	}
 
 	/**
-	* Returns the codigo ID of this institucion.
+	* Returns the r u c of this institucion.
 	*
-	* @return the codigo ID of this institucion
+	* @return the r u c of this institucion
 	*/
 	@Override
-	public java.lang.String getCodigoId() {
-		return _institucion.getCodigoId();
+	public java.lang.String getRUC() {
+		return _institucion.getRUC();
 	}
 
 	/**
-	* Sets the codigo ID of this institucion.
+	* Sets the r u c of this institucion.
 	*
-	* @param codigoId the codigo ID of this institucion
+	* @param RUC the r u c of this institucion
 	*/
 	@Override
-	public void setCodigoId(java.lang.String codigoId) {
-		_institucion.setCodigoId(codigoId);
+	public void setRUC(java.lang.String RUC) {
+		_institucion.setRUC(RUC);
 	}
 
 	/**
-	* Returns the nombre of this institucion.
+	* Returns the codigo modular of this institucion.
 	*
-	* @return the nombre of this institucion
+	* @return the codigo modular of this institucion
 	*/
 	@Override
-	public java.lang.String getNombre() {
-		return _institucion.getNombre();
+	public java.lang.String getCodigoModular() {
+		return _institucion.getCodigoModular();
 	}
 
 	/**
-	* Sets the nombre of this institucion.
+	* Sets the codigo modular of this institucion.
 	*
-	* @param nombre the nombre of this institucion
+	* @param codigoModular the codigo modular of this institucion
 	*/
 	@Override
-	public void setNombre(java.lang.String nombre) {
-		_institucion.setNombre(nombre);
+	public void setCodigoModular(java.lang.String codigoModular) {
+		_institucion.setCodigoModular(codigoModular);
 	}
 
 	@Override
@@ -303,7 +303,7 @@ public class InstitucionWrapper implements Institucion,
 	}
 
 	@Override
-	public int compareTo(Institucion institucion) {
+	public int compareTo(pe.edu.aprolab.base.model.Institucion institucion) {
 		return _institucion.compareTo(institucion);
 	}
 
@@ -313,17 +313,17 @@ public class InstitucionWrapper implements Institucion,
 	}
 
 	@Override
-	public com.liferay.portal.model.CacheModel<Institucion> toCacheModel() {
+	public com.liferay.portal.model.CacheModel<pe.edu.aprolab.base.model.Institucion> toCacheModel() {
 		return _institucion.toCacheModel();
 	}
 
 	@Override
-	public Institucion toEscapedModel() {
+	public pe.edu.aprolab.base.model.Institucion toEscapedModel() {
 		return new InstitucionWrapper(_institucion.toEscapedModel());
 	}
 
 	@Override
-	public Institucion toUnescapedModel() {
+	public pe.edu.aprolab.base.model.Institucion toUnescapedModel() {
 		return new InstitucionWrapper(_institucion.toUnescapedModel());
 	}
 

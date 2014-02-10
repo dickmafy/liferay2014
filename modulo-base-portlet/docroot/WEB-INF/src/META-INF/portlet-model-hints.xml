@@ -6,7 +6,7 @@
 		<field name="companyId" type="long" />
 		<field name="createDate" type="Date" />
 		<field name="modifiedDate" type="Date" />
-		<field name="codigoId" type="String" />
-		<field name="nombre" type="String" />
+		<field name="RUC" type="String" />
+		<field name="codigoModular" type="String" />
 	</model>
 </model-hints>

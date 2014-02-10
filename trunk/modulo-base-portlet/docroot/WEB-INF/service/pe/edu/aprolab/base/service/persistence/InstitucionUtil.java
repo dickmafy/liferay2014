@@ -111,71 +111,71 @@ public class InstitucionUtil {
 	}
 
 	/**
-	* Returns the institucion where codigoId = &#63; or throws a {@link pe.edu.aprolab.base.NoSuchInstitucionException} if it could not be found.
+	* Returns the institucion where RUC = &#63; or throws a {@link pe.edu.aprolab.base.NoSuchInstitucionException} if it could not be found.
 	*
-	* @param codigoId the codigo ID
+	* @param RUC the r u c
 	* @return the matching institucion
 	* @throws pe.edu.aprolab.base.NoSuchInstitucionException if a matching institucion could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public static pe.edu.aprolab.base.model.Institucion findByCodigoId(
-		java.lang.String codigoId)
+	public static pe.edu.aprolab.base.model.Institucion findByRUC(
+		java.lang.String RUC)
 		throws com.liferay.portal.kernel.exception.SystemException,
 			pe.edu.aprolab.base.NoSuchInstitucionException {
-		return getPersistence().findByCodigoId(codigoId);
+		return getPersistence().findByRUC(RUC);
 	}
 
 	/**
-	* Returns the institucion where codigoId = &#63; or returns <code>null</code> if it could not be found. Uses the finder cache.
+	* Returns the institucion where RUC = &#63; or returns <code>null</code> if it could not be found. Uses the finder cache.
 	*
-	* @param codigoId the codigo ID
+	* @param RUC the r u c
 	* @return the matching institucion, or <code>null</code> if a matching institucion could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public static pe.edu.aprolab.base.model.Institucion fetchByCodigoId(
-		java.lang.String codigoId)
+	public static pe.edu.aprolab.base.model.Institucion fetchByRUC(
+		java.lang.String RUC)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return getPersistence().fetchByCodigoId(codigoId);
+		return getPersistence().fetchByRUC(RUC);
 	}
 
 	/**
-	* Returns the institucion where codigoId = &#63; or returns <code>null</code> if it could not be found, optionally using the finder cache.
+	* Returns the institucion where RUC = &#63; or returns <code>null</code> if it could not be found, optionally using the finder cache.
 	*
-	* @param codigoId the codigo ID
+	* @param RUC the r u c
 	* @param retrieveFromCache whether to use the finder cache
 	* @return the matching institucion, or <code>null</code> if a matching institucion could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public static pe.edu.aprolab.base.model.Institucion fetchByCodigoId(
-		java.lang.String codigoId, boolean retrieveFromCache)
+	public static pe.edu.aprolab.base.model.Institucion fetchByRUC(
+		java.lang.String RUC, boolean retrieveFromCache)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return getPersistence().fetchByCodigoId(codigoId, retrieveFromCache);
+		return getPersistence().fetchByRUC(RUC, retrieveFromCache);
 	}
 
 	/**
-	* Removes the institucion where codigoId = &#63; from the database.
+	* Removes the institucion where RUC = &#63; from the database.
 	*
-	* @param codigoId the codigo ID
+	* @param RUC the r u c
 	* @return the institucion that was removed
 	* @throws SystemException if a system exception occurred
 	*/
-	public static pe.edu.aprolab.base.model.Institucion removeByCodigoId(
-		java.lang.String codigoId)
+	public static pe.edu.aprolab.base.model.Institucion removeByRUC(
+		java.lang.String RUC)
 		throws com.liferay.portal.kernel.exception.SystemException,
 			pe.edu.aprolab.base.NoSuchInstitucionException {
-		return getPersistence().removeByCodigoId(codigoId);
+		return getPersistence().removeByRUC(RUC);
 	}
 
 	/**
-	* Returns the number of institucions where codigoId = &#63;.
+	* Returns the number of institucions where RUC = &#63;.
 	*
-	* @param codigoId the codigo ID
+	* @param RUC the r u c
 	* @return the number of matching institucions
 	* @throws SystemException if a system exception occurred
 	*/
-	public static int countByCodigoId(java.lang.String codigoId)
+	public static int countByRUC(java.lang.String RUC)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return getPersistence().countByCodigoId(codigoId);
+		return getPersistence().countByRUC(RUC);
 	}
 
 	/**

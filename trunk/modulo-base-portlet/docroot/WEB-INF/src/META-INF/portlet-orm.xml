@@ -17,8 +17,8 @@
 			<basic name="modifiedDate">
 				<temporal>TIMESTAMP</temporal>
 			</basic>
-			<basic name="codigoId" />
-			<basic name="nombre" />
+			<basic name="RUC" />
+			<basic name="codigoModular" />
 			<transient name="modelAttributes" />
 			<transient name="primaryKey" />
 			<transient name="primaryKeyObj" />

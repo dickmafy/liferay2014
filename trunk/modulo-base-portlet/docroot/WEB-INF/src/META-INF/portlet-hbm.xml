@@ -11,7 +11,7 @@
 		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="createDate" type="org.hibernate.type.TimestampType" />
 		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
-		<property name="codigoId" type="com.liferay.portal.dao.orm.hibernate.StringType" />
-		<property name="nombre" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="RUC" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="codigoModular" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 	</class>
 </hibernate-mapping>

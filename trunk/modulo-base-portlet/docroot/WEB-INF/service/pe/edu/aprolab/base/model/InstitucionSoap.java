@@ -35,8 +35,8 @@ public class InstitucionSoap implements Serializable {
 		soapModel.setCompanyId(model.getCompanyId());
 		soapModel.setCreateDate(model.getCreateDate());
 		soapModel.setModifiedDate(model.getModifiedDate());
-		soapModel.setCodigoId(model.getCodigoId());
-		soapModel.setNombre(model.getNombre());
+		soapModel.setRUC(model.getRUC());
+		soapModel.setCodigoModular(model.getCodigoModular());
 
 		return soapModel;
 	}
@@ -121,26 +121,26 @@ public class InstitucionSoap implements Serializable {
 		_modifiedDate = modifiedDate;
 	}
 
-	public String getCodigoId() {
-		return _codigoId;
+	public String getRUC() {
+		return _RUC;
 	}
 
-	public void setCodigoId(String codigoId) {
-		_codigoId = codigoId;
+	public void setRUC(String RUC) {
+		_RUC = RUC;
 	}
 
-	public String getNombre() {
-		return _nombre;
+	public String getCodigoModular() {
+		return _codigoModular;
 	}
 
-	public void setNombre(String nombre) {
-		_nombre = nombre;
+	public void setCodigoModular(String codigoModular) {
+		_codigoModular = codigoModular;
 	}
 
 	private long _institucionId;
 	private long _companyId;
 	private Date _createDate;
 	private Date _modifiedDate;
-	private String _codigoId;
-	private String _nombre;
+	private String _RUC;
+	private String _codigoModular;
 }

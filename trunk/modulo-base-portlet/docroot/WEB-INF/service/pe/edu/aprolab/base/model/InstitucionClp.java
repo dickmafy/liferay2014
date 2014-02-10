@@ -78,8 +78,8 @@ public class InstitucionClp extends BaseModelImpl<Institucion>
 		attributes.put("companyId", getCompanyId());
 		attributes.put("createDate", getCreateDate());
 		attributes.put("modifiedDate", getModifiedDate());
-		attributes.put("codigoId", getCodigoId());
-		attributes.put("nombre", getNombre());
+		attributes.put("RUC", getRUC());
+		attributes.put("codigoModular", getCodigoModular());
 
 		return attributes;
 	}
@@ -110,16 +110,16 @@ public class InstitucionClp extends BaseModelImpl<Institucion>
 			setModifiedDate(modifiedDate);
 		}
 
-		String codigoId = (String)attributes.get("codigoId");
+		String RUC = (String)attributes.get("RUC");
 
-		if (codigoId != null) {
-			setCodigoId(codigoId);
+		if (RUC != null) {
+			setRUC(RUC);
 		}
 
-		String nombre = (String)attributes.get("nombre");
+		String codigoModular = (String)attributes.get("codigoModular");
 
-		if (nombre != null) {
-			setNombre(nombre);
+		if (codigoModular != null) {
+			setCodigoModular(codigoModular);
 		}
 	}
 
@@ -216,21 +216,21 @@ public class InstitucionClp extends BaseModelImpl<Institucion>
 	}
 
 	@Override
-	public String getCodigoId() {
-		return _codigoId;
+	public String getRUC() {
+		return _RUC;
 	}
 
 	@Override
-	public void setCodigoId(String codigoId) {
-		_codigoId = codigoId;
+	public void setRUC(String RUC) {
+		_RUC = RUC;
 
 		if (_institucionRemoteModel != null) {
 			try {
 				Class<?> clazz = _institucionRemoteModel.getClass();
 
-				Method method = clazz.getMethod("setCodigoId", String.class);
+				Method method = clazz.getMethod("setRUC", String.class);
 
-				method.invoke(_institucionRemoteModel, codigoId);
+				method.invoke(_institucionRemoteModel, RUC);
 			}
 			catch (Exception e) {
 				throw new UnsupportedOperationException(e);
@@ -239,21 +239,21 @@ public class InstitucionClp extends BaseModelImpl<Institucion>
 	}
 
 	@Override
-	public String getNombre() {
-		return _nombre;
+	public String getCodigoModular() {
+		return _codigoModular;
 	}
 
 	@Override
-	public void setNombre(String nombre) {
-		_nombre = nombre;
+	public void setCodigoModular(String codigoModular) {
+		_codigoModular = codigoModular;
 
 		if (_institucionRemoteModel != null) {
 			try {
 				Class<?> clazz = _institucionRemoteModel.getClass();
 
-				Method method = clazz.getMethod("setNombre", String.class);
+				Method method = clazz.getMethod("setCodigoModular", String.class);
 
-				method.invoke(_institucionRemoteModel, nombre);
+				method.invoke(_institucionRemoteModel, codigoModular);
 			}
 			catch (Exception e) {
 				throw new UnsupportedOperationException(e);
@@ -334,8 +334,8 @@ public class InstitucionClp extends BaseModelImpl<Institucion>
 		clone.setCompanyId(getCompanyId());
 		clone.setCreateDate(getCreateDate());
 		clone.setModifiedDate(getModifiedDate());
-		clone.setCodigoId(getCodigoId());
-		clone.setNombre(getNombre());
+		clone.setRUC(getRUC());
+		clone.setCodigoModular(getCodigoModular());
 
 		return clone;
 	}
@@ -344,7 +344,7 @@ public class InstitucionClp extends BaseModelImpl<Institucion>
 	public int compareTo(Institucion institucion) {
 		int value = 0;
 
-		value = getCodigoId().compareTo(institucion.getCodigoId());
+		value = getRUC().compareTo(institucion.getRUC());
 
 		if (value != 0) {
 			return value;
@@ -392,10 +392,10 @@ public class InstitucionClp extends BaseModelImpl<Institucion>
 		sb.append(getCreateDate());
 		sb.append(", modifiedDate=");
 		sb.append(getModifiedDate());
-		sb.append(", codigoId=");
-		sb.append(getCodigoId());
-		sb.append(", nombre=");
-		sb.append(getNombre());
+		sb.append(", RUC=");
+		sb.append(getRUC());
+		sb.append(", codigoModular=");
+		sb.append(getCodigoModular());
 		sb.append("}");
 
 		return sb.toString();
@@ -426,12 +426,12 @@ public class InstitucionClp extends BaseModelImpl<Institucion>
 		sb.append(getModifiedDate());
 		sb.append("]]></column-value></column>");
 		sb.append(
-			"<column><column-name>codigoId</column-name><column-value><![CDATA[");
-		sb.append(getCodigoId());
+			"<column><column-name>RUC</column-name><column-value><![CDATA[");
+		sb.append(getRUC());
 		sb.append("]]></column-value></column>");
 		sb.append(
-			"<column><column-name>nombre</column-name><column-value><![CDATA[");
-		sb.append(getNombre());
+			"<column><column-name>codigoModular</column-name><column-value><![CDATA[");
+		sb.append(getCodigoModular());
 		sb.append("]]></column-value></column>");
 
 		sb.append("</model>");
@@ -443,7 +443,7 @@ public class InstitucionClp extends BaseModelImpl<Institucion>
 	private long _companyId;
 	private Date _createDate;
 	private Date _modifiedDate;
-	private String _codigoId;
-	private String _nombre;
+	private String _RUC;
+	private String _codigoModular;
 	private BaseModel<?> _institucionRemoteModel;
 }

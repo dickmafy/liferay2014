@@ -135,7 +135,7 @@
 		<portlet-class>com.liferay.util.bridges.mvc.MVCPortlet</portlet-class>
 		<init-param>
 			<name>view-template</name>
-			<value>/html/institucion_educativa/admin/view.jsp</value>
+			<value>/html/institucion/admin/view.jsp</value>
 		</init-param>
 		<expiration-cache>0</expiration-cache>
 		<supports>
@@ -167,7 +167,7 @@
 		<portlet-class>com.liferay.util.bridges.mvc.MVCPortlet</portlet-class>
 		<init-param>
 			<name>view-template</name>
-			<value>/html/institucion_educativa/my/view.jsp</value>
+			<value>/html/institucion/my/view.jsp</value>
 		</init-param>
 		<expiration-cache>0</expiration-cache>
 		<supports>

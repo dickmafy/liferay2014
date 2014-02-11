@@ -13,36 +13,7 @@
 		<supports>
 			<mime-type>text/html</mime-type>
 		</supports>
-		<portlet-info>
-			<title>Modulo Marco</title>
-			<short-title>Modulo Marco</short-title>
-			<keywords>Modulo Marco</keywords>
-		</portlet-info>
-		<security-role-ref>
-			<role-name>administrator</role-name>
-		</security-role-ref>
-		<security-role-ref>
-			<role-name>guest</role-name>
-		</security-role-ref>
-		<security-role-ref>
-			<role-name>power-user</role-name>
-		</security-role-ref>
-		<security-role-ref>
-			<role-name>user</role-name>
-		</security-role-ref>
-	</portlet>
-	<portlet>
-		<portlet-name>cterminal02</portlet-name>
-		<display-name>Modulo Marco</display-name>
-		<portlet-class>com.liferay.util.bridges.mvc.MVCPortlet</portlet-class>
-		<init-param>
-			<name>view-template</name>
-			<value>/html/capacidad_terminal/edit.jsp</value>
-		</init-param>
-		<expiration-cache>0</expiration-cache>
-		<supports>
-			<mime-type>text/html</mime-type>
-		</supports>
+		<resource-bundle>content.Language</resource-bundle>
 		<portlet-info>
 			<title>Ver Capacidad Terminal</title>
 			<short-title>Ver Capacidad Terminal</short-title>
@@ -61,5 +32,168 @@
 			<role-name>user</role-name>
 		</security-role-ref>
 	</portlet>
+	<portlet>
+		<portlet-name>cterminal02</portlet-name>
+		<display-name>CUD Capacidad Terminal</display-name>
+		<portlet-class>com.liferay.util.bridges.mvc.MVCPortlet</portlet-class>
+		<init-param>
+			<name>view-template</name>
+			<value>/html/capacidad_terminal/edit.jsp</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+		<resource-bundle>content.Language</resource-bundle>
+		<portlet-info>
+			<title>CUD Capacidad Terminal</title>
+			<short-title>CUD Capacidad Terminal</short-title>
+			<keywords>CUD Capacidad Terminal</keywords>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+	<!-- FAMILIA PROFESIONAL VER -->
+	<portlet>
+		<portlet-name>familiaVer</portlet-name>
+		<display-name>Ver Familia Profesional</display-name>
+		<portlet-class>com.liferay.util.bridges.mvc.MVCPortlet</portlet-class>
+		<init-param>
+			<name>view-template</name>
+			<value>/html/familia_profesional/view/view.jsp</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+		<resource-bundle>content.Language</resource-bundle>
+		<portlet-info>
+			<title>Ver Familia Profesional</title>
+			<short-title>Ver Familia Profesional</short-title>
+			<keywords>Ver Familia Profesional</keywords>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+	
+	<!-- FAMILIA PROFESIONAL CUD -->
+	<portlet>
+		<portlet-name>familiaCUD</portlet-name>
+		<display-name>CUD Familia Profesional</display-name>
+		<portlet-class>pe.edu.aprolab.marco.portlet.FamiliaProfesionalPortlet</portlet-class>
+		<init-param>
+			<name>view-template</name>
+			<value>/html/familia_profesional/admin/view.jsp</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+		<resource-bundle>content.Language</resource-bundle>
+		<portlet-info>
+			<title>CUD Familia Profesional</title>
+			<short-title>CUD Familia Profesional</short-title>
+			<keywords>CUD Familia Profesional</keywords>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+	
+	<!-- CARRERA PROFESIONAL VER -->
+	<portlet>
+		<portlet-name>carreraProfesionalVer</portlet-name>
+		<display-name>Ver Carrera Profesional</display-name>
+		<portlet-class>com.liferay.util.bridges.mvc.MVCPortlet</portlet-class>
+		<init-param>
+			<name>view-template</name>
+			<value>/html/carrera_profesional/view/view.jsp</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+		<resource-bundle>content.Language</resource-bundle>
+		<portlet-info>
+			<title>Ver Carrera Profesional</title>
+			<short-title>Ver Carrera Profesional</short-title>
+			<keywords>Ver Ver Carrera Profesional</keywords>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+	
+	<!-- CARRERA PROFESIONAL CUD -->
+	<portlet>
+		<portlet-name>carreraProfesionalCUD</portlet-name>
+		<display-name>CUD Carrera Profesional</display-name>
+		<portlet-class>pe.edu.aprolab.marco.portlet.CarreraProfesionalPortlet</portlet-class>
+		<init-param>
+			<name>view-template</name>
+			<value>/html/carrera_profesional/admin/view.jsp</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+		<resource-bundle>content.Language</resource-bundle>
+		<portlet-info>
+			<title>CUD Ver Carrera Profesional</title>
+			<short-title>CUD Ver Carrera Profesional</short-title>
+			<keywords>CUD Ver Carrera Profesional</keywords>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+	
 	
 </portlet-app>

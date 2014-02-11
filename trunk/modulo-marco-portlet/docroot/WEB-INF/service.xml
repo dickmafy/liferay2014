@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.1.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_1_0.dtd">
+<service-builder package-path="pe.edu.aprolab.marco">
+	<author>Diego</author>
+	<namespace>marco</namespace>
+
+	<entity name="FamiliaProfesional" local-service="true" remote-service="false" >
+
+		<!-- PK fields -->
+
+		<column name="familiaProfesionalId" type="long" primary="true" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="nombre" type="String" />
+		<column name="descripcion" type="String" />
+		<column name="sector" type="int" />
+		<column name="estado" type="int" />
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="nombre" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="Nombre" return-type="Collection">
+			<finder-column name="nombre" />
+		</finder>
+	</entity>
+	
+	<entity name="CarreraProfesional" local-service="true" remote-service="false">
+
+		<!-- PK fields -->
+		<column name="carreraProfesionalorId" type="long" primary="true" />
+		
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+		
+		<!-- Clave foranea-->
+		<column name="familiaProfesionalId" type="long"  />
+		
+		
+		<!-- Basico Medio Superior -->
+		<column name="formacion" type="int" />
+		
+		<column name="nombre" type="String" />
+		<column name="descripcion" type="String" />
+		<column name="duracionFechaInicio" type="Date" />
+		<column name="duracionFechaFin" type="Date" />
+		<column name="estado" type="int" />
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="nombre" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="Nombre" return-type="Collection">
+			<finder-column name="nombre" />
+		</finder>
+	</entity>
+	
+</service-builder>

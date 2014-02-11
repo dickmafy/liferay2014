@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="pe.edu.aprolab.model.CarreraProfesional">
+		<field name="carreraProfesionalId" type="long" />
+		<field name="familiaId" type="long" />
+		<field name="formacion" type="int" />
+		<field name="nombre" type="String" />
+		<field name="descripcion" type="String" />
+		<field name="duracionFechaInicio" type="Date" />
+		<field name="duracionFechaFin" type="Date" />
+		<field name="estado" type="int" />
+	</model>
+	<model name="pe.edu.aprolab.model.FamiliaProfesional">
+		<field name="familiaId" type="long" />
+		<field name="nombre" type="String" />
+		<field name="descripcion" type="String" />
+		<field name="sector" type="int" />
+		<field name="estado" type="int" />
+	</model>
+	<model name="pe.edu.aprolab.marco.model.CarreraProfesional">
+		<field name="carreraProfesionalorId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="familiaProfesionalId" type="long" />
+		<field name="formacion" type="int" />
+		<field name="nombre" type="String" />
+		<field name="descripcion" type="String" />
+		<field name="duracionFechaInicio" type="Date" />
+		<field name="duracionFechaFin" type="Date" />
+		<field name="estado" type="int" />
+	</model>
+	<model name="pe.edu.aprolab.marco.model.FamiliaProfesional">
+		<field name="familiaProfesionalId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="nombre" type="String" />
+		<field name="descripcion" type="String" />
+		<field name="sector" type="int" />
+		<field name="estado" type="int" />
+	</model>
+</model-hints>

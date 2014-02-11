@@ -1,0 +1,41 @@
+
+	<liferay-ui:search-container-results
+		results="<%=misFamilias %>"
+		total="<%=totalFamilia %>"
+	/>
+		<liferay-ui:search-container-row
+			className="pe.edu.aprolab.marco.model.FamiliaProfesional"
+			keyProperty="familiaId"
+		 >
+			<liferay-ui:search-container-column-text
+				name="CODIGO"
+				property="familiaId"
+				valign="top"
+			/>
+			
+			<liferay-ui:search-container-column-text
+				name="NOMBRE"
+				property="nombre"
+				valign="top"
+			/>
+			
+			<liferay-ui:search-container-column-text
+				name="DESCRIPCION"
+				property="descripcion"
+				valign="top"
+			/>
+			
+			<liferay-ui:search-container-column-text
+				name="SECTOR"
+				property="sector"
+				valign="top"
+			/>
+			
+			<liferay-ui:search-container-column-text
+				name="ESTADO"
+				property="estado"
+				valign="top"
+			>
+			</liferay-ui:search-container-column-text>
+		</liferay-ui:search-container-row>
+	<liferay-ui:search-iterator />

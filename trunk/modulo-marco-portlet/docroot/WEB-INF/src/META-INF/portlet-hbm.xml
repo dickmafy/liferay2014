@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-lazy="false" auto-import="false">
+	<import class="pe.edu.aprolab.model.CarreraProfesional" />
+	<import class="pe.edu.aprolab.model.FamiliaProfesional" />
+	<import class="pe.edu.aprolab.marco.model.CarreraProfesional" />
+	<import class="pe.edu.aprolab.marco.model.FamiliaProfesional" />
+	<class name="pe.edu.aprolab.model.impl.CarreraProfesionalImpl" table="marco_CarreraProfesional">
+		<cache usage="read-write" />
+		<id name="carreraProfesionalId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="familiaId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="formacion" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="nombre" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="descripcion" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="duracionFechaInicio" type="org.hibernate.type.TimestampType" />
+		<property name="duracionFechaFin" type="org.hibernate.type.TimestampType" />
+		<property name="estado" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+	</class>
+	<class name="pe.edu.aprolab.model.impl.FamiliaProfesionalImpl" table="marco_FamiliaProfesional">
+		<cache usage="read-write" />
+		<id name="familiaId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="nombre" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="descripcion" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="sector" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="estado" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+	</class>
+	<class name="pe.edu.aprolab.marco.model.impl.CarreraProfesionalImpl" table="marco_CarreraProfesional">
+		<cache usage="read-write" />
+		<id name="carreraProfesionalorId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property name="familiaProfesionalId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="formacion" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="nombre" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="descripcion" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="duracionFechaInicio" type="org.hibernate.type.TimestampType" />
+		<property name="duracionFechaFin" type="org.hibernate.type.TimestampType" />
+		<property name="estado" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+	</class>
+	<class name="pe.edu.aprolab.marco.model.impl.FamiliaProfesionalImpl" table="marco_FamiliaProfesional">
+		<cache usage="read-write" />
+		<id name="familiaProfesionalId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property name="nombre" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="descripcion" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="sector" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="estado" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+	</class>
+</hibernate-mapping>

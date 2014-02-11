@@ -2,13 +2,52 @@
 <!DOCTYPE liferay-portlet-app PUBLIC "-//Liferay//DTD Portlet Application 6.2.0//EN" "http://www.liferay.com/dtd/liferay-portlet-app_6_2_0.dtd">
 
 <liferay-portlet-app>
+	<!-- CAPACIDAD TERMINAL -->
 	<portlet>
-		<portlet-name>modulo-marco</portlet-name>
+		<portlet-name>cterminal01</portlet-name>
 		<icon>/icon.png</icon>
 		<header-portlet-css>/css/main.css</header-portlet-css>
 		<footer-portlet-javascript>/js/main.js</footer-portlet-javascript>
-		<css-class-wrapper>modulo-marco-portlet</css-class-wrapper>
+		<css-class-wrapper>cterminal01-portlet</css-class-wrapper>
 	</portlet>
+	<portlet>
+		<portlet-name>cterminal02</portlet-name>
+		<icon>/icon.png</icon>
+		<header-portlet-css>/css/main.css</header-portlet-css>
+		<footer-portlet-javascript>/js/main.js</footer-portlet-javascript>
+		<css-class-wrapper>cterminal02-portlet</css-class-wrapper>
+	</portlet>
+	<!-- FAMILIA PROFESIONAL-->
+	<portlet>
+		<portlet-name>familiaVer</portlet-name>
+		<icon>/icon.png</icon>
+		<header-portlet-css>/css/main.css</header-portlet-css>
+		<footer-portlet-javascript>/js/main.js</footer-portlet-javascript>
+		<css-class-wrapper>familiaVer-portlet</css-class-wrapper>
+	</portlet>
+	<portlet>
+		<portlet-name>familiaCUD</portlet-name>
+		<icon>/icon.png</icon>
+		<header-portlet-css>/css/main.css</header-portlet-css>
+		<footer-portlet-javascript>/js/main.js</footer-portlet-javascript>
+		<css-class-wrapper>familiaCUD-portlet</css-class-wrapper>
+	</portlet>
+	<!-- CARRERA PROFESIONAL-->
+	<portlet>
+		<portlet-name>carreraProfesionalVer</portlet-name>
+		<icon>/icon.png</icon>
+		<header-portlet-css>/css/main.css</header-portlet-css>
+		<footer-portlet-javascript>/js/main.js</footer-portlet-javascript>
+		<css-class-wrapper>carreraProfesionalVer-portlet</css-class-wrapper>
+	</portlet>
+	<portlet>
+		<portlet-name>carreraProfesionalCUD</portlet-name>
+		<icon>/icon.png</icon>
+		<header-portlet-css>/css/main.css</header-portlet-css>
+		<footer-portlet-javascript>/js/main.js</footer-portlet-javascript>
+		<css-class-wrapper>carreraProfesionalCUD-portlet</css-class-wrapper>
+	</portlet>
+	
 	<role-mapper>
 		<role-name>administrator</role-name>
 		<role-link>Administrator</role-link>

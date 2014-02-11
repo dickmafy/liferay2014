@@ -1,0 +1,55 @@
+
+<%@page import="pe.edu.aprolab.marco.util.CarreraProfesionalPortletKeys"%>
+<liferay-ui:search-container-results
+		results="<%=lista %>"
+		total="<%=totalObjeto %>"
+	/>
+		<liferay-ui:search-container-row
+			className="pe.edu.aprolab.marco.model.CarreraProfesional"
+			keyProperty="carreraProfesionalId"
+		 >
+			<liferay-ui:search-container-column-text
+				name="CODIGO"
+				property="<%=CarreraProfesionalPortletKeys.ID %>"
+				valign="top"
+			/>
+			
+			<liferay-ui:search-container-column-text
+				name="NOMBRE"
+				property="<%=CarreraProfesionalPortletKeys.NOMBRE %>"
+				valign="top"
+			/>
+			
+			<liferay-ui:search-container-column-text
+				name="DESCRIPCION"
+				property="<%=CarreraProfesionalPortletKeys.DESCRIPCION %>"
+				valign="top"
+			/>
+			
+			<liferay-ui:search-container-column-text
+				name="FORMACION"
+				property="<%=CarreraProfesionalPortletKeys.FORMACION %>"
+				valign="top"
+			/>
+			
+			<liferay-ui:search-container-column-text
+				name="FECHA INICIO"
+				property="<%=CarreraProfesionalPortletKeys.DURACION_FECHA_INICIO %>"
+				valign="top"
+			/>
+			
+			<liferay-ui:search-container-column-text
+				name="FECHA FIN"
+				property="<%=CarreraProfesionalPortletKeys.DURACION_FECHA_FIN %>"
+				valign="top"
+			/>
+			
+			
+			<liferay-ui:search-container-column-text
+				name="ESTADO"
+				property="<%=CarreraProfesionalPortletKeys.ESTADO %>"
+				valign="top"
+			>
+			</liferay-ui:search-container-column-text>
+		</liferay-ui:search-container-row>
+	<liferay-ui:search-iterator />

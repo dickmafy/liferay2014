@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<bean id="pe.edu.aprolab.service.CarreraProfesionalLocalService" class="pe.edu.aprolab.service.impl.CarreraProfesionalLocalServiceImpl" />
+	<bean id="pe.edu.aprolab.service.CarreraProfesionalService" class="pe.edu.aprolab.service.impl.CarreraProfesionalServiceImpl" />
+	<bean id="pe.edu.aprolab.service.persistence.CarreraProfesionalPersistence" class="pe.edu.aprolab.service.persistence.CarreraProfesionalPersistenceImpl" parent="basePersistence" />
+	<bean id="pe.edu.aprolab.service.FamiliaProfesionalLocalService" class="pe.edu.aprolab.service.impl.FamiliaProfesionalLocalServiceImpl" />
+	<bean id="pe.edu.aprolab.service.FamiliaProfesionalService" class="pe.edu.aprolab.service.impl.FamiliaProfesionalServiceImpl" />
+	<bean id="pe.edu.aprolab.service.persistence.FamiliaProfesionalPersistence" class="pe.edu.aprolab.service.persistence.FamiliaProfesionalPersistenceImpl" parent="basePersistence" />
+	<bean id="pe.edu.aprolab.marco.service.CarreraProfesionalLocalService" class="pe.edu.aprolab.marco.service.impl.CarreraProfesionalLocalServiceImpl" />
+	<bean id="pe.edu.aprolab.marco.service.persistence.CarreraProfesionalPersistence" class="pe.edu.aprolab.marco.service.persistence.CarreraProfesionalPersistenceImpl" parent="basePersistence" />
+	<bean id="pe.edu.aprolab.marco.service.FamiliaProfesionalLocalService" class="pe.edu.aprolab.marco.service.impl.FamiliaProfesionalLocalServiceImpl" />
+	<bean id="pe.edu.aprolab.marco.service.persistence.FamiliaProfesionalPersistence" class="pe.edu.aprolab.marco.service.persistence.FamiliaProfesionalPersistenceImpl" parent="basePersistence" />
+</beans>

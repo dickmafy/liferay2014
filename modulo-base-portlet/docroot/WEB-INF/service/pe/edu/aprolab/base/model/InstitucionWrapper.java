@@ -344,6 +344,13 @@ public class InstitucionWrapper implements Institucion,
 	}
 
 	@Override
+	public com.liferay.portal.model.Group getUser()
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return _institucion.getUser();
+	}
+
+	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) {
 			return true;

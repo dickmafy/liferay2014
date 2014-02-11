@@ -324,6 +324,249 @@ public class InstitucionPersistenceImpl extends BasePersistenceImpl<Institucion>
 	private static final String _FINDER_COLUMN_RUC_RUC_1 = "institucion.RUC IS NULL";
 	private static final String _FINDER_COLUMN_RUC_RUC_2 = "institucion.RUC = ?";
 	private static final String _FINDER_COLUMN_RUC_RUC_3 = "(institucion.RUC IS NULL OR institucion.RUC = '')";
+	public static final FinderPath FINDER_PATH_FETCH_BY_CODIGOMODULAR = new FinderPath(InstitucionModelImpl.ENTITY_CACHE_ENABLED,
+			InstitucionModelImpl.FINDER_CACHE_ENABLED, InstitucionImpl.class,
+			FINDER_CLASS_NAME_ENTITY, "fetchByCodigoModular",
+			new String[] { String.class.getName() },
+			InstitucionModelImpl.CODIGOMODULAR_COLUMN_BITMASK);
+	public static final FinderPath FINDER_PATH_COUNT_BY_CODIGOMODULAR = new FinderPath(InstitucionModelImpl.ENTITY_CACHE_ENABLED,
+			InstitucionModelImpl.FINDER_CACHE_ENABLED, Long.class,
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countByCodigoModular",
+			new String[] { String.class.getName() });
+
+	/**
+	 * Returns the institucion where codigoModular = &#63; or throws a {@link pe.edu.aprolab.base.NoSuchInstitucionException} if it could not be found.
+	 *
+	 * @param codigoModular the codigo modular
+	 * @return the matching institucion
+	 * @throws pe.edu.aprolab.base.NoSuchInstitucionException if a matching institucion could not be found
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public Institucion findByCodigoModular(String codigoModular)
+		throws NoSuchInstitucionException, SystemException {
+		Institucion institucion = fetchByCodigoModular(codigoModular);
+
+		if (institucion == null) {
+			StringBundler msg = new StringBundler(4);
+
+			msg.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+			msg.append("codigoModular=");
+			msg.append(codigoModular);
+
+			msg.append(StringPool.CLOSE_CURLY_BRACE);
+
+			if (_log.isWarnEnabled()) {
+				_log.warn(msg.toString());
+			}
+
+			throw new NoSuchInstitucionException(msg.toString());
+		}
+
+		return institucion;
+	}
+
+	/**
+	 * Returns the institucion where codigoModular = &#63; or returns <code>null</code> if it could not be found. Uses the finder cache.
+	 *
+	 * @param codigoModular the codigo modular
+	 * @return the matching institucion, or <code>null</code> if a matching institucion could not be found
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public Institucion fetchByCodigoModular(String codigoModular)
+		throws SystemException {
+		return fetchByCodigoModular(codigoModular, true);
+	}
+
+	/**
+	 * Returns the institucion where codigoModular = &#63; or returns <code>null</code> if it could not be found, optionally using the finder cache.
+	 *
+	 * @param codigoModular the codigo modular
+	 * @param retrieveFromCache whether to use the finder cache
+	 * @return the matching institucion, or <code>null</code> if a matching institucion could not be found
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public Institucion fetchByCodigoModular(String codigoModular,
+		boolean retrieveFromCache) throws SystemException {
+		Object[] finderArgs = new Object[] { codigoModular };
+
+		Object result = null;
+
+		if (retrieveFromCache) {
+			result = FinderCacheUtil.getResult(FINDER_PATH_FETCH_BY_CODIGOMODULAR,
+					finderArgs, this);
+		}
+
+		if (result instanceof Institucion) {
+			Institucion institucion = (Institucion)result;
+
+			if (!Validator.equals(codigoModular, institucion.getCodigoModular())) {
+				result = null;
+			}
+		}
+
+		if (result == null) {
+			StringBundler query = new StringBundler(3);
+
+			query.append(_SQL_SELECT_INSTITUCION_WHERE);
+
+			boolean bindCodigoModular = false;
+
+			if (codigoModular == null) {
+				query.append(_FINDER_COLUMN_CODIGOMODULAR_CODIGOMODULAR_1);
+			}
+			else if (codigoModular.equals(StringPool.BLANK)) {
+				query.append(_FINDER_COLUMN_CODIGOMODULAR_CODIGOMODULAR_3);
+			}
+			else {
+				bindCodigoModular = true;
+
+				query.append(_FINDER_COLUMN_CODIGOMODULAR_CODIGOMODULAR_2);
+			}
+
+			String sql = query.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query q = session.createQuery(sql);
+
+				QueryPos qPos = QueryPos.getInstance(q);
+
+				if (bindCodigoModular) {
+					qPos.add(codigoModular);
+				}
+
+				List<Institucion> list = q.list();
+
+				if (list.isEmpty()) {
+					FinderCacheUtil.putResult(FINDER_PATH_FETCH_BY_CODIGOMODULAR,
+						finderArgs, list);
+				}
+				else {
+					Institucion institucion = list.get(0);
+
+					result = institucion;
+
+					cacheResult(institucion);
+
+					if ((institucion.getCodigoModular() == null) ||
+							!institucion.getCodigoModular().equals(codigoModular)) {
+						FinderCacheUtil.putResult(FINDER_PATH_FETCH_BY_CODIGOMODULAR,
+							finderArgs, institucion);
+					}
+				}
+			}
+			catch (Exception e) {
+				FinderCacheUtil.removeResult(FINDER_PATH_FETCH_BY_CODIGOMODULAR,
+					finderArgs);
+
+				throw processException(e);
+			}
+			finally {
+				closeSession(session);
+			}
+		}
+
+		if (result instanceof List<?>) {
+			return null;
+		}
+		else {
+			return (Institucion)result;
+		}
+	}
+
+	/**
+	 * Removes the institucion where codigoModular = &#63; from the database.
+	 *
+	 * @param codigoModular the codigo modular
+	 * @return the institucion that was removed
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public Institucion removeByCodigoModular(String codigoModular)
+		throws NoSuchInstitucionException, SystemException {
+		Institucion institucion = findByCodigoModular(codigoModular);
+
+		return remove(institucion);
+	}
+
+	/**
+	 * Returns the number of institucions where codigoModular = &#63;.
+	 *
+	 * @param codigoModular the codigo modular
+	 * @return the number of matching institucions
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public int countByCodigoModular(String codigoModular)
+		throws SystemException {
+		FinderPath finderPath = FINDER_PATH_COUNT_BY_CODIGOMODULAR;
+
+		Object[] finderArgs = new Object[] { codigoModular };
+
+		Long count = (Long)FinderCacheUtil.getResult(finderPath, finderArgs,
+				this);
+
+		if (count == null) {
+			StringBundler query = new StringBundler(2);
+
+			query.append(_SQL_COUNT_INSTITUCION_WHERE);
+
+			boolean bindCodigoModular = false;
+
+			if (codigoModular == null) {
+				query.append(_FINDER_COLUMN_CODIGOMODULAR_CODIGOMODULAR_1);
+			}
+			else if (codigoModular.equals(StringPool.BLANK)) {
+				query.append(_FINDER_COLUMN_CODIGOMODULAR_CODIGOMODULAR_3);
+			}
+			else {
+				bindCodigoModular = true;
+
+				query.append(_FINDER_COLUMN_CODIGOMODULAR_CODIGOMODULAR_2);
+			}
+
+			String sql = query.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query q = session.createQuery(sql);
+
+				QueryPos qPos = QueryPos.getInstance(q);
+
+				if (bindCodigoModular) {
+					qPos.add(codigoModular);
+				}
+
+				count = (Long)q.uniqueResult();
+
+				FinderCacheUtil.putResult(finderPath, finderArgs, count);
+			}
+			catch (Exception e) {
+				FinderCacheUtil.removeResult(finderPath, finderArgs);
+
+				throw processException(e);
+			}
+			finally {
+				closeSession(session);
+			}
+		}
+
+		return count.intValue();
+	}
+
+	private static final String _FINDER_COLUMN_CODIGOMODULAR_CODIGOMODULAR_1 = "institucion.codigoModular IS NULL";
+	private static final String _FINDER_COLUMN_CODIGOMODULAR_CODIGOMODULAR_2 = "institucion.codigoModular = ?";
+	private static final String _FINDER_COLUMN_CODIGOMODULAR_CODIGOMODULAR_3 = "(institucion.codigoModular IS NULL OR institucion.codigoModular = '')";
 	public static final FinderPath FINDER_PATH_WITH_PAGINATION_FIND_BY_COMPANYID =
 		new FinderPath(InstitucionModelImpl.ENTITY_CACHE_ENABLED,
 			InstitucionModelImpl.FINDER_CACHE_ENABLED, InstitucionImpl.class,
@@ -835,6 +1078,9 @@ public class InstitucionPersistenceImpl extends BasePersistenceImpl<Institucion>
 		FinderCacheUtil.putResult(FINDER_PATH_FETCH_BY_RUC,
 			new Object[] { institucion.getRUC() }, institucion);
 
+		FinderCacheUtil.putResult(FINDER_PATH_FETCH_BY_CODIGOMODULAR,
+			new Object[] { institucion.getCodigoModular() }, institucion);
+
 		institucion.resetOriginalValues();
 	}
 
@@ -916,6 +1162,13 @@ public class InstitucionPersistenceImpl extends BasePersistenceImpl<Institucion>
 				Long.valueOf(1));
 			FinderCacheUtil.putResult(FINDER_PATH_FETCH_BY_RUC, args,
 				institucion);
+
+			args = new Object[] { institucion.getCodigoModular() };
+
+			FinderCacheUtil.putResult(FINDER_PATH_COUNT_BY_CODIGOMODULAR, args,
+				Long.valueOf(1));
+			FinderCacheUtil.putResult(FINDER_PATH_FETCH_BY_CODIGOMODULAR, args,
+				institucion);
 		}
 		else {
 			InstitucionModelImpl institucionModelImpl = (InstitucionModelImpl)institucion;
@@ -928,6 +1181,16 @@ public class InstitucionPersistenceImpl extends BasePersistenceImpl<Institucion>
 					Long.valueOf(1));
 				FinderCacheUtil.putResult(FINDER_PATH_FETCH_BY_RUC, args,
 					institucion);
+			}
+
+			if ((institucionModelImpl.getColumnBitmask() &
+					FINDER_PATH_FETCH_BY_CODIGOMODULAR.getColumnBitmask()) != 0) {
+				Object[] args = new Object[] { institucion.getCodigoModular() };
+
+				FinderCacheUtil.putResult(FINDER_PATH_COUNT_BY_CODIGOMODULAR,
+					args, Long.valueOf(1));
+				FinderCacheUtil.putResult(FINDER_PATH_FETCH_BY_CODIGOMODULAR,
+					args, institucion);
 			}
 		}
 	}
@@ -946,6 +1209,21 @@ public class InstitucionPersistenceImpl extends BasePersistenceImpl<Institucion>
 
 			FinderCacheUtil.removeResult(FINDER_PATH_COUNT_BY_RUC, args);
 			FinderCacheUtil.removeResult(FINDER_PATH_FETCH_BY_RUC, args);
+		}
+
+		args = new Object[] { institucion.getCodigoModular() };
+
+		FinderCacheUtil.removeResult(FINDER_PATH_COUNT_BY_CODIGOMODULAR, args);
+		FinderCacheUtil.removeResult(FINDER_PATH_FETCH_BY_CODIGOMODULAR, args);
+
+		if ((institucionModelImpl.getColumnBitmask() &
+				FINDER_PATH_FETCH_BY_CODIGOMODULAR.getColumnBitmask()) != 0) {
+			args = new Object[] { institucionModelImpl.getOriginalCodigoModular() };
+
+			FinderCacheUtil.removeResult(FINDER_PATH_COUNT_BY_CODIGOMODULAR,
+				args);
+			FinderCacheUtil.removeResult(FINDER_PATH_FETCH_BY_CODIGOMODULAR,
+				args);
 		}
 	}
 

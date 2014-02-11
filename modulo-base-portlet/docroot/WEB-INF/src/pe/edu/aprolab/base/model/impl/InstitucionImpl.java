@@ -14,6 +14,12 @@
 
 package pe.edu.aprolab.base.model.impl;
 
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.model.Group;
+import com.liferay.portal.service.GroupLocalServiceUtil;
+
+
 /**
  * The extended model implementation for the Institucion service. Represents a row in the &quot;BASE_Institucion&quot; database table, with each column mapped to a property of this class.
  *
@@ -30,5 +36,9 @@ public class InstitucionImpl extends InstitucionBaseImpl {
 	 * Never reference this class directly. All methods that expect a institucion model instance should use the {@link pe.edu.aprolab.base.model.Institucion} interface instead.
 	 */
 	public InstitucionImpl() {
+	}
+	
+	public Group getUser() throws PortalException, SystemException{
+		return GroupLocalServiceUtil.getGroup(getInstitucionId());
 	}
 }

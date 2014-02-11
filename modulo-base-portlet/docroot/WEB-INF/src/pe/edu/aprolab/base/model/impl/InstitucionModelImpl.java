@@ -88,7 +88,8 @@ public class InstitucionModelImpl extends BaseModelImpl<Institucion>
 				"value.object.column.bitmask.enabled.pe.edu.aprolab.base.model.Institucion"),
 			true);
 	public static long RUC_COLUMN_BITMASK = 1L;
-	public static long COMPANYID_COLUMN_BITMASK = 2L;
+	public static long CODIGOMODULAR_COLUMN_BITMASK = 2L;
+	public static long COMPANYID_COLUMN_BITMASK = 4L;
 
 	/**
 	 * Converts the soap model instance into a normal model instance.
@@ -317,7 +318,17 @@ public class InstitucionModelImpl extends BaseModelImpl<Institucion>
 
 	@Override
 	public void setCodigoModular(String codigoModular) {
+		_columnBitmask |= CODIGOMODULAR_COLUMN_BITMASK;
+
+		if (_originalCodigoModular == null) {
+			_originalCodigoModular = _codigoModular;
+		}
+
 		_codigoModular = codigoModular;
+	}
+
+	public String getOriginalCodigoModular() {
+		return GetterUtil.getString(_originalCodigoModular);
 	}
 
 	public long getColumnBitmask() {
@@ -412,6 +423,8 @@ public class InstitucionModelImpl extends BaseModelImpl<Institucion>
 		institucionModelImpl._setOriginalCompanyId = false;
 
 		institucionModelImpl._originalRUC = institucionModelImpl._RUC;
+
+		institucionModelImpl._originalCodigoModular = institucionModelImpl._codigoModular;
 
 		institucionModelImpl._columnBitmask = 0;
 	}
@@ -533,6 +546,7 @@ public class InstitucionModelImpl extends BaseModelImpl<Institucion>
 	private String _RUC;
 	private String _originalRUC;
 	private String _codigoModular;
+	private String _originalCodigoModular;
 	private long _columnBitmask;
 	private Institucion _escapedModel;
 }

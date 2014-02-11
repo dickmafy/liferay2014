@@ -261,6 +261,25 @@ public class InstitucionClp extends BaseModelImpl<Institucion>
 		}
 	}
 
+	@Override
+	public com.liferay.portal.model.Group getUser() {
+		try {
+			String methodName = "getUser";
+
+			Class<?>[] parameterTypes = new Class<?>[] {  };
+
+			Object[] parameterValues = new Object[] {  };
+
+			com.liferay.portal.model.Group returnObj = (com.liferay.portal.model.Group)invokeOnRemoteModel(methodName,
+					parameterTypes, parameterValues);
+
+			return returnObj;
+		}
+		catch (Exception e) {
+			throw new UnsupportedOperationException(e);
+		}
+	}
+
 	public BaseModel<?> getInstitucionRemoteModel() {
 		return _institucionRemoteModel;
 	}

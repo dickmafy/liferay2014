@@ -31,4 +31,7 @@ public interface Institucion extends InstitucionModel, PersistedModel {
 	 *
 	 * Never modify this interface directly. Add methods to {@link pe.edu.aprolab.base.model.impl.InstitucionImpl} and rerun ServiceBuilder to automatically copy the method declarations to this interface.
 	 */
+	public com.liferay.portal.model.Group getUser()
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException;
 }

@@ -287,6 +287,22 @@ public class InstitucionLocalServiceWrapper implements InstitucionLocalService,
 			arguments);
 	}
 
+	@Override
+	public boolean isInstitucion(com.liferay.portal.model.Group group)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return _institucionLocalService.isInstitucion(group);
+	}
+
+	@Override
+	public pe.edu.aprolab.base.model.Institucion setInstitucion(
+		com.liferay.portal.model.Group group, java.lang.String RUC,
+		java.lang.String codigoModular)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return _institucionLocalService.setInstitucion(group, RUC, codigoModular);
+	}
+
 	/**
 	 * @deprecated As of 6.1.0, replaced by {@link #getWrappedService}
 	 */

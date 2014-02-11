@@ -14,6 +14,12 @@
 
 package pe.edu.aprolab.base.service.impl;
 
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.model.Group;
+
+import pe.edu.aprolab.base.NoSuchInstitucionException;
+import pe.edu.aprolab.base.model.Institucion;
 import pe.edu.aprolab.base.service.base.InstitucionLocalServiceBaseImpl;
 
 /**
@@ -36,4 +42,26 @@ public class InstitucionLocalServiceImpl extends InstitucionLocalServiceBaseImpl
 	 *
 	 * Never reference this interface directly. Always use {@link pe.edu.aprolab.base.service.InstitucionLocalServiceUtil} to access the institucion local service.
 	 */
+	
+	public boolean isInstitucion(Group group) throws SystemException, PortalException{
+		try{
+			institucionLocalService.getInstitucion(group.getGroupId());
+			return true;
+		}catch(NoSuchInstitucionException e){
+			return false;
+		}
+	}
+	
+	public Institucion setInstitucion(Group group ,String RUC, String codigoModular) throws SystemException, PortalException{
+		Institucion institucion = null;
+		try{
+			institucion = institucionLocalService.getInstitucion(group.getGroupId());
+		}catch(NoSuchInstitucionException e){
+			institucion = institucionLocalService.createInstitucion(group.getGroupId());
+		}
+		institucion.setRUC(RUC);
+		institucion.setCodigoModular(codigoModular);
+		institucion.persist();
+		return institucion;
+	}
 }

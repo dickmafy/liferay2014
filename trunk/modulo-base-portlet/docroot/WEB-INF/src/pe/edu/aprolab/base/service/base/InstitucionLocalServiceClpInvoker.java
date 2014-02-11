@@ -113,6 +113,17 @@ public class InstitucionLocalServiceClpInvoker {
 		_methodName41 = "setBeanIdentifier";
 
 		_methodParameterTypes41 = new String[] { "java.lang.String" };
+
+		_methodName46 = "isInstitucion";
+
+		_methodParameterTypes46 = new String[] { "com.liferay.portal.model.Group" };
+
+		_methodName47 = "setInstitucion";
+
+		_methodParameterTypes47 = new String[] {
+				"com.liferay.portal.model.Group", "java.lang.String",
+				"java.lang.String"
+			};
 	}
 
 	public Object invokeMethod(String name, String[] parameterTypes,
@@ -216,6 +227,17 @@ public class InstitucionLocalServiceClpInvoker {
 			return null;
 		}
 
+		if (_methodName46.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes46, parameterTypes)) {
+			return InstitucionLocalServiceUtil.isInstitucion((com.liferay.portal.model.Group)arguments[0]);
+		}
+
+		if (_methodName47.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes47, parameterTypes)) {
+			return InstitucionLocalServiceUtil.setInstitucion((com.liferay.portal.model.Group)arguments[0],
+				(java.lang.String)arguments[1], (java.lang.String)arguments[2]);
+		}
+
 		throw new UnsupportedOperationException();
 	}
 
@@ -255,4 +277,8 @@ public class InstitucionLocalServiceClpInvoker {
 	private String[] _methodParameterTypes40;
 	private String _methodName41;
 	private String[] _methodParameterTypes41;
+	private String _methodName46;
+	private String[] _methodParameterTypes46;
+	private String _methodName47;
+	private String[] _methodParameterTypes47;
 }

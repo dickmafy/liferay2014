@@ -30,6 +30,10 @@
 			<finder-column name="RUC"/>
 		</finder>
 		
+		<finder name="CodigoModular" return-type="Institucion" unique="true">
+			<finder-column name="codigoModular"/>
+		</finder>
+		
 		<finder name="CompanyId" return-type="Collection" >
 			<finder-column name="companyId"/>
 		</finder>

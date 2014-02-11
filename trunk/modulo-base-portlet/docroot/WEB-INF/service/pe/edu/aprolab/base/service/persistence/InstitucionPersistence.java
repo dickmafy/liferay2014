@@ -95,6 +95,64 @@ public interface InstitucionPersistence extends BasePersistence<Institucion> {
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
+	* Returns the institucion where codigoModular = &#63; or throws a {@link pe.edu.aprolab.base.NoSuchInstitucionException} if it could not be found.
+	*
+	* @param codigoModular the codigo modular
+	* @return the matching institucion
+	* @throws pe.edu.aprolab.base.NoSuchInstitucionException if a matching institucion could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public pe.edu.aprolab.base.model.Institucion findByCodigoModular(
+		java.lang.String codigoModular)
+		throws com.liferay.portal.kernel.exception.SystemException,
+			pe.edu.aprolab.base.NoSuchInstitucionException;
+
+	/**
+	* Returns the institucion where codigoModular = &#63; or returns <code>null</code> if it could not be found. Uses the finder cache.
+	*
+	* @param codigoModular the codigo modular
+	* @return the matching institucion, or <code>null</code> if a matching institucion could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public pe.edu.aprolab.base.model.Institucion fetchByCodigoModular(
+		java.lang.String codigoModular)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* Returns the institucion where codigoModular = &#63; or returns <code>null</code> if it could not be found, optionally using the finder cache.
+	*
+	* @param codigoModular the codigo modular
+	* @param retrieveFromCache whether to use the finder cache
+	* @return the matching institucion, or <code>null</code> if a matching institucion could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public pe.edu.aprolab.base.model.Institucion fetchByCodigoModular(
+		java.lang.String codigoModular, boolean retrieveFromCache)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* Removes the institucion where codigoModular = &#63; from the database.
+	*
+	* @param codigoModular the codigo modular
+	* @return the institucion that was removed
+	* @throws SystemException if a system exception occurred
+	*/
+	public pe.edu.aprolab.base.model.Institucion removeByCodigoModular(
+		java.lang.String codigoModular)
+		throws com.liferay.portal.kernel.exception.SystemException,
+			pe.edu.aprolab.base.NoSuchInstitucionException;
+
+	/**
+	* Returns the number of institucions where codigoModular = &#63;.
+	*
+	* @param codigoModular the codigo modular
+	* @return the number of matching institucions
+	* @throws SystemException if a system exception occurred
+	*/
+	public int countByCodigoModular(java.lang.String codigoModular)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
 	* Returns all the institucions where companyId = &#63;.
 	*
 	* @param companyId the company ID

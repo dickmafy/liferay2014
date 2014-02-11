@@ -248,4 +248,15 @@ public interface InstitucionLocalService extends BaseLocalService,
 	public java.lang.Object invokeMethod(java.lang.String name,
 		java.lang.String[] parameterTypes, java.lang.Object[] arguments)
 		throws java.lang.Throwable;
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public boolean isInstitucion(com.liferay.portal.model.Group group)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException;
+
+	public pe.edu.aprolab.base.model.Institucion setInstitucion(
+		com.liferay.portal.model.Group group, java.lang.String RUC,
+		java.lang.String codigoModular)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException;
 }

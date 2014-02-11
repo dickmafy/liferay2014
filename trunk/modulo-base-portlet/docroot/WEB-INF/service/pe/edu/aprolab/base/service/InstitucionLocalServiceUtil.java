@@ -275,6 +275,20 @@ public class InstitucionLocalServiceUtil {
 		return getService().invokeMethod(name, parameterTypes, arguments);
 	}
 
+	public static boolean isInstitucion(com.liferay.portal.model.Group group)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return getService().isInstitucion(group);
+	}
+
+	public static pe.edu.aprolab.base.model.Institucion setInstitucion(
+		com.liferay.portal.model.Group group, java.lang.String RUC,
+		java.lang.String codigoModular)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return getService().setInstitucion(group, RUC, codigoModular);
+	}
+
 	public static void clearService() {
 		_service = null;
 	}

@@ -1,39 +1,40 @@
 
-	<liferay-ui:search-container-results
-		results="<%=misFamilias %>"
-		total="<%=totalFamilia %>"
+	<%@page import="pe.edu.aprolab.marco.util.FamiliaProfesionalPortletKeys"%>
+<liferay-ui:search-container-results
+		results="<%=lista %>"
+		total="<%=totalLista %>"
 	/>
 		<liferay-ui:search-container-row
 			className="pe.edu.aprolab.marco.model.FamiliaProfesional"
-			keyProperty="familiaId"
+			keyProperty="<%=FamiliaProfesionalPortletKeys.CODIGO_ID %>"
 		 >
 			<liferay-ui:search-container-column-text
 				name="CODIGO"
-				property="familiaId"
+				property="<%=FamiliaProfesionalPortletKeys.CODIGO_ID %>"
 				valign="top"
 			/>
 			
 			<liferay-ui:search-container-column-text
 				name="NOMBRE"
-				property="nombre"
+				property="<%=FamiliaProfesionalPortletKeys.NOMBRE %>"
 				valign="top"
 			/>
 			
 			<liferay-ui:search-container-column-text
 				name="DESCRIPCION"
-				property="descripcion"
+				property="<%=FamiliaProfesionalPortletKeys.DESCRIPCION %>"
 				valign="top"
 			/>
 			
 			<liferay-ui:search-container-column-text
 				name="SECTOR"
-				property="sector"
+				property="<%=FamiliaProfesionalPortletKeys.SECTOR %>"
 				valign="top"
 			/>
 			
 			<liferay-ui:search-container-column-text
 				name="ESTADO"
-				property="estado"
+				property="<%=FamiliaProfesionalPortletKeys.ESTADO %>"
 				valign="top"
 			>
 			</liferay-ui:search-container-column-text>

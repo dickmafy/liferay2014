@@ -2,7 +2,7 @@
 <!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.1.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_1_0.dtd">
 <service-builder package-path="pe.edu.aprolab.marco">
 	<author>Diego</author>
-	<namespace>marco</namespace>
+	<namespace>MARCO</namespace>
 
 	<entity name="FamiliaProfesional" local-service="true" remote-service="false" >
 
@@ -41,7 +41,7 @@
 	<entity name="CarreraProfesional" local-service="true" remote-service="false">
 
 		<!-- PK fields -->
-		<column name="carreraProfesionalorId" type="long" primary="true" />
+		<column name="carreraProfesionalId" type="long" primary="true" />
 		
 		<!-- Audit fields -->
 

@@ -14,6 +14,8 @@
 
 package pe.edu.aprolab.marco.service.impl;
 
+import java.util.Date;
+
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 
@@ -44,18 +46,25 @@ public class CarreraProfesionalLocalServiceImpl
 	
 	public CarreraProfesional addCarreraProfesional
 	(
-	long companyId, String nombre,String descripcion,Integer formacion ,Integer estado
+	long companyId, String nombre,String descripcion,Integer formacion,
+	Date duracionFechaInicio,Date duracionFechaFin,Integer estado
 	) throws SystemException, PortalException
 	
 	{
-	CarreraProfesional object = carreraProfesionalLocalService.createCarreraProfesional(counterLocalService.increment(CarreraProfesional.class.getName()));
-	object.setCompanyId(companyId);
-	object.setNombre(nombre);
-	object.setDescripcion(descripcion);
-	object.setFormacion(formacion);
-	object.setEstado(1);
-	object.persist();
-	return object;
+	CarreraProfesional objeto = carreraProfesionalLocalService.createCarreraProfesional(counterLocalService.increment(CarreraProfesional.class.getName()));
+	objeto.setCompanyId(companyId);
+	objeto.setNombre(nombre);
+	objeto.setDescripcion(descripcion);
+	objeto.setFormacion(formacion);
+	
+	objeto.setDuracionFechaInicio(duracionFechaInicio);
+	objeto.setDuracionFechaFin(duracionFechaFin);
+
+	objeto.setEstado(1);
+	objeto.persist();
+	return objeto;
 	}
+
+	
 	
 }

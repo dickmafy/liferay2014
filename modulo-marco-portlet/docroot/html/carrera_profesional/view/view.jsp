@@ -3,7 +3,7 @@ LISTADO CARRERA PROFESIONAL
   <liferay-ui:search-container>      
 <% 
 List<CarreraProfesional> lista= CarreraProfesionalLocalServiceUtil.getCarreraProfesionals(searchContainer.getStart(), searchContainer.getEnd());
-int totalObjeto = CarreraProfesionalLocalServiceUtil.getCarreraProfesionalsCount();
+int totalLista = CarreraProfesionalLocalServiceUtil.getCarreraProfesionalsCount();
 %>
 
 <%@include file="/html/carrera_profesional/contenedor.jspf" %>

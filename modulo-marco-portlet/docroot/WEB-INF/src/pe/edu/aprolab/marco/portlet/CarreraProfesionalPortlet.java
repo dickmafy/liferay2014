@@ -1,5 +1,9 @@
 package pe.edu.aprolab.marco.portlet;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
 
@@ -20,14 +24,18 @@ public class CarreraProfesionalPortlet  extends MVCPortlet{
 		ThemeDisplay themeDisplay = (ThemeDisplay)actionRequest.getAttribute(
 			WebKeys.THEME_DISPLAY);
 		
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-M-yyyy");
 		
 		String nombre = ParamUtil.getString(actionRequest, CarreraProfesionalPortletKeys.NOMBRE);
 		String descripcion = ParamUtil.getString(actionRequest, CarreraProfesionalPortletKeys.DESCRIPCION);
 		Integer formacion = ParamUtil.getInteger(actionRequest, CarreraProfesionalPortletKeys.FORMACION);
 		Integer estado = ParamUtil.getInteger(actionRequest, CarreraProfesionalPortletKeys.ESTADO);		
+		Date duracionFechaInicio = ParamUtil.getDate(actionRequest, CarreraProfesionalPortletKeys.DURACION_FECHA_INICIO,dateFormat);		
+		Date duracionFechaFin = ParamUtil.getDate(actionRequest, CarreraProfesionalPortletKeys.DURACION_FECHA_FIN,dateFormat);		
+		
 		
 		CarreraProfesionalLocalServiceUtil
-		.addCarreraProfesional(themeDisplay.getCompanyId(), nombre, descripcion, formacion, estado);
+		.addCarreraProfesional(themeDisplay.getCompanyId(), nombre, descripcion, formacion, duracionFechaInicio,duracionFechaFin,estado);
 		
 	}
 	

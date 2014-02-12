@@ -1,15 +1,16 @@
 
-<%@page import="pe.edu.aprolab.marco.util.CarreraProfesionalPortletKeys"%>
 <liferay-ui:search-container-results
 		results="<%=lista %>"
-		total="<%=totalObjeto %>"
+		total="<%=totalLista %>"
 	/>
+	
 		<liferay-ui:search-container-row
-			className="pe.edu.aprolab.marco.model.CarreraProfesional"
-			keyProperty="carreraProfesionalId"
-		 >
+			className="CarreraProfesional"
+			keyProperty="<%=CarreraProfesionalPortletKeys.ID %>"
+			modelVar="item">
+		 
 			<liferay-ui:search-container-column-text
-				name="CODIGO"
+				name="CODIGO Carrera Profesional"
 				property="<%=CarreraProfesionalPortletKeys.ID %>"
 				valign="top"
 			/>
@@ -34,13 +35,12 @@
 			
 			<liferay-ui:search-container-column-text
 				name="FECHA INICIO"
-				property="<%=CarreraProfesionalPortletKeys.DURACION_FECHA_INICIO %>"
-				valign="top"
+				value="<%=formatoFecha.format(item.getDuracionFechaInicio()) %>"  
 			/>
 			
 			<liferay-ui:search-container-column-text
 				name="FECHA FIN"
-				property="<%=CarreraProfesionalPortletKeys.DURACION_FECHA_FIN %>"
+				value="<%=formatoFecha.format(item.getDuracionFechaFin()) %>"  
 				valign="top"
 			/>
 			

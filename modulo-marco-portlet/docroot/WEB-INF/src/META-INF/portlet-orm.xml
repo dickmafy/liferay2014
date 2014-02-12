@@ -7,40 +7,9 @@
 			<access>PROPERTY</access>
 		</persistence-unit-defaults>
 	</persistence-unit-metadata>
-	<mapped-superclass class="pe.edu.aprolab.model.impl.CarreraProfesionalModelImpl">
-		<attributes>
-			<id name="carreraProfesionalId" />
-			<basic name="familiaId" />
-			<basic name="formacion" />
-			<basic name="nombre" />
-			<basic name="descripcion" />
-			<basic name="duracionFechaInicio">
-				<temporal>TIMESTAMP</temporal>
-			</basic>
-			<basic name="duracionFechaFin">
-				<temporal>TIMESTAMP</temporal>
-			</basic>
-			<basic name="estado" />
-			<transient name="modelAttributes" />
-			<transient name="primaryKey" />
-			<transient name="primaryKeyObj" />
-		</attributes>
-	</mapped-superclass>
-	<mapped-superclass class="pe.edu.aprolab.model.impl.FamiliaProfesionalModelImpl">
-		<attributes>
-			<id name="familiaId" />
-			<basic name="nombre" />
-			<basic name="descripcion" />
-			<basic name="sector" />
-			<basic name="estado" />
-			<transient name="modelAttributes" />
-			<transient name="primaryKey" />
-			<transient name="primaryKeyObj" />
-		</attributes>
-	</mapped-superclass>
 	<mapped-superclass class="pe.edu.aprolab.marco.model.impl.CarreraProfesionalModelImpl">
 		<attributes>
-			<id name="carreraProfesionalorId" />
+			<id name="carreraProfesionalId" />
 			<basic name="companyId" />
 			<basic name="userId" />
 			<basic name="userName" />
@@ -89,20 +58,12 @@
 			<transient name="userUuid" />
 		</attributes>
 	</mapped-superclass>
-	<entity class="pe.edu.aprolab.model.impl.CarreraProfesionalImpl" name="CarreraProfesional">
-		<table name="marco_CarreraProfesional" />
-		<attributes />
-	</entity>
-	<entity class="pe.edu.aprolab.model.impl.FamiliaProfesionalImpl" name="FamiliaProfesional">
-		<table name="marco_FamiliaProfesional" />
-		<attributes />
-	</entity>
 	<entity class="pe.edu.aprolab.marco.model.impl.CarreraProfesionalImpl" name="CarreraProfesional">
-		<table name="marco_CarreraProfesional" />
+		<table name="MARCO_CarreraProfesional" />
 		<attributes />
 	</entity>
 	<entity class="pe.edu.aprolab.marco.model.impl.FamiliaProfesionalImpl" name="FamiliaProfesional">
-		<table name="marco_FamiliaProfesional" />
+		<table name="MARCO_FamiliaProfesional" />
 		<attributes />
 	</entity>
 </entity-mappings>

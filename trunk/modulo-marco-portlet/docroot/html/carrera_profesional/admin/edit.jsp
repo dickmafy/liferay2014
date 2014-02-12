@@ -28,10 +28,6 @@
 <div class="row-fluid">
 	<aui:fieldset cssClass="span6">
 		
-		<aui:input label="PK FAMILIA" name="<%=CarreraProfesionalPortletKeys.PK_FAMILIA_PROFESIONAL_ID%>" >
-			<aui:validator name="required" />
-		</aui:input>
-		
 		<aui:input label="NOMBRE" name="<%=CarreraProfesionalPortletKeys.NOMBRE%>" >
 			<aui:validator name="required" />
 		</aui:input>
@@ -41,15 +37,20 @@
 		</aui:input>
 		
 		<aui:input label="FORMACION" name="<%=CarreraProfesionalPortletKeys.FORMACION%>" >
-
-		</aui:input>
-		<aui:input label="FECHA INICIO" name="<%=CarreraProfesionalPortletKeys.DURACION_FECHA_INICIO%>" >
-		
-		</aui:input>
-		<aui:input label="FECHA FIN" name="<%=CarreraProfesionalPortletKeys.DURACION_FECHA_FIN%>" >
-			
 		</aui:input>
 		
+		<liferay-ui:message key="Duracion Fecha Inicio"  ></liferay-ui:message>
+		<liferay-ui:input-date formName="date" 
+		 yearValue="2010" monthValue="3" dayValue="21"
+            dayParam="d1" monthParam="m1" yearParam="y1" 
+            name="<%=CarreraProfesionalPortletKeys.DURACION_FECHA_INICIO%>" />
+        <br/>
+        <liferay-ui:message key="Duracion Fecha Fin"  ></liferay-ui:message>
+        <liferay-ui:input-date formName="date" 
+			 yearValue="2010" monthValue="3" dayValue="21"
+            dayParam="d1" monthParam="m1" yearParam="y1"
+            name="<%=CarreraProfesionalPortletKeys.DURACION_FECHA_FIN%>" />
+          
 		<aui:input label="ESTADO" name="<%=CarreraProfesionalPortletKeys.ESTADO%>" >
 			
 		</aui:input>

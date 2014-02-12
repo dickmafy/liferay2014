@@ -23,7 +23,7 @@
 <strong><liferay-ui:message key="Registrar Familia Profesional" /></strong>
 
 
-<aui:form name="addNuevoLocal" action="<%=addFamilia%>" method="post">
+<aui:form name="addFamilia" action="<%=addFamilia%>" method="post">
 <div class="row-fluid">
 	<aui:fieldset cssClass="span6">
 		

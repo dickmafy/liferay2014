@@ -27,8 +27,7 @@
 <%@ page import="com.liferay.portal.kernel.util.Constants" %>
 <%@ page import="com.liferay.portal.kernel.util.ParamUtil" %>
 <%@ page import="com.liferay.portal.kernel.util.WebKeys" %>
-<%@ page import="javax.portlet.PortletURL" %>
-<%@page import="javax.portlet.WindowState"%>
+<%@ page import="javax.portlet.WindowState"%>
 <%@page import="java.util.List"%>
 <%@page import="com.liferay.portal.kernel.dao.orm.QueryUtil"%>
 <%@page import="javax.portlet.WindowState"%>
@@ -39,6 +38,10 @@
 <!-- Modelo -->
 <%@page import="pe.edu.aprolab.marco.model.CarreraProfesional"%>
 <%@page import="pe.edu.aprolab.marco.util.CarreraProfesionalPortletKeys"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%
+SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
+%>
 
 
 

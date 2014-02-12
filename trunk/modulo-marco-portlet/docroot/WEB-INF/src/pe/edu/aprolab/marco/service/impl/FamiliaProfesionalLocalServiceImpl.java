@@ -47,14 +47,14 @@ public class FamiliaProfesionalLocalServiceImpl
 	long companyId, String nombre,String descripcion,Integer sector ,Integer estado
 	) throws SystemException, PortalException
 	{
-	FamiliaProfesional familia = familiaProfesionalPersistence.create(counterLocalService.increment(FamiliaProfesional.class.getName()));
-	familia.setCompanyId(companyId);
-	familia.setNombre(nombre);
-	familia.setDescripcion(descripcion);
-	familia.setSector(sector);
-	familia.setEstado(1);
-	familia.persist();
+	FamiliaProfesional objeto = familiaProfesionalPersistence.create(counterLocalService.increment(FamiliaProfesional.class.getName()));
+	objeto.setCompanyId(companyId);
+	objeto.setNombre(nombre);
+	objeto.setDescripcion(descripcion);
+	objeto.setSector(sector);
+	objeto.setEstado(1);
+	objeto.persist();
 	
-	return familia;
+	return objeto;
 	}
 }

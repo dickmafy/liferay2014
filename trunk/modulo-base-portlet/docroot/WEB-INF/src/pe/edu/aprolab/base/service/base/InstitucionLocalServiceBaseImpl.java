@@ -36,6 +36,7 @@ import pe.edu.aprolab.base.model.Institucion;
 import pe.edu.aprolab.base.service.InstitucionLocalService;
 import pe.edu.aprolab.base.service.persistence.FormacionPersistence;
 import pe.edu.aprolab.base.service.persistence.InstitucionPersistence;
+import pe.edu.aprolab.base.service.persistence.LocalPersistence;
 
 import java.io.Serializable;
 
@@ -397,6 +398,62 @@ public abstract class InstitucionLocalServiceBaseImpl
 	}
 
 	/**
+	 * Returns the local local service.
+	 *
+	 * @return the local local service
+	 */
+	public pe.edu.aprolab.base.service.LocalLocalService getLocalLocalService() {
+		return localLocalService;
+	}
+
+	/**
+	 * Sets the local local service.
+	 *
+	 * @param localLocalService the local local service
+	 */
+	public void setLocalLocalService(
+		pe.edu.aprolab.base.service.LocalLocalService localLocalService) {
+		this.localLocalService = localLocalService;
+	}
+
+	/**
+	 * Returns the local remote service.
+	 *
+	 * @return the local remote service
+	 */
+	public pe.edu.aprolab.base.service.LocalService getLocalService() {
+		return localService;
+	}
+
+	/**
+	 * Sets the local remote service.
+	 *
+	 * @param localService the local remote service
+	 */
+	public void setLocalService(
+		pe.edu.aprolab.base.service.LocalService localService) {
+		this.localService = localService;
+	}
+
+	/**
+	 * Returns the local persistence.
+	 *
+	 * @return the local persistence
+	 */
+	public LocalPersistence getLocalPersistence() {
+		return localPersistence;
+	}
+
+	/**
+	 * Sets the local persistence.
+	 *
+	 * @param localPersistence the local persistence
+	 */
+	public void setLocalPersistence(LocalPersistence localPersistence) {
+		this.localPersistence = localPersistence;
+	}
+
+	/**
 	 * Returns the counter local service.
 	 *
 	 * @return the counter local service
@@ -640,6 +697,12 @@ public abstract class InstitucionLocalServiceBaseImpl
 	protected pe.edu.aprolab.base.service.InstitucionService institucionService;
 	@BeanReference(type = InstitucionPersistence.class)
 	protected InstitucionPersistence institucionPersistence;
+	@BeanReference(type = pe.edu.aprolab.base.service.LocalLocalService.class)
+	protected pe.edu.aprolab.base.service.LocalLocalService localLocalService;
+	@BeanReference(type = pe.edu.aprolab.base.service.LocalService.class)
+	protected pe.edu.aprolab.base.service.LocalService localService;
+	@BeanReference(type = LocalPersistence.class)
+	protected LocalPersistence localPersistence;
 	@BeanReference(type = com.liferay.counter.service.CounterLocalService.class)
 	protected com.liferay.counter.service.CounterLocalService counterLocalService;
 	@BeanReference(type = com.liferay.portal.service.GroupLocalService.class)

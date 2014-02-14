@@ -7,4 +7,7 @@
 	<bean id="pe.edu.aprolab.base.service.InstitucionLocalService" class="pe.edu.aprolab.base.service.impl.InstitucionLocalServiceImpl" />
 	<bean id="pe.edu.aprolab.base.service.InstitucionService" class="pe.edu.aprolab.base.service.impl.InstitucionServiceImpl" />
 	<bean id="pe.edu.aprolab.base.service.persistence.InstitucionPersistence" class="pe.edu.aprolab.base.service.persistence.InstitucionPersistenceImpl" parent="basePersistence" />
+	<bean id="pe.edu.aprolab.base.service.LocalLocalService" class="pe.edu.aprolab.base.service.impl.LocalLocalServiceImpl" />
+	<bean id="pe.edu.aprolab.base.service.LocalService" class="pe.edu.aprolab.base.service.impl.LocalServiceImpl" />
+	<bean id="pe.edu.aprolab.base.service.persistence.LocalPersistence" class="pe.edu.aprolab.base.service.persistence.LocalPersistenceImpl" parent="basePersistence" />
 </beans>

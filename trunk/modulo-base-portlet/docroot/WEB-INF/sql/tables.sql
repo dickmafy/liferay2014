@@ -13,3 +13,10 @@ create table BASE_Institucion (
 	RUC VARCHAR(75) null,
 	codigoModular VARCHAR(75) null
 );
+
+create table BASE_Local (
+	localId LONG not null primary key,
+	companyId LONG,
+	nombre VARCHAR(75) null,
+	estado INTEGER
+);

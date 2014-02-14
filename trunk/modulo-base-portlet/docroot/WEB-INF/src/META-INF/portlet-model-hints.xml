@@ -15,4 +15,10 @@
 		<field name="RUC" type="String" />
 		<field name="codigoModular" type="String" />
 	</model>
+	<model name="pe.edu.aprolab.base.model.Local">
+		<field name="localId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="nombre" type="String" />
+		<field name="estado" type="int" />
+	</model>
 </model-hints>

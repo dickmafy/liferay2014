@@ -27,6 +27,7 @@ import com.liferay.portal.model.BaseModel;
 
 import pe.edu.aprolab.base.model.FormacionClp;
 import pe.edu.aprolab.base.model.InstitucionClp;
+import pe.edu.aprolab.base.model.LocalClp;
 
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -111,6 +112,10 @@ public class ClpSerializer {
 			return translateInputInstitucion(oldModel);
 		}
 
+		if (oldModelClassName.equals(LocalClp.class.getName())) {
+			return translateInputLocal(oldModel);
+		}
+
 		return oldModel;
 	}
 
@@ -146,6 +151,16 @@ public class ClpSerializer {
 		return newModel;
 	}
 
+	public static Object translateInputLocal(BaseModel<?> oldModel) {
+		LocalClp oldClpModel = (LocalClp)oldModel;
+
+		BaseModel<?> newModel = oldClpModel.getLocalRemoteModel();
+
+		newModel.setModelAttributes(oldClpModel.getModelAttributes());
+
+		return newModel;
+	}
+
 	public static Object translateInput(Object obj) {
 		if (obj instanceof BaseModel<?>) {
 			return translateInput((BaseModel<?>)obj);
@@ -171,6 +186,10 @@ public class ClpSerializer {
 		if (oldModelClassName.equals(
 					"pe.edu.aprolab.base.model.impl.InstitucionImpl")) {
 			return translateOutputInstitucion(oldModel);
+		}
+
+		if (oldModelClassName.equals("pe.edu.aprolab.base.model.impl.LocalImpl")) {
+			return translateOutputLocal(oldModel);
 		}
 
 		return oldModel;
@@ -261,6 +280,10 @@ public class ClpSerializer {
 			return new pe.edu.aprolab.base.NoSuchInstitucionException();
 		}
 
+		if (className.equals("pe.edu.aprolab.base.NoSuchLocalException")) {
+			return new pe.edu.aprolab.base.NoSuchLocalException();
+		}
+
 		return throwable;
 	}
 
@@ -280,6 +303,16 @@ public class ClpSerializer {
 		newModel.setModelAttributes(oldModel.getModelAttributes());
 
 		newModel.setInstitucionRemoteModel(oldModel);
+
+		return newModel;
+	}
+
+	public static Object translateOutputLocal(BaseModel<?> oldModel) {
+		LocalClp newModel = new LocalClp();
+
+		newModel.setModelAttributes(oldModel.getModelAttributes());
+
+		newModel.setLocalRemoteModel(oldModel);
 
 		return newModel;
 	}

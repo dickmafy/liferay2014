@@ -164,7 +164,7 @@
 	<portlet>
 		<portlet-name>local01</portlet-name>
 		<display-name>Local Admin</display-name>
-		<portlet-class>com.liferay.util.bridges.mvc.MVCPortlet</portlet-class>
+		<portlet-class>pe.edu.aprolab.base.portlet.LocalPortlet</portlet-class>
 		<init-param>
 			<name>view-template</name>
 			<value>/html/local/admin/view.jsp</value>
@@ -192,7 +192,6 @@
 			<role-name>user</role-name>
 		</security-role-ref>
 	</portlet>
-	
 	<portlet>
 		<portlet-name>local02</portlet-name>
 		<display-name>Local View</display-name>

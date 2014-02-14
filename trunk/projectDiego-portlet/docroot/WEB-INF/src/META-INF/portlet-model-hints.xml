@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-
-<model-hints>
-	<model name="com.siagie.sttp.model.Local">
-		<field name="localId" type="long" />
-		<field name="nombre" type="String" />
-		<field name="estado" type="int" />
-	</model>
-</model-hints>

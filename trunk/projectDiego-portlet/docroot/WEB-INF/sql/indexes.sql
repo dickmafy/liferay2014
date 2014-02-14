@@ -1,1 +1,0 @@
-create index IX_1A7C8F7A on local_Local (nombre);

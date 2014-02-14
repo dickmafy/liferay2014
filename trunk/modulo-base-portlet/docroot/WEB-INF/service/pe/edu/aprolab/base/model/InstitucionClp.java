@@ -78,6 +78,7 @@ public class InstitucionClp extends BaseModelImpl<Institucion>
 		attributes.put("companyId", getCompanyId());
 		attributes.put("createDate", getCreateDate());
 		attributes.put("modifiedDate", getModifiedDate());
+		attributes.put("formacionId", getFormacionId());
 		attributes.put("RUC", getRUC());
 		attributes.put("codigoModular", getCodigoModular());
 
@@ -108,6 +109,12 @@ public class InstitucionClp extends BaseModelImpl<Institucion>
 
 		if (modifiedDate != null) {
 			setModifiedDate(modifiedDate);
+		}
+
+		Long formacionId = (Long)attributes.get("formacionId");
+
+		if (formacionId != null) {
+			setFormacionId(formacionId);
 		}
 
 		String RUC = (String)attributes.get("RUC");
@@ -208,6 +215,29 @@ public class InstitucionClp extends BaseModelImpl<Institucion>
 				Method method = clazz.getMethod("setModifiedDate", Date.class);
 
 				method.invoke(_institucionRemoteModel, modifiedDate);
+			}
+			catch (Exception e) {
+				throw new UnsupportedOperationException(e);
+			}
+		}
+	}
+
+	@Override
+	public long getFormacionId() {
+		return _formacionId;
+	}
+
+	@Override
+	public void setFormacionId(long formacionId) {
+		_formacionId = formacionId;
+
+		if (_institucionRemoteModel != null) {
+			try {
+				Class<?> clazz = _institucionRemoteModel.getClass();
+
+				Method method = clazz.getMethod("setFormacionId", long.class);
+
+				method.invoke(_institucionRemoteModel, formacionId);
 			}
 			catch (Exception e) {
 				throw new UnsupportedOperationException(e);
@@ -353,6 +383,7 @@ public class InstitucionClp extends BaseModelImpl<Institucion>
 		clone.setCompanyId(getCompanyId());
 		clone.setCreateDate(getCreateDate());
 		clone.setModifiedDate(getModifiedDate());
+		clone.setFormacionId(getFormacionId());
 		clone.setRUC(getRUC());
 		clone.setCodigoModular(getCodigoModular());
 
@@ -401,7 +432,7 @@ public class InstitucionClp extends BaseModelImpl<Institucion>
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(13);
+		StringBundler sb = new StringBundler(15);
 
 		sb.append("{institucionId=");
 		sb.append(getInstitucionId());
@@ -411,6 +442,8 @@ public class InstitucionClp extends BaseModelImpl<Institucion>
 		sb.append(getCreateDate());
 		sb.append(", modifiedDate=");
 		sb.append(getModifiedDate());
+		sb.append(", formacionId=");
+		sb.append(getFormacionId());
 		sb.append(", RUC=");
 		sb.append(getRUC());
 		sb.append(", codigoModular=");
@@ -422,7 +455,7 @@ public class InstitucionClp extends BaseModelImpl<Institucion>
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(22);
+		StringBundler sb = new StringBundler(25);
 
 		sb.append("<model><model-name>");
 		sb.append("pe.edu.aprolab.base.model.Institucion");
@@ -445,6 +478,10 @@ public class InstitucionClp extends BaseModelImpl<Institucion>
 		sb.append(getModifiedDate());
 		sb.append("]]></column-value></column>");
 		sb.append(
+			"<column><column-name>formacionId</column-name><column-value><![CDATA[");
+		sb.append(getFormacionId());
+		sb.append("]]></column-value></column>");
+		sb.append(
 			"<column><column-name>RUC</column-name><column-value><![CDATA[");
 		sb.append(getRUC());
 		sb.append("]]></column-value></column>");
@@ -462,6 +499,7 @@ public class InstitucionClp extends BaseModelImpl<Institucion>
 	private long _companyId;
 	private Date _createDate;
 	private Date _modifiedDate;
+	private long _formacionId;
 	private String _RUC;
 	private String _codigoModular;
 	private BaseModel<?> _institucionRemoteModel;

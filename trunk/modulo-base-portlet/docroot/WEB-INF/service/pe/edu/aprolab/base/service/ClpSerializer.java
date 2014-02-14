@@ -25,6 +25,7 @@ import com.liferay.portal.kernel.util.PropsUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.model.BaseModel;
 
+import pe.edu.aprolab.base.model.FormacionClp;
 import pe.edu.aprolab.base.model.InstitucionClp;
 
 import java.io.ObjectInputStream;
@@ -102,6 +103,10 @@ public class ClpSerializer {
 
 		String oldModelClassName = oldModelClass.getName();
 
+		if (oldModelClassName.equals(FormacionClp.class.getName())) {
+			return translateInputFormacion(oldModel);
+		}
+
 		if (oldModelClassName.equals(InstitucionClp.class.getName())) {
 			return translateInputInstitucion(oldModel);
 		}
@@ -119,6 +124,16 @@ public class ClpSerializer {
 		}
 
 		return newList;
+	}
+
+	public static Object translateInputFormacion(BaseModel<?> oldModel) {
+		FormacionClp oldClpModel = (FormacionClp)oldModel;
+
+		BaseModel<?> newModel = oldClpModel.getFormacionRemoteModel();
+
+		newModel.setModelAttributes(oldClpModel.getModelAttributes());
+
+		return newModel;
 	}
 
 	public static Object translateInputInstitucion(BaseModel<?> oldModel) {
@@ -147,6 +162,11 @@ public class ClpSerializer {
 		Class<?> oldModelClass = oldModel.getClass();
 
 		String oldModelClassName = oldModelClass.getName();
+
+		if (oldModelClassName.equals(
+					"pe.edu.aprolab.base.model.impl.FormacionImpl")) {
+			return translateOutputFormacion(oldModel);
+		}
 
 		if (oldModelClassName.equals(
 					"pe.edu.aprolab.base.model.impl.InstitucionImpl")) {
@@ -233,11 +253,25 @@ public class ClpSerializer {
 			return new SystemException();
 		}
 
+		if (className.equals("pe.edu.aprolab.base.NoSuchFormacionException")) {
+			return new pe.edu.aprolab.base.NoSuchFormacionException();
+		}
+
 		if (className.equals("pe.edu.aprolab.base.NoSuchInstitucionException")) {
 			return new pe.edu.aprolab.base.NoSuchInstitucionException();
 		}
 
 		return throwable;
+	}
+
+	public static Object translateOutputFormacion(BaseModel<?> oldModel) {
+		FormacionClp newModel = new FormacionClp();
+
+		newModel.setModelAttributes(oldModel.getModelAttributes());
+
+		newModel.setFormacionRemoteModel(oldModel);
+
+		return newModel;
 	}
 
 	public static Object translateOutputInstitucion(BaseModel<?> oldModel) {

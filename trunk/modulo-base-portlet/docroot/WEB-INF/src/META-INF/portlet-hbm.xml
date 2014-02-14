@@ -2,7 +2,16 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping default-lazy="false" auto-import="false">
+	<import class="pe.edu.aprolab.base.model.Formacion" />
 	<import class="pe.edu.aprolab.base.model.Institucion" />
+	<class name="pe.edu.aprolab.base.model.impl.FormacionImpl" table="BASE_Formacion">
+		<cache usage="read-write" />
+		<id name="formacionId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="nombre" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
 	<class name="pe.edu.aprolab.base.model.impl.InstitucionImpl" table="BASE_Institucion">
 		<cache usage="read-write" />
 		<id name="institucionId" type="long">
@@ -11,6 +20,7 @@
 		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="createDate" type="org.hibernate.type.TimestampType" />
 		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property name="formacionId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="RUC" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="codigoModular" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 	</class>

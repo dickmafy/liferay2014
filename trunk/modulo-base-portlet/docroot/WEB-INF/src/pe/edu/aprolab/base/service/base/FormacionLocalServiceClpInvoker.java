@@ -14,7 +14,7 @@
 
 package pe.edu.aprolab.base.service.base;
 
-import pe.edu.aprolab.base.service.InstitucionLocalServiceUtil;
+import pe.edu.aprolab.base.service.FormacionLocalServiceUtil;
 
 import java.util.Arrays;
 
@@ -22,26 +22,26 @@ import java.util.Arrays;
  * @author Jorge Loayza Soloisolo
  * @generated
  */
-public class InstitucionLocalServiceClpInvoker {
-	public InstitucionLocalServiceClpInvoker() {
-		_methodName0 = "addInstitucion";
+public class FormacionLocalServiceClpInvoker {
+	public FormacionLocalServiceClpInvoker() {
+		_methodName0 = "addFormacion";
 
 		_methodParameterTypes0 = new String[] {
-				"pe.edu.aprolab.base.model.Institucion"
+				"pe.edu.aprolab.base.model.Formacion"
 			};
 
-		_methodName1 = "createInstitucion";
+		_methodName1 = "createFormacion";
 
 		_methodParameterTypes1 = new String[] { "long" };
 
-		_methodName2 = "deleteInstitucion";
+		_methodName2 = "deleteFormacion";
 
 		_methodParameterTypes2 = new String[] { "long" };
 
-		_methodName3 = "deleteInstitucion";
+		_methodName3 = "deleteFormacion";
 
 		_methodParameterTypes3 = new String[] {
-				"pe.edu.aprolab.base.model.Institucion"
+				"pe.edu.aprolab.base.model.Formacion"
 			};
 
 		_methodName4 = "dynamicQuery";
@@ -80,11 +80,11 @@ public class InstitucionLocalServiceClpInvoker {
 				"com.liferay.portal.kernel.dao.orm.Projection"
 			};
 
-		_methodName10 = "fetchInstitucion";
+		_methodName10 = "fetchFormacion";
 
 		_methodParameterTypes10 = new String[] { "long" };
 
-		_methodName11 = "getInstitucion";
+		_methodName11 = "getFormacion";
 
 		_methodParameterTypes11 = new String[] { "long" };
 
@@ -92,82 +92,71 @@ public class InstitucionLocalServiceClpInvoker {
 
 		_methodParameterTypes12 = new String[] { "java.io.Serializable" };
 
-		_methodName13 = "getInstitucions";
+		_methodName13 = "getFormacions";
 
 		_methodParameterTypes13 = new String[] { "int", "int" };
 
-		_methodName14 = "getInstitucionsCount";
+		_methodName14 = "getFormacionsCount";
 
 		_methodParameterTypes14 = new String[] {  };
 
-		_methodName15 = "updateInstitucion";
+		_methodName15 = "updateFormacion";
 
 		_methodParameterTypes15 = new String[] {
-				"pe.edu.aprolab.base.model.Institucion"
+				"pe.edu.aprolab.base.model.Formacion"
 			};
 
-		_methodName46 = "getBeanIdentifier";
+		_methodName40 = "getBeanIdentifier";
 
-		_methodParameterTypes46 = new String[] {  };
+		_methodParameterTypes40 = new String[] {  };
 
-		_methodName47 = "setBeanIdentifier";
+		_methodName41 = "setBeanIdentifier";
 
-		_methodParameterTypes47 = new String[] { "java.lang.String" };
-
-		_methodName52 = "isInstitucion";
-
-		_methodParameterTypes52 = new String[] { "com.liferay.portal.model.Group" };
-
-		_methodName53 = "setInstitucion";
-
-		_methodParameterTypes53 = new String[] {
-				"com.liferay.portal.model.Group", "java.lang.String",
-				"java.lang.String"
-			};
+		_methodParameterTypes41 = new String[] { "java.lang.String" };
 	}
 
 	public Object invokeMethod(String name, String[] parameterTypes,
 		Object[] arguments) throws Throwable {
 		if (_methodName0.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes0, parameterTypes)) {
-			return InstitucionLocalServiceUtil.addInstitucion((pe.edu.aprolab.base.model.Institucion)arguments[0]);
+			return FormacionLocalServiceUtil.addFormacion((pe.edu.aprolab.base.model.Formacion)arguments[0]);
 		}
 
 		if (_methodName1.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes1, parameterTypes)) {
-			return InstitucionLocalServiceUtil.createInstitucion(((Long)arguments[0]).longValue());
+			return FormacionLocalServiceUtil.createFormacion(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName2.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes2, parameterTypes)) {
-			return InstitucionLocalServiceUtil.deleteInstitucion(((Long)arguments[0]).longValue());
+			return FormacionLocalServiceUtil.deleteFormacion(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName3.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes3, parameterTypes)) {
-			return InstitucionLocalServiceUtil.deleteInstitucion((pe.edu.aprolab.base.model.Institucion)arguments[0]);
+			return FormacionLocalServiceUtil.deleteFormacion((pe.edu.aprolab.base.model.Formacion)arguments[0]);
 		}
 
 		if (_methodName4.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes4, parameterTypes)) {
-			return InstitucionLocalServiceUtil.dynamicQuery();
+			return FormacionLocalServiceUtil.dynamicQuery();
 		}
 
 		if (_methodName5.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes5, parameterTypes)) {
-			return InstitucionLocalServiceUtil.dynamicQuery((com.liferay.portal.kernel.dao.orm.DynamicQuery)arguments[0]);
+			return FormacionLocalServiceUtil.dynamicQuery((com.liferay.portal.kernel.dao.orm.DynamicQuery)arguments[0]);
 		}
 
 		if (_methodName6.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes6, parameterTypes)) {
-			return InstitucionLocalServiceUtil.dynamicQuery((com.liferay.portal.kernel.dao.orm.DynamicQuery)arguments[0],
+			return FormacionLocalServiceUtil.dynamicQuery((com.liferay.portal.kernel.dao.orm.DynamicQuery)arguments[0],
 				((Integer)arguments[1]).intValue(),
 				((Integer)arguments[2]).intValue());
 		}
 
 		if (_methodName7.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes7, parameterTypes)) {
-			return InstitucionLocalServiceUtil.dynamicQuery((com.liferay.portal.kernel.dao.orm.DynamicQuery)arguments[0],
+			return FormacionLocalServiceUtil.dynamicQuery((com.liferay.portal.kernel.dao.orm.DynamicQuery)arguments[0],
 				((Integer)arguments[1]).intValue(),
 				((Integer)arguments[2]).intValue(),
 				(com.liferay.portal.kernel.util.OrderByComparator)arguments[3]);
@@ -175,67 +164,56 @@ public class InstitucionLocalServiceClpInvoker {
 
 		if (_methodName8.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes8, parameterTypes)) {
-			return InstitucionLocalServiceUtil.dynamicQueryCount((com.liferay.portal.kernel.dao.orm.DynamicQuery)arguments[0]);
+			return FormacionLocalServiceUtil.dynamicQueryCount((com.liferay.portal.kernel.dao.orm.DynamicQuery)arguments[0]);
 		}
 
 		if (_methodName9.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes9, parameterTypes)) {
-			return InstitucionLocalServiceUtil.dynamicQueryCount((com.liferay.portal.kernel.dao.orm.DynamicQuery)arguments[0],
+			return FormacionLocalServiceUtil.dynamicQueryCount((com.liferay.portal.kernel.dao.orm.DynamicQuery)arguments[0],
 				(com.liferay.portal.kernel.dao.orm.Projection)arguments[1]);
 		}
 
 		if (_methodName10.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes10, parameterTypes)) {
-			return InstitucionLocalServiceUtil.fetchInstitucion(((Long)arguments[0]).longValue());
+			return FormacionLocalServiceUtil.fetchFormacion(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName11.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes11, parameterTypes)) {
-			return InstitucionLocalServiceUtil.getInstitucion(((Long)arguments[0]).longValue());
+			return FormacionLocalServiceUtil.getFormacion(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName12.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes12, parameterTypes)) {
-			return InstitucionLocalServiceUtil.getPersistedModel((java.io.Serializable)arguments[0]);
+			return FormacionLocalServiceUtil.getPersistedModel((java.io.Serializable)arguments[0]);
 		}
 
 		if (_methodName13.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes13, parameterTypes)) {
-			return InstitucionLocalServiceUtil.getInstitucions(((Integer)arguments[0]).intValue(),
+			return FormacionLocalServiceUtil.getFormacions(((Integer)arguments[0]).intValue(),
 				((Integer)arguments[1]).intValue());
 		}
 
 		if (_methodName14.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes14, parameterTypes)) {
-			return InstitucionLocalServiceUtil.getInstitucionsCount();
+			return FormacionLocalServiceUtil.getFormacionsCount();
 		}
 
 		if (_methodName15.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes15, parameterTypes)) {
-			return InstitucionLocalServiceUtil.updateInstitucion((pe.edu.aprolab.base.model.Institucion)arguments[0]);
+			return FormacionLocalServiceUtil.updateFormacion((pe.edu.aprolab.base.model.Formacion)arguments[0]);
 		}
 
-		if (_methodName46.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes46, parameterTypes)) {
-			return InstitucionLocalServiceUtil.getBeanIdentifier();
+		if (_methodName40.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes40, parameterTypes)) {
+			return FormacionLocalServiceUtil.getBeanIdentifier();
 		}
 
-		if (_methodName47.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes47, parameterTypes)) {
-			InstitucionLocalServiceUtil.setBeanIdentifier((java.lang.String)arguments[0]);
+		if (_methodName41.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes41, parameterTypes)) {
+			FormacionLocalServiceUtil.setBeanIdentifier((java.lang.String)arguments[0]);
 
 			return null;
-		}
-
-		if (_methodName52.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes52, parameterTypes)) {
-			return InstitucionLocalServiceUtil.isInstitucion((com.liferay.portal.model.Group)arguments[0]);
-		}
-
-		if (_methodName53.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes53, parameterTypes)) {
-			return InstitucionLocalServiceUtil.setInstitucion((com.liferay.portal.model.Group)arguments[0],
-				(java.lang.String)arguments[1], (java.lang.String)arguments[2]);
 		}
 
 		throw new UnsupportedOperationException();
@@ -273,12 +251,8 @@ public class InstitucionLocalServiceClpInvoker {
 	private String[] _methodParameterTypes14;
 	private String _methodName15;
 	private String[] _methodParameterTypes15;
-	private String _methodName46;
-	private String[] _methodParameterTypes46;
-	private String _methodName47;
-	private String[] _methodParameterTypes47;
-	private String _methodName52;
-	private String[] _methodParameterTypes52;
-	private String _methodName53;
-	private String[] _methodParameterTypes53;
+	private String _methodName40;
+	private String[] _methodParameterTypes40;
+	private String _methodName41;
+	private String[] _methodParameterTypes41;
 }

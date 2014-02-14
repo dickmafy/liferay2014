@@ -35,12 +35,27 @@
 			<transient name="primaryKeyObj" />
 		</attributes>
 	</mapped-superclass>
+	<mapped-superclass class="pe.edu.aprolab.base.model.impl.LocalModelImpl">
+		<attributes>
+			<id name="localId" />
+			<basic name="companyId" />
+			<basic name="nombre" />
+			<basic name="estado" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
 	<entity class="pe.edu.aprolab.base.model.impl.FormacionImpl" name="Formacion">
 		<table name="BASE_Formacion" />
 		<attributes />
 	</entity>
 	<entity class="pe.edu.aprolab.base.model.impl.InstitucionImpl" name="Institucion">
 		<table name="BASE_Institucion" />
+		<attributes />
+	</entity>
+	<entity class="pe.edu.aprolab.base.model.impl.LocalImpl" name="Local">
+		<table name="BASE_Local" />
 		<attributes />
 	</entity>
 </entity-mappings>

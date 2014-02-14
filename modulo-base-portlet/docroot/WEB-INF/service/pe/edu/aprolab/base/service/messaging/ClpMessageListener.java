@@ -22,6 +22,8 @@ import pe.edu.aprolab.base.service.FormacionLocalServiceUtil;
 import pe.edu.aprolab.base.service.FormacionServiceUtil;
 import pe.edu.aprolab.base.service.InstitucionLocalServiceUtil;
 import pe.edu.aprolab.base.service.InstitucionServiceUtil;
+import pe.edu.aprolab.base.service.LocalLocalServiceUtil;
+import pe.edu.aprolab.base.service.LocalServiceUtil;
 
 /**
  * @author Jorge Loayza Soloisolo
@@ -44,6 +46,9 @@ public class ClpMessageListener extends BaseMessageListener {
 			InstitucionLocalServiceUtil.clearService();
 
 			InstitucionServiceUtil.clearService();
+			LocalLocalServiceUtil.clearService();
+
+			LocalServiceUtil.clearService();
 		}
 	}
 }

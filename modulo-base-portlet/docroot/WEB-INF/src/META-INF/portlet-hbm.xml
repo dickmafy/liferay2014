@@ -4,6 +4,7 @@
 <hibernate-mapping default-lazy="false" auto-import="false">
 	<import class="pe.edu.aprolab.base.model.Formacion" />
 	<import class="pe.edu.aprolab.base.model.Institucion" />
+	<import class="pe.edu.aprolab.base.model.Local" />
 	<class name="pe.edu.aprolab.base.model.impl.FormacionImpl" table="BASE_Formacion">
 		<cache usage="read-write" />
 		<id name="formacionId" type="long">
@@ -23,5 +24,14 @@
 		<property name="formacionId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="RUC" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="codigoModular" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="pe.edu.aprolab.base.model.impl.LocalImpl" table="BASE_Local">
+		<cache usage="read-write" />
+		<id name="localId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="nombre" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="estado" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
 	</class>
 </hibernate-mapping>

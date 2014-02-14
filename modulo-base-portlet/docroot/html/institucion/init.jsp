@@ -33,13 +33,14 @@
 <%
 	String currentURL = PortalUtil.getCurrentURL(request);
 	Group group = themeDisplay.getScopeGroup();
+	
 	Institucion institucion=null;
-	if(InstitucionLocalServiceUtil.isInstitucion(group))
-		institucion = InstitucionLocalServiceUtil.getInstitucion(group.getGroupId());
-	
 	Organization organization = null;
-	
+	boolean isInstitucion = false;
 	if (group.isOrganization()) {
 		organization = OrganizationLocalServiceUtil.getOrganization(group.getClassPK());
+		isInstitucion = InstitucionLocalServiceUtil.isInstitucion(group);
+		if(isInstitucion)
+			institucion = InstitucionLocalServiceUtil.getInstitucion(group.getGroupId());
 	}
 %>

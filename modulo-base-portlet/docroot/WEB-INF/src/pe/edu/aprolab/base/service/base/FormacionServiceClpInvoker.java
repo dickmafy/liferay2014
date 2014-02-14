@@ -14,7 +14,7 @@
 
 package pe.edu.aprolab.base.service.base;
 
-import pe.edu.aprolab.base.service.InstitucionServiceUtil;
+import pe.edu.aprolab.base.service.FormacionServiceUtil;
 
 import java.util.Arrays;
 
@@ -22,27 +22,27 @@ import java.util.Arrays;
  * @author Jorge Loayza Soloisolo
  * @generated
  */
-public class InstitucionServiceClpInvoker {
-	public InstitucionServiceClpInvoker() {
-		_methodName30 = "getBeanIdentifier";
+public class FormacionServiceClpInvoker {
+	public FormacionServiceClpInvoker() {
+		_methodName24 = "getBeanIdentifier";
 
-		_methodParameterTypes30 = new String[] {  };
+		_methodParameterTypes24 = new String[] {  };
 
-		_methodName31 = "setBeanIdentifier";
+		_methodName25 = "setBeanIdentifier";
 
-		_methodParameterTypes31 = new String[] { "java.lang.String" };
+		_methodParameterTypes25 = new String[] { "java.lang.String" };
 	}
 
 	public Object invokeMethod(String name, String[] parameterTypes,
 		Object[] arguments) throws Throwable {
-		if (_methodName30.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes30, parameterTypes)) {
-			return InstitucionServiceUtil.getBeanIdentifier();
+		if (_methodName24.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes24, parameterTypes)) {
+			return FormacionServiceUtil.getBeanIdentifier();
 		}
 
-		if (_methodName31.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes31, parameterTypes)) {
-			InstitucionServiceUtil.setBeanIdentifier((java.lang.String)arguments[0]);
+		if (_methodName25.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes25, parameterTypes)) {
+			FormacionServiceUtil.setBeanIdentifier((java.lang.String)arguments[0]);
 
 			return null;
 		}
@@ -50,8 +50,8 @@ public class InstitucionServiceClpInvoker {
 		throw new UnsupportedOperationException();
 	}
 
-	private String _methodName30;
-	private String[] _methodParameterTypes30;
-	private String _methodName31;
-	private String[] _methodParameterTypes31;
+	private String _methodName24;
+	private String[] _methodParameterTypes24;
+	private String _methodName25;
+	private String[] _methodParameterTypes25;
 }

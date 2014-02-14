@@ -8,7 +8,6 @@
 		<portlet id="ambiente01" />
 		<portlet id="ambiente02" />
 		<portlet id="institucion01" />
-		<portlet id="institucion02" />
 		<portlet id="local01" />
 		<portlet id="local02" />
 		<portlet id="oferta01" />

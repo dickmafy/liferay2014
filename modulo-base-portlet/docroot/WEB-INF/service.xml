@@ -16,6 +16,9 @@
 		<column name="modifiedDate" type="Date" />
 
 		<!-- Other fields -->
+		
+		<column name="formacionId" type="long" />
+		
 		<column name="RUC" type="String" />
 		<column name="codigoModular" type="String" />
 		<!-- Order -->
@@ -41,6 +44,36 @@
         <!-- References -->
 
         <reference package-path='com.liferay.portal' entity='Group' />
+                
+	</entity>
+	
+	<entity name="Formacion" local-service="true" remote-service="true" cache-enabled="true" >
+
+		<!-- PK fields and userId-->
+
+		<column name="formacionId" type="long" primary="true" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+
+		<!-- Other fields -->
+		<column name="nombre" type="String" />
+		
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="nombre" />
+		</order>
+
+		<!-- Finder methods -->
+        
+        <finder name="CompanyId" return-type="Collection" >
+			<finder-column name="companyId"/>
+		</finder>
+		
+        <!-- References -->
+
                 
 	</entity>
 </service-builder>

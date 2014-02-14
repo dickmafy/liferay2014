@@ -1,6 +1,9 @@
 <?xml version="1.0"?>
 
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<bean id="pe.edu.aprolab.base.service.FormacionLocalService" class="pe.edu.aprolab.base.service.impl.FormacionLocalServiceImpl" />
+	<bean id="pe.edu.aprolab.base.service.FormacionService" class="pe.edu.aprolab.base.service.impl.FormacionServiceImpl" />
+	<bean id="pe.edu.aprolab.base.service.persistence.FormacionPersistence" class="pe.edu.aprolab.base.service.persistence.FormacionPersistenceImpl" parent="basePersistence" />
 	<bean id="pe.edu.aprolab.base.service.InstitucionLocalService" class="pe.edu.aprolab.base.service.impl.InstitucionLocalServiceImpl" />
 	<bean id="pe.edu.aprolab.base.service.InstitucionService" class="pe.edu.aprolab.base.service.impl.InstitucionServiceImpl" />
 	<bean id="pe.edu.aprolab.base.service.persistence.InstitucionPersistence" class="pe.edu.aprolab.base.service.persistence.InstitucionPersistenceImpl" parent="basePersistence" />

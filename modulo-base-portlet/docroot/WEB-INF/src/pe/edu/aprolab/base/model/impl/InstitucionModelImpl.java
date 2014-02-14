@@ -68,10 +68,11 @@ public class InstitucionModelImpl extends BaseModelImpl<Institucion>
 			{ "companyId", Types.BIGINT },
 			{ "createDate", Types.TIMESTAMP },
 			{ "modifiedDate", Types.TIMESTAMP },
+			{ "formacionId", Types.BIGINT },
 			{ "RUC", Types.VARCHAR },
 			{ "codigoModular", Types.VARCHAR }
 		};
-	public static final String TABLE_SQL_CREATE = "create table BASE_Institucion (institucionId LONG not null primary key,companyId LONG,createDate DATE null,modifiedDate DATE null,RUC VARCHAR(75) null,codigoModular VARCHAR(75) null)";
+	public static final String TABLE_SQL_CREATE = "create table BASE_Institucion (institucionId LONG not null primary key,companyId LONG,createDate DATE null,modifiedDate DATE null,formacionId LONG,RUC VARCHAR(75) null,codigoModular VARCHAR(75) null)";
 	public static final String TABLE_SQL_DROP = "drop table BASE_Institucion";
 	public static final String ORDER_BY_JPQL = " ORDER BY institucion.RUC ASC";
 	public static final String ORDER_BY_SQL = " ORDER BY BASE_Institucion.RUC ASC";
@@ -108,6 +109,7 @@ public class InstitucionModelImpl extends BaseModelImpl<Institucion>
 		model.setCompanyId(soapModel.getCompanyId());
 		model.setCreateDate(soapModel.getCreateDate());
 		model.setModifiedDate(soapModel.getModifiedDate());
+		model.setFormacionId(soapModel.getFormacionId());
 		model.setRUC(soapModel.getRUC());
 		model.setCodigoModular(soapModel.getCodigoModular());
 
@@ -178,6 +180,7 @@ public class InstitucionModelImpl extends BaseModelImpl<Institucion>
 		attributes.put("companyId", getCompanyId());
 		attributes.put("createDate", getCreateDate());
 		attributes.put("modifiedDate", getModifiedDate());
+		attributes.put("formacionId", getFormacionId());
 		attributes.put("RUC", getRUC());
 		attributes.put("codigoModular", getCodigoModular());
 
@@ -208,6 +211,12 @@ public class InstitucionModelImpl extends BaseModelImpl<Institucion>
 
 		if (modifiedDate != null) {
 			setModifiedDate(modifiedDate);
+		}
+
+		Long formacionId = (Long)attributes.get("formacionId");
+
+		if (formacionId != null) {
+			setFormacionId(formacionId);
 		}
 
 		String RUC = (String)attributes.get("RUC");
@@ -277,6 +286,17 @@ public class InstitucionModelImpl extends BaseModelImpl<Institucion>
 	@Override
 	public void setModifiedDate(Date modifiedDate) {
 		_modifiedDate = modifiedDate;
+	}
+
+	@JSON
+	@Override
+	public long getFormacionId() {
+		return _formacionId;
+	}
+
+	@Override
+	public void setFormacionId(long formacionId) {
+		_formacionId = formacionId;
 	}
 
 	@JSON
@@ -366,6 +386,7 @@ public class InstitucionModelImpl extends BaseModelImpl<Institucion>
 		institucionImpl.setCompanyId(getCompanyId());
 		institucionImpl.setCreateDate(getCreateDate());
 		institucionImpl.setModifiedDate(getModifiedDate());
+		institucionImpl.setFormacionId(getFormacionId());
 		institucionImpl.setRUC(getRUC());
 		institucionImpl.setCodigoModular(getCodigoModular());
 
@@ -455,6 +476,8 @@ public class InstitucionModelImpl extends BaseModelImpl<Institucion>
 			institucionCacheModel.modifiedDate = Long.MIN_VALUE;
 		}
 
+		institucionCacheModel.formacionId = getFormacionId();
+
 		institucionCacheModel.RUC = getRUC();
 
 		String RUC = institucionCacheModel.RUC;
@@ -476,7 +499,7 @@ public class InstitucionModelImpl extends BaseModelImpl<Institucion>
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(13);
+		StringBundler sb = new StringBundler(15);
 
 		sb.append("{institucionId=");
 		sb.append(getInstitucionId());
@@ -486,6 +509,8 @@ public class InstitucionModelImpl extends BaseModelImpl<Institucion>
 		sb.append(getCreateDate());
 		sb.append(", modifiedDate=");
 		sb.append(getModifiedDate());
+		sb.append(", formacionId=");
+		sb.append(getFormacionId());
 		sb.append(", RUC=");
 		sb.append(getRUC());
 		sb.append(", codigoModular=");
@@ -497,7 +522,7 @@ public class InstitucionModelImpl extends BaseModelImpl<Institucion>
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(22);
+		StringBundler sb = new StringBundler(25);
 
 		sb.append("<model><model-name>");
 		sb.append("pe.edu.aprolab.base.model.Institucion");
@@ -518,6 +543,10 @@ public class InstitucionModelImpl extends BaseModelImpl<Institucion>
 		sb.append(
 			"<column><column-name>modifiedDate</column-name><column-value><![CDATA[");
 		sb.append(getModifiedDate());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>formacionId</column-name><column-value><![CDATA[");
+		sb.append(getFormacionId());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>RUC</column-name><column-value><![CDATA[");
@@ -543,6 +572,7 @@ public class InstitucionModelImpl extends BaseModelImpl<Institucion>
 	private boolean _setOriginalCompanyId;
 	private Date _createDate;
 	private Date _modifiedDate;
+	private long _formacionId;
 	private String _RUC;
 	private String _originalRUC;
 	private String _codigoModular;

@@ -1412,6 +1412,7 @@ public class InstitucionPersistenceImpl extends BasePersistenceImpl<Institucion>
 		institucionImpl.setCompanyId(institucion.getCompanyId());
 		institucionImpl.setCreateDate(institucion.getCreateDate());
 		institucionImpl.setModifiedDate(institucion.getModifiedDate());
+		institucionImpl.setFormacionId(institucion.getFormacionId());
 		institucionImpl.setRUC(institucion.getRUC());
 		institucionImpl.setCodigoModular(institucion.getCodigoModular());
 

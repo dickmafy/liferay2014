@@ -7,6 +7,16 @@
 			<access>PROPERTY</access>
 		</persistence-unit-defaults>
 	</persistence-unit-metadata>
+	<mapped-superclass class="pe.edu.aprolab.base.model.impl.FormacionModelImpl">
+		<attributes>
+			<id name="formacionId" />
+			<basic name="companyId" />
+			<basic name="nombre" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
 	<mapped-superclass class="pe.edu.aprolab.base.model.impl.InstitucionModelImpl">
 		<attributes>
 			<id name="institucionId" />
@@ -17,6 +27,7 @@
 			<basic name="modifiedDate">
 				<temporal>TIMESTAMP</temporal>
 			</basic>
+			<basic name="formacionId" />
 			<basic name="RUC" />
 			<basic name="codigoModular" />
 			<transient name="modelAttributes" />
@@ -24,6 +35,10 @@
 			<transient name="primaryKeyObj" />
 		</attributes>
 	</mapped-superclass>
+	<entity class="pe.edu.aprolab.base.model.impl.FormacionImpl" name="Formacion">
+		<table name="BASE_Formacion" />
+		<attributes />
+	</entity>
 	<entity class="pe.edu.aprolab.base.model.impl.InstitucionImpl" name="Institucion">
 		<table name="BASE_Institucion" />
 		<attributes />

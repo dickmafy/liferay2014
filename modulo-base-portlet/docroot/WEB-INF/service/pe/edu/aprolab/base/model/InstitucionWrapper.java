@@ -54,6 +54,7 @@ public class InstitucionWrapper implements Institucion,
 		attributes.put("companyId", getCompanyId());
 		attributes.put("createDate", getCreateDate());
 		attributes.put("modifiedDate", getModifiedDate());
+		attributes.put("formacionId", getFormacionId());
 		attributes.put("RUC", getRUC());
 		attributes.put("codigoModular", getCodigoModular());
 
@@ -84,6 +85,12 @@ public class InstitucionWrapper implements Institucion,
 
 		if (modifiedDate != null) {
 			setModifiedDate(modifiedDate);
+		}
+
+		Long formacionId = (Long)attributes.get("formacionId");
+
+		if (formacionId != null) {
+			setFormacionId(formacionId);
 		}
 
 		String RUC = (String)attributes.get("RUC");
@@ -197,6 +204,26 @@ public class InstitucionWrapper implements Institucion,
 	@Override
 	public void setModifiedDate(java.util.Date modifiedDate) {
 		_institucion.setModifiedDate(modifiedDate);
+	}
+
+	/**
+	* Returns the formacion ID of this institucion.
+	*
+	* @return the formacion ID of this institucion
+	*/
+	@Override
+	public long getFormacionId() {
+		return _institucion.getFormacionId();
+	}
+
+	/**
+	* Sets the formacion ID of this institucion.
+	*
+	* @param formacionId the formacion ID of this institucion
+	*/
+	@Override
+	public void setFormacionId(long formacionId) {
+		_institucion.setFormacionId(formacionId);
 	}
 
 	/**

@@ -18,6 +18,8 @@ import com.liferay.portal.kernel.messaging.BaseMessageListener;
 import com.liferay.portal.kernel.messaging.Message;
 
 import pe.edu.aprolab.base.service.ClpSerializer;
+import pe.edu.aprolab.base.service.FormacionLocalServiceUtil;
+import pe.edu.aprolab.base.service.FormacionServiceUtil;
 import pe.edu.aprolab.base.service.InstitucionLocalServiceUtil;
 import pe.edu.aprolab.base.service.InstitucionServiceUtil;
 
@@ -36,6 +38,9 @@ public class ClpMessageListener extends BaseMessageListener {
 
 		if (command.equals("undeploy") &&
 				servletContextName.equals(getServletContextName())) {
+			FormacionLocalServiceUtil.clearService();
+
+			FormacionServiceUtil.clearService();
 			InstitucionLocalServiceUtil.clearService();
 
 			InstitucionServiceUtil.clearService();

@@ -116,6 +116,20 @@ public interface InstitucionModel extends BaseModel<Institucion> {
 	public void setModifiedDate(Date modifiedDate);
 
 	/**
+	 * Returns the formacion ID of this institucion.
+	 *
+	 * @return the formacion ID of this institucion
+	 */
+	public long getFormacionId();
+
+	/**
+	 * Sets the formacion ID of this institucion.
+	 *
+	 * @param formacionId the formacion ID of this institucion
+	 */
+	public void setFormacionId(long formacionId);
+
+	/**
 	 * Returns the r u c of this institucion.
 	 *
 	 * @return the r u c of this institucion

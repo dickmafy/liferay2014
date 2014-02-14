@@ -38,7 +38,7 @@ public class InstitucionCacheModel implements CacheModel<Institucion>,
 	Externalizable {
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(13);
+		StringBundler sb = new StringBundler(15);
 
 		sb.append("{institucionId=");
 		sb.append(institucionId);
@@ -48,6 +48,8 @@ public class InstitucionCacheModel implements CacheModel<Institucion>,
 		sb.append(createDate);
 		sb.append(", modifiedDate=");
 		sb.append(modifiedDate);
+		sb.append(", formacionId=");
+		sb.append(formacionId);
 		sb.append(", RUC=");
 		sb.append(RUC);
 		sb.append(", codigoModular=");
@@ -78,6 +80,8 @@ public class InstitucionCacheModel implements CacheModel<Institucion>,
 			institucionImpl.setModifiedDate(new Date(modifiedDate));
 		}
 
+		institucionImpl.setFormacionId(formacionId);
+
 		if (RUC == null) {
 			institucionImpl.setRUC(StringPool.BLANK);
 		}
@@ -103,6 +107,7 @@ public class InstitucionCacheModel implements CacheModel<Institucion>,
 		companyId = objectInput.readLong();
 		createDate = objectInput.readLong();
 		modifiedDate = objectInput.readLong();
+		formacionId = objectInput.readLong();
 		RUC = objectInput.readUTF();
 		codigoModular = objectInput.readUTF();
 	}
@@ -114,6 +119,7 @@ public class InstitucionCacheModel implements CacheModel<Institucion>,
 		objectOutput.writeLong(companyId);
 		objectOutput.writeLong(createDate);
 		objectOutput.writeLong(modifiedDate);
+		objectOutput.writeLong(formacionId);
 
 		if (RUC == null) {
 			objectOutput.writeUTF(StringPool.BLANK);
@@ -134,6 +140,7 @@ public class InstitucionCacheModel implements CacheModel<Institucion>,
 	public long companyId;
 	public long createDate;
 	public long modifiedDate;
+	public long formacionId;
 	public String RUC;
 	public String codigoModular;
 }

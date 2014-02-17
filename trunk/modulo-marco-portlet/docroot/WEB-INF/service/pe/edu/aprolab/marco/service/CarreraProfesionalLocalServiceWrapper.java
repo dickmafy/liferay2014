@@ -293,12 +293,13 @@ public class CarreraProfesionalLocalServiceWrapper
 	public pe.edu.aprolab.marco.model.CarreraProfesional addCarreraProfesional(
 		long companyId, java.lang.String nombre, java.lang.String descripcion,
 		java.lang.Integer formacion, java.util.Date duracionFechaInicio,
-		java.util.Date duracionFechaFin, java.lang.Integer estado)
+		java.util.Date duracionFechaFin, java.lang.Integer estado,
+		java.lang.Integer familiaId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		return _carreraProfesionalLocalService.addCarreraProfesional(companyId,
 			nombre, descripcion, formacion, duracionFechaInicio,
-			duracionFechaFin, estado);
+			duracionFechaFin, estado, familiaId);
 	}
 
 	/**

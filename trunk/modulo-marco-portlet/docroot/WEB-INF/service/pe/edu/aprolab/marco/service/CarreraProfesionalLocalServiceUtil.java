@@ -278,12 +278,13 @@ public class CarreraProfesionalLocalServiceUtil {
 	public static pe.edu.aprolab.marco.model.CarreraProfesional addCarreraProfesional(
 		long companyId, java.lang.String nombre, java.lang.String descripcion,
 		java.lang.Integer formacion, java.util.Date duracionFechaInicio,
-		java.util.Date duracionFechaFin, java.lang.Integer estado)
+		java.util.Date duracionFechaFin, java.lang.Integer estado,
+		java.lang.Integer familiaId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		return getService()
 				   .addCarreraProfesional(companyId, nombre, descripcion,
-			formacion, duracionFechaInicio, duracionFechaFin, estado);
+			formacion, duracionFechaInicio, duracionFechaFin, estado, familiaId);
 	}
 
 	public static void clearService() {

@@ -33,11 +33,21 @@
 <%@page import="javax.portlet.WindowState"%>
 
 
-<!-- IMPORT SERVICIO -->
+
+<!-- LocalServiceUtil -->
 <%@page import="pe.edu.aprolab.marco.service.CarreraProfesionalLocalServiceUtil"%>
+<%@page import="pe.edu.aprolab.marco.service.FamiliaProfesionalLocalServiceUtil"%>
+
 <!-- Modelo -->
 <%@page import="pe.edu.aprolab.marco.model.CarreraProfesional"%>
+<%@page import="pe.edu.aprolab.marco.model.FamiliaProfesional"%>
+
+
+<!-- PORTLET KEY -->
 <%@page import="pe.edu.aprolab.marco.util.CarreraProfesionalPortletKeys"%>
+
+
+
 <%@page import="java.text.SimpleDateFormat"%>
 <%
 SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");

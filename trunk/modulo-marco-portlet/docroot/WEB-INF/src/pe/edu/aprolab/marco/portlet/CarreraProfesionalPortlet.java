@@ -32,10 +32,12 @@ public class CarreraProfesionalPortlet  extends MVCPortlet{
 		Integer estado = ParamUtil.getInteger(actionRequest, CarreraProfesionalPortletKeys.ESTADO);		
 		Date duracionFechaInicio = ParamUtil.getDate(actionRequest, CarreraProfesionalPortletKeys.DURACION_FECHA_INICIO,dateFormat);		
 		Date duracionFechaFin = ParamUtil.getDate(actionRequest, CarreraProfesionalPortletKeys.DURACION_FECHA_FIN,dateFormat);		
-		
+		Integer familiaId = ParamUtil.getInteger(actionRequest, CarreraProfesionalPortletKeys.PK_FAMILIA_PROFESIONAL_ID);
 		
 		CarreraProfesionalLocalServiceUtil
-		.addCarreraProfesional(themeDisplay.getCompanyId(), nombre, descripcion, formacion, duracionFechaInicio,duracionFechaFin,estado);
+		.addCarreraProfesional(
+				themeDisplay.getCompanyId(), nombre, descripcion,
+				formacion, duracionFechaInicio,duracionFechaFin,estado,familiaId);
 		
 	}
 	

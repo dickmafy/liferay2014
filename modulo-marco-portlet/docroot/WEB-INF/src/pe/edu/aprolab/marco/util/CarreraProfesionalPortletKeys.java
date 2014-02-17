@@ -11,6 +11,6 @@ public class CarreraProfesionalPortletKeys {
 	public static final String DURACION_FECHA_INICIO = "duracionFechaInicio";
 	public static final String DURACION_FECHA_FIN = "duracionFechaFin";
 	public static final String ESTADO  = "estado";
-	public static final String FAMILIA  = "familia";
+
 	
 }

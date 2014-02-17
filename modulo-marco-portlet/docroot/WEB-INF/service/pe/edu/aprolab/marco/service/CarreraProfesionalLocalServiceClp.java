@@ -121,7 +121,7 @@ public class CarreraProfesionalLocalServiceClp
 		_methodParameterTypes19 = new String[] {
 				"long", "java.lang.String", "java.lang.String",
 				"java.lang.Integer", "java.util.Date", "java.util.Date",
-				"java.lang.Integer"
+				"java.lang.Integer", "java.lang.Integer"
 			};
 	}
 
@@ -689,7 +689,8 @@ public class CarreraProfesionalLocalServiceClp
 	public pe.edu.aprolab.marco.model.CarreraProfesional addCarreraProfesional(
 		long companyId, java.lang.String nombre, java.lang.String descripcion,
 		java.lang.Integer formacion, java.util.Date duracionFechaInicio,
-		java.util.Date duracionFechaFin, java.lang.Integer estado)
+		java.util.Date duracionFechaFin, java.lang.Integer estado,
+		java.lang.Integer familiaId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
@@ -710,7 +711,9 @@ public class CarreraProfesionalLocalServiceClp
 						
 					ClpSerializer.translateInput(duracionFechaFin),
 						
-					ClpSerializer.translateInput(estado)
+					ClpSerializer.translateInput(estado),
+						
+					ClpSerializer.translateInput(familiaId)
 					});
 		}
 		catch (Throwable t) {

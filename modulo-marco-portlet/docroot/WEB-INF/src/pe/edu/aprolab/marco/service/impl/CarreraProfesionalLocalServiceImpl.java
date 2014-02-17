@@ -47,7 +47,7 @@ public class CarreraProfesionalLocalServiceImpl
 	public CarreraProfesional addCarreraProfesional
 	(
 	long companyId, String nombre,String descripcion,Integer formacion,
-	Date duracionFechaInicio,Date duracionFechaFin,Integer estado
+	Date duracionFechaInicio,Date duracionFechaFin,Integer estado,Integer familiaId
 	) throws SystemException, PortalException
 	
 	{
@@ -59,7 +59,8 @@ public class CarreraProfesionalLocalServiceImpl
 	
 	objeto.setDuracionFechaInicio(duracionFechaInicio);
 	objeto.setDuracionFechaFin(duracionFechaFin);
-
+	objeto.setFamiliaProfesionalId(familiaId);
+	
 	objeto.setEstado(1);
 	objeto.persist();
 	return objeto;

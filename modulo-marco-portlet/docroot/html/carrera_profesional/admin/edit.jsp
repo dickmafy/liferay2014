@@ -14,9 +14,7 @@
  */
 --%>
 
-<%@page import="pe.edu.aprolab.marco.service.FamiliaProfesionalLocalServiceUtil"%>
-<%@page import="pe.edu.aprolab.marco.model.FamiliaProfesional"%>
-<%@page import="pe.edu.aprolab.marco.util.CarreraProfesionalPortletKeys"%>
+
 <%@ include file="/html/carrera_profesional/init.jsp" %>
 
 <portlet:actionURL var="addCarreraProfesional" name="addCarreraProfesional" />
@@ -29,7 +27,7 @@
 <div class="row-fluid">
 	<aui:fieldset cssClass="span6">
 
-		 <aui:select   name="<%=CarreraProfesionalPortletKeys.FAMILIA%>" label="FAMILA PROFESIONAL" >
+		 <aui:select   name="<%=CarreraProfesionalPortletKeys.PK_FAMILIA_PROFESIONAL_ID%>" label="FAMILA PROFESIONAL" >
 		    <%  for (FamiliaProfesional item : FamiliaProfesionalLocalServiceUtil.getFamiliaProfesionals(QueryUtil.ALL_POS,QueryUtil.ALL_POS)) {  %>
 		      <aui:option value="<%= item.getFamiliaProfesionalId() %>">
 		             <liferay-ui:message key="<%= item.getNombre() %>" />
@@ -60,9 +58,7 @@
             dayParam="d1" monthParam="m1" yearParam="y1"
             name="<%=CarreraProfesionalPortletKeys.DURACION_FECHA_FIN%>" />
           
-		<aui:input label="ESTADO" name="<%=CarreraProfesionalPortletKeys.ESTADO%>" >
-			
-		</aui:input>
+		
 		
 	</aui:fieldset>	
 </div>

@@ -119,7 +119,7 @@ public class CarreraProfesionalLocalServiceClpInvoker {
 		_methodParameterTypes42 = new String[] {
 				"long", "java.lang.String", "java.lang.String",
 				"java.lang.Integer", "java.util.Date", "java.util.Date",
-				"java.lang.Integer"
+				"java.lang.Integer", "java.lang.Integer"
 			};
 	}
 
@@ -229,7 +229,8 @@ public class CarreraProfesionalLocalServiceClpInvoker {
 			return CarreraProfesionalLocalServiceUtil.addCarreraProfesional(((Long)arguments[0]).longValue(),
 				(java.lang.String)arguments[1], (java.lang.String)arguments[2],
 				(java.lang.Integer)arguments[3], (java.util.Date)arguments[4],
-				(java.util.Date)arguments[5], (java.lang.Integer)arguments[6]);
+				(java.util.Date)arguments[5], (java.lang.Integer)arguments[6],
+				(java.lang.Integer)arguments[7]);
 		}
 
 		throw new UnsupportedOperationException();

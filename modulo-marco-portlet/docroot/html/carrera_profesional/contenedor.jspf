@@ -1,3 +1,33 @@
+<%@page import="java.util.List"%>
+<%@page import="pe.edu.aprolab.marco.model.FamiliaProfesional"%>
+<%@page import="pe.edu.aprolab.marco.service.FamiliaProfesionalLocalServiceUtil"%>
+<%@ taglib uri="http://liferay.com/tld/aui" prefix="aui" %>
+<%@ taglib uri="http://liferay.com/tld/theme" prefix="liferay-theme" %>
+<%@ taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %>
+<%@page import="pe.edu.aprolab.marco.util.CarreraProfesionalPortletKeys"%>
+
+<aui:select name="listaFamilia" >
+<aui:option > familia1</aui:option >
+<aui:option label="label1"  value=""> familia2</aui:option>
+</aui:select>
+
+<aui:select name="circle" label="circle">
+<aui:option value="-1"> Select State </aui:option> 
+</aui:select>
+
+<%   
+List<FamiliaProfesional> lista=  FamiliaProfesionalLocalServiceUtil.getFamiliaProfesionals(searchContainer.getStart(), searchContainer.getEnd());
+int totalLista = FamiliaProfesionalLocalServiceUtil.getFamiliaProfesionalsCount();
+%>
+
+ <aui:select   name="filelist" >
+    <%  for (FamiliaProfesional item : lista) {  %>
+      <aui:option value="<%= item %>">
+             <liferay-ui:message key="<%= item %>" />
+      </aui:option>
+     <% } %>
+</aui:select>
+
 
 <liferay-ui:search-container-results
 		results="<%=lista %>"
@@ -5,7 +35,7 @@
 	/>
 	
 		<liferay-ui:search-container-row
-			className="CarreraProfesional"
+			className="CarreraProfesional" 
 			keyProperty="<%=CarreraProfesionalPortletKeys.ID %>"
 			modelVar="item">
 		 
